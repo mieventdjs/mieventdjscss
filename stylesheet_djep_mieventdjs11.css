@@ -1,227 +1,512 @@
 @import url(https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Raleway:wght@300;400;500;600&display=swap);
 @charset "utf-8";
 /* ============================================================
-   MI EVENT DJS — Custom DJEP Theme
-   mieventdjs.com | Plum / Gold Brand
+   MI EVENT DJS — Custom DJEP Theme  |  mieventdjs.com
+   Built from real portal HTML structure
    ============================================================ */
 
 /* ══════════════════════════════════════════════
-   SECTION 1 — PAGE SHELL & BACKGROUND
+   1. BODY — override DJEP's inline background-image
+      We use a filter trick: the inline style sets the
+      wix image, we layer our gradient on top via a
+      pseudo-element and force background-color dark.
    ══════════════════════════════════════════════ */
-html,
-body,
+body#clientpages,
 body.djep-body {
   background-color: #1a0a2e !important;
+  /* Override the inline background-image with our gradient */
   background-image:
-    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(94,58,138,0.55) 0%, transparent 70%),
-    radial-gradient(ellipse 45% 35% at 85% 90%, rgba(201,168,76,0.10) 0%, transparent 60%) !important;
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(94,58,138,0.80) 0%, transparent 70%),
+    radial-gradient(ellipse 45% 35% at 85% 90%, rgba(201,168,76,0.15) 0%, transparent 60%) !important;
   background-attachment: fixed !important;
   background-size: cover !important;
-  color: #f0e8ff !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
   font-family: 'Raleway','Helvetica Neue',Helvetica,Arial,sans-serif !important;
   font-size: 13px !important;
   margin: 0 !important;
   padding: 0 !important;
-  width: 100% !important;
-  min-height: 100% !important;
-}
-
-/* ══════════════════════════════════════════════
-   SECTION 2 — FORCE ALL TEXT LIGHT
-   These fight DJEP's inline color:#102D3C
-   ══════════════════════════════════════════════ */
-body.djep-body *,
-body * {
-  color: #f0e8ff;
-}
-
-/* More specific overrides for common elements */
-body.djep-body p,
-body.djep-body li,
-body.djep-body td,
-body.djep-body th,
-body.djep-body div,
-body.djep-body span,
-body.djep-body label,
-body.djep-body strong,
-body.djep-body b,
-body.djep-body small,
-p, li, td, th, span, label {
   color: #f0e8ff !important;
 }
 
-strong, b {
-  color: #f5e6b8 !important;
-  font-weight: 600 !important;
+/* ══════════════════════════════════════════════
+   2. FORCE ALL TEXT LIGHT
+      DJEP uses inline style="color:#..." everywhere
+      We can't beat inline color with external CSS —
+      but we CAN target specific known elements
+   ══════════════════════════════════════════════ */
+
+/* Target the real IDs and classes from the HTML */
+#djep-page,
+#djep-content,
+#djep-navbar,
+#djep-header,
+.djep-welcometextbox,
+.djep-eventlistbox,
+.djep-latestemailsbox,
+.djep-upcomingmeetingsbox,
+.djep-singleeventdiv {
+  color: #f0e8ff !important;
+}
+
+/* Tables */
+#djep-content td,
+#djep-content th,
+#djep-content tr,
+#listtable-emails td,
+#listtable-meettings {
+  color: #f0e8ff !important;
+}
+
+/* Override inline tahoma font spans — we can't beat inline
+   but we set font on containers which cascades to unstyled children */
+#djep-content p,
+#djep-content div,
+#djep-content li {
+  font-family: 'Raleway','Helvetica Neue',Helvetica,Arial,sans-serif !important;
 }
 
 /* ══════════════════════════════════════════════
-   SECTION 3 — ALL LINKS GOLD
+   3. LINKS — ALL GOLD
    ══════════════════════════════════════════════ */
-a,
-a:link,
-a:visited,
-body a,
-body.djep-body a,
-body.djep-body a:link,
-body.djep-body a:visited {
+#djep-page a,
+#djep-content a,
+#djep-navbar a,
+body#clientpages a {
   color: #c9a84c !important;
   text-decoration: none !important;
 }
-a:hover,
-a:focus,
-body a:hover,
-body.djep-body a:hover {
+#djep-page a:hover,
+#djep-content a:hover,
+#djep-navbar a:hover,
+body#clientpages a:hover {
   color: #e8c97a !important;
   text-decoration: underline !important;
 }
 
-/* ══════════════════════════════════════════════
-   SECTION 4 — HEADINGS
-   ══════════════════════════════════════════════ */
-h1, h2, h3, h4, h5, h6,
-body.djep-body h1,
-body.djep-body h2,
-body.djep-body h3,
-h1.djep-h1,
-h2.djep-h2,
-h3.djep-h3 {
-  font-family: 'Cinzel','Georgia',serif !important;
-  color: #e8c97a !important;
-  letter-spacing: 0.06em !important;
+/* The red video link — override inline color:#FF0000 with gold
+   (inline color beats us, but we try with high specificity) */
+#djep-content h2.djep-h1 a span,
+#djep-content a span[style*="color:#FF0000"],
+#djep-content a span[style*="color: #FF0000"],
+#djep-content a span[style*="color:red"] {
+  color: #c9a84c !important;
 }
-h1, h1.djep-h1 { font-size: 26px !important; font-weight: 600 !important; }
-h2, h2.djep-h2 { font-size: 20px !important; font-weight: 400 !important; color: #c9a84c !important; }
-h3, h3.djep-h3 { font-size: 16px !important; color: #b8a8d4 !important; }
 
 /* ══════════════════════════════════════════════
-   SECTION 5 — HEADER / LOGO AREA
+   4. HEADER
    ══════════════════════════════════════════════ */
-#djep-header,
-.djep-header,
-[id*="header"],
-[class*="header"] {
+#djep-header {
   background: linear-gradient(135deg, #1a0a2e 0%, #2e1650 100%) !important;
-  border-bottom: 2px solid rgba(201,168,76,0.30) !important;
+  border-bottom: 2px solid rgba(201,168,76,0.35) !important;
   text-align: center !important;
+  padding: 16px 0 8px !important;
   width: 100% !important;
-  padding: 12px 0 !important;
+}
+#djep-header img {
+  max-width: 300px !important;
+  width: auto !important;
 }
 
 /* ══════════════════════════════════════════════
-   SECTION 6 — NAVIGATION LIST
+   5. NAVIGATION — targets real HTML:
+      <div id="djep-navbar">
+        <ul id="djep-navigation">
+          <li class="selected"><a href="home.asp">Home</a></li>
    ══════════════════════════════════════════════ */
-ul#djep-navigation,
-#djep-navbar ul,
-body > ul:first-of-type,
-#djep-page > ul {
+#djep-navbar {
   background: rgba(46,22,80,0.95) !important;
-  border: 1px solid rgba(201,168,76,0.28) !important;
-  border-radius: 8px !important;
-  padding: 6px 12px !important;
-  margin: 8px auto !important;
+  border-bottom: 2px solid rgba(201,168,76,0.30) !important;
+  padding: 8px 12px !important;
+  margin: 0 !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+ul#djep-navigation {
+  list-style: none !important;
+  padding: 4px 8px !important;
+  margin: 0 !important;
   display: flex !important;
   flex-wrap: wrap !important;
   gap: 4px !important;
-  list-style: none !important;
-  width: auto !important;
-  max-width: 850px !important;
+  width: 100% !important;
+  height: auto !important;
 }
-ul#djep-navigation li,
-#djep-navbar ul li,
-#djep-page > ul li {
+ul#djep-navigation li {
   float: none !important;
   width: auto !important;
   height: auto !important;
   text-indent: 0 !important;
-  background: rgba(94,58,138,0.35) !important;
-  border: 1px solid rgba(201,168,76,0.22) !important;
+  background: rgba(94,58,138,0.45) !important;
+  border: 1px solid rgba(201,168,76,0.25) !important;
   border-radius: 6px !important;
   padding: 0 !important;
   margin: 2px !important;
+  display: inline-block !important;
+  text-align: center !important;
+}
+ul#djep-navigation li.selected {
+  background: rgba(201,168,76,0.20) !important;
+  border-color: rgba(201,168,76,0.55) !important;
 }
 ul#djep-navigation li a,
-#djep-navbar ul li a,
-#djep-page > ul li a {
+ul#djep-navigation li.selected a {
   color: #b8a8d4 !important;
   display: block !important;
-  padding: 7px 14px !important;
+  padding: 8px 18px !important;
   font-size: 12px !important;
   font-weight: 600 !important;
-  letter-spacing: 0.06em !important;
+  letter-spacing: 0.08em !important;
   text-transform: uppercase !important;
   line-height: normal !important;
-  height: auto !important;
   text-decoration: none !important;
-  transition: color 0.2s, background 0.2s !important;
 }
-ul#djep-navigation li a:hover,
-#djep-page > ul li a:hover,
 ul#djep-navigation li.selected a {
   color: #e8c97a !important;
-  background: rgba(201,168,76,0.14) !important;
-  border-radius: 5px !important;
+}
+ul#djep-navigation li a:hover {
+  color: #e8c97a !important;
   text-decoration: none !important;
 }
 
 /* ══════════════════════════════════════════════
-   SECTION 7 — MAIN CONTENT PANEL
+   6. MAIN CONTENT PANEL
+      Real HTML: <div id="djep-content">
    ══════════════════════════════════════════════ */
-#djep-content,
-#djep-guestrequestcontent {
-  border: 0 !important;
-  padding: 20px 24px !important;
-  text-align: left !important;
-  margin: 0 auto !important;
-  width: 818px !important; /* VERY IMPORTANT - DNE */
-  max-width: 98% !important;
+#djep-content {
+  background-color: rgba(46,22,80,0.88) !important;
+  background: rgba(46,22,80,0.88) !important;
+  border: 1px solid rgba(201,168,76,0.25) !important;
   box-shadow: 0 6px 32px rgba(0,0,0,0.60) !important;
-  background: rgba(46,22,80,0.85) !important; /* VERY IMPORTANT - DNE */
-  overflow: hidden !important;
-  border-radius: 10px !important;
-  box-sizing: border-box !important;
-}
-
-#djep-navbar {
+  padding: 16px 20px !important;
   margin: 8px auto !important;
-  width: 850px !important;
-  max-width: 98% !important;
-  height: auto !important;
+  /* Keep DJEP's width — DNE */
+  width: 818px !important;
+  max-width: 98vw !important;
+  box-sizing: border-box !important;
+  border-radius: 10px !important;
+  overflow: visible !important;
+  text-align: left !important;
 }
 
-#wrapper {
-  width: 850px !important;
-  max-width: 98% !important;
-  margin: 20px auto 50px !important;
-  background: transparent !important;
-}
-
-#djep-page,
-#djep-guestrequestpage {
+#djep-page {
   width: 100% !important;
   margin: 0 !important;
   padding: 0 !important;
+  background: transparent !important;
+}
+
+#wrapper {
+  width: 100% !important;
+  max-width: 900px !important;
+  margin: 0 auto !important;
+  background: transparent !important;
 }
 
 /* ══════════════════════════════════════════════
-   SECTION 8 — ALL FORM INPUTS
+   7. MODULE BOXES — real class names from HTML
    ══════════════════════════════════════════════ */
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="password"],
-input[type="number"],
-input[type="date"],
-input[type="search"],
-input[type="url"],
-textarea,
-select,
-.form-control,
+.djep-welcometextbox,
+.djep-eventlistbox,
+.djep-latestemailsbox,
+.djep-upcomingmeetingsbox,
+.djep-managemusicbox,
+.djep-planningformsbox,
+.djep-timelinebox,
+.djep-othertoolsbox,
+.djep-selectyourmusicbox,
+.djep-eventdatetimesbox,
+.djep-servicedetailsbox,
+.djep-eventdescriptionbox,
+.djep-venueinfobox,
+.djep-paymentsfinancesbox,
+.djep-feedetailsbox,
+.djep-paymenthistorybox,
+.djep-totalfeebox,
+.djep-documentsbox,
+.djep-contactformbox,
+.djep-ourcontactinfobox,
+.djep-emailhistorybox,
+.djep-emailmessagebox,
+.djep-planneraccessbox,
+.djep-makepaymentbox,
+.djep-viewdocumentbox,
+.djep-planningformseditbox,
+.djep-requestchangesformbox,
+.djep-requestchangesbox,
+.djep-viewrequestboxes,
+.djep-guestrequestdescription,
+.djep-guestrequesthowitworksbox,
+.djep-guestrequestsettingsbox,
+.djep-weddingnamesbox,
+.djep-evaluationbox,
+.djep-printdocumentbox,
+.djep-planningformsviewbox,
+.djep-viewtimelinebox,
+.djep-edittimelinebox,
+.djep-viewweddingnamesbox,
+.djep-editweddingnamesbox,
+.djep-otherfilesbox,
+.djep-relatedfilesbox,
+.djep-staffingbox,
+.djep-logindetailsbox,
+.djep-contactdetailsbox {
+  background: rgba(36,14,66,0.85) !important;
+  border: 1px solid rgba(201,168,76,0.28) !important;
+  border-radius: 8px !important;
+  margin-bottom: 18px !important;
+  overflow: hidden !important;
+  box-shadow: 0 3px 16px rgba(0,0,0,0.40) !important;
+  color: #f0e8ff !important;
+}
+
+/* ══════════════════════════════════════════════
+   8. TITLE BARS — real class: djep-titlebar, djep-titlebarsmall
+      Real HTML: <p class="djep-titlebar"><span class="djep-titlebarspan"></span>Your Upcoming Event</p>
+   ══════════════════════════════════════════════ */
+.djep-titlebar,
+p.djep-titlebar {
+  background: linear-gradient(135deg, #2e1650 0%, #1a0a2e 100%) !important;
+  color: #e8c97a !important;
+  font-family: 'Cinzel','Georgia',serif !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.08em !important;
+  padding: 12px 18px !important;
+  margin: 0 0 12px 0 !important;
+  border-bottom: 1px solid rgba(201,168,76,0.30) !important;
+  text-transform: uppercase !important;
+}
+.djep-titlebarsmall,
+p.djep-titlebarsmall {
+  background: linear-gradient(135deg, #2e1650 0%, #1a0a2e 100%) !important;
+  color: #c9a84c !important;
+  font-family: 'Cinzel','Georgia',serif !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.07em !important;
+  padding: 10px 18px !important;
+  margin: 0 0 10px 0 !important;
+  border-bottom: 1px solid rgba(201,168,76,0.25) !important;
+  text-transform: uppercase !important;
+}
+.djep-titlebarspan,
+.djep-titlebarsmallspan { display: none !important; }
+
+.djep-titlebarsmaller {
+  background-color: rgba(94,58,138,0.30) !important;
+  border-color: rgba(201,168,76,0.28) !important;
+  color: #e8c97a !important;
+  padding: 11px 17px !important;
+  margin: 10px auto !important;
+  width: 80% !important;
+}
+.djep-titlebarsmallalert {
+  background-color: rgba(255,107,138,0.15) !important;
+  border-color: #ff6b8a !important;
+  color: #ff6b8a !important;
+  padding: 11px 17px !important;
+}
+.djep-titlebarconfirm,
+.djep-titlebarmusicconfirm {
+  background-color: rgba(125,232,176,0.15) !important;
+  border-color: #7de8b0 !important;
+  color: #7de8b0 !important;
+  padding: 11px 17px !important;
+}
+.djep-titlebarnotices {
+  background-color: rgba(201,168,76,0.12) !important;
+  border-color: rgba(201,168,76,0.35) !important;
+  color: #e8c97a !important;
+  padding: 11px 17px !important;
+}
+.djep-titlebarlockout {
+  background-color: rgba(255,107,138,0.15) !important;
+  border-color: #ff6b8a !important;
+  color: #ff6b8a !important;
+  font-size: 20px !important;
+  text-align: center !important;
+  padding: 11px 17px !important;
+}
+
+/* ══════════════════════════════════════════════
+   9. HEADINGS — h1.djep-h1, h2.djep-h1 (yes, DJEP uses h2.djep-h1)
+   ══════════════════════════════════════════════ */
+h1.djep-h1,
+h2.djep-h1,
+h2.djep-h2,
+h3.djep-h3,
+#djep-content h1,
+#djep-content h2,
+#djep-content h3 {
+  font-family: 'Cinzel','Georgia',serif !important;
+  color: #e8c97a !important;
+  letter-spacing: 0.05em !important;
+}
+h1.djep-h1, #djep-content h1 { font-size: 24px !important; }
+h2.djep-h1, h2.djep-h2       { font-size: 18px !important; color: #c9a84c !important; }
+h3.djep-h3                    { font-size: 15px !important; color: #b8a8d4 !important; }
+
+/* ══════════════════════════════════════════════
+   10. PORTAL ACTION BUTTONS
+       Real classes from HTML:
+       djep-planeventbutton, djep-eventdetailsbutton,
+       djep-paymentbutton, djep-readviewbutton,
+       djep-viewallbutton, djep-actionbutton
+   ══════════════════════════════════════════════ */
+a.djep-planeventbutton,
+a.djep-eventdetailsbutton,
+a.djep-paymentbutton {
+  display: inline-block !important;
+  background: linear-gradient(135deg, #c9a84c 0%, #a87830 100%) !important;
+  color: #1a0a2e !important;
+  font-family: 'Cinzel','Georgia',serif !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.10em !important;
+  text-transform: uppercase !important;
+  border: none !important;
+  border-radius: 6px !important;
+  padding: 7px 14px !important;
+  margin: 2px !important;
+  text-decoration: none !important;
+  text-align: center !important;
+  box-shadow: 0 3px 12px rgba(201,168,76,0.35) !important;
+  transition: filter 0.18s, transform 0.18s !important;
+  line-height: 1.3 !important;
+}
+a.djep-planeventbutton:hover,
+a.djep-eventdetailsbutton:hover,
+a.djep-paymentbutton:hover {
+  filter: brightness(1.12) !important;
+  transform: translateY(-1px) !important;
+  color: #1a0a2e !important;
+  text-decoration: none !important;
+}
+
+a.djep-readviewbutton,
+a.djep-viewallbutton {
+  display: inline-block !important;
+  background: transparent !important;
+  border: 1px solid rgba(201,168,76,0.40) !important;
+  color: #c9a84c !important;
+  border-radius: 4px !important;
+  padding: 3px 10px !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  transition: background 0.2s !important;
+}
+a.djep-readviewbutton:hover,
+a.djep-viewallbutton:hover {
+  background: rgba(201,168,76,0.15) !important;
+  color: #e8c97a !important;
+  text-decoration: none !important;
+}
+
+/* "Show the Welcome Message Again" top-right button */
+a#buttonShowWelcome,
+a.djep-actionbutton {
+  color: #b8a8d4 !important;
+  font-size: 11px !important;
+  background: rgba(46,22,80,0.80) !important;
+  border: 1px solid rgba(201,168,76,0.25) !important;
+  border-radius: 4px !important;
+  padding: 4px 10px !important;
+  text-decoration: none !important;
+}
+a#buttonShowWelcome:hover,
+a.djep-actionbutton:hover {
+  color: #e8c97a !important;
+  text-decoration: none !important;
+}
+
+/* ══════════════════════════════════════════════
+   11. CALENDAR WIDGET
+       Real HTML: <div class="calendar"><span class="month">Oct</span>
+                  <span class="day">10</span><span class="year">2026</span></div>
+   ══════════════════════════════════════════════ */
+.calendar {
+  background: linear-gradient(135deg, #2e1650, #1a0a2e) !important;
+  border: 1px solid rgba(201,168,76,0.40) !important;
+  border-radius: 8px !important;
+  width: 72px !important;
+  text-align: center !important;
+  overflow: hidden !important;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.40) !important;
+  font-size: 1em !important;
+}
+.calendar .month {
+  display: block !important;
+  background: rgba(201,168,76,0.25) !important;
+  color: #e8c97a !important;
+  font-family: 'Cinzel','Georgia',serif !important;
+  font-size: 0.65em !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  padding: 3px 0 !important;
+  font-weight: 600 !important;
+}
+.calendar .day {
+  display: block !important;
+  color: #f0e8ff !important;
+  font-size: 1.8em !important;
+  font-weight: 700 !important;
+  padding: 2px 0 !important;
+  line-height: 1.2 !important;
+}
+.calendar .year {
+  display: block !important;
+  color: #b8a8d4 !important;
+  font-size: 0.65em !important;
+  padding: 2px 0 4px !important;
+}
+
+/* ══════════════════════════════════════════════
+   12. TABLES
+   ══════════════════════════════════════════════ */
+#djep-content table { width: 100% !important; border-collapse: collapse !important; }
+#djep-content td, #djep-content th { color: #f0e8ff !important; padding: 8px 10px !important; }
+.djep-table-headers,
+#djep-content thead th {
+  background-color: rgba(94,58,138,0.50) !important;
+  color: #e8c97a !important;
+  font-size: 11px !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  font-weight: 600 !important;
+}
+.djep-odd  { background: transparent !important; }
+.djep-even { background: rgba(94,58,138,0.15) !important; }
+.djep-tablehover,
+.djep-tablehover1 { background-color: rgba(201,168,76,0.10) !important; }
+.djep-tablehover2 { background-color: transparent !important; }
+.djep-sectiontitle { background-color: rgba(94,58,138,0.35) !important; color: #c9a84c !important; }
+
+/* ══════════════════════════════════════════════
+   13. FINANCIAL ROWS
+   ══════════════════════════════════════════════ */
+.djep-balanceduerow  { background-color: rgba(240,192,96,0.18) !important; color: #f0c060 !important; font-weight:700 !important; }
+.djep-balancepaidrow { background-color: rgba(125,232,176,0.15) !important; color: #7de8b0 !important; font-weight:700 !important; }
+.djep-totalfeerow    { background-color: rgba(126,184,240,0.15) !important; color: #7eb8f0 !important; font-weight:700 !important; }
+.djep-totaldepositrow{ background-color: rgba(255,107,138,0.15) !important; color: #ff6b8a !important; font-weight:700 !important; }
+
+/* ══════════════════════════════════════════════
+   14. INPUTS & FORMS
+   ══════════════════════════════════════════════ */
+#djep-content input[type="text"],
+#djep-content input[type="email"],
+#djep-content input[type="password"],
+#djep-content input[type="tel"],
+#djep-content input[type="date"],
+#djep-content input[type="search"],
+#djep-content textarea,
+#djep-content select,
+#djep-content .form-control,
 input.djep-input,
 select.djep-select,
-textarea.djep-textarea,
-.djep-musicsearchform {
-  background-color: rgba(26,10,46,0.75) !important;
+textarea.djep-textarea {
+  background-color: rgba(26,10,46,0.80) !important;
   border: 1px solid rgba(201,168,76,0.30) !important;
   border-radius: 8px !important;
   color: #f0e8ff !important;
@@ -229,440 +514,168 @@ textarea.djep-textarea,
   font-size: 13px !important;
   padding: 8px 12px !important;
   outline: none !important;
-  -webkit-appearance: none !important;
-  appearance: none !important;
-  transition: border-color 0.2s, box-shadow 0.2s !important;
 }
-input:focus,
-textarea:focus,
-select:focus,
-.form-control:focus {
+#djep-content input:focus,
+#djep-content textarea:focus,
+#djep-content select:focus {
   border-color: #c9a84c !important;
   box-shadow: 0 0 0 3px rgba(201,168,76,0.18) !important;
-  outline: none !important;
 }
-input::placeholder,
-textarea::placeholder { color: rgba(184,168,212,0.55) !important; }
-
-select {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c9a84c' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") !important;
-  background-repeat: no-repeat !important;
-  background-position: right 12px center !important;
-  padding-right: 36px !important;
-  cursor: pointer !important;
-}
-select option {
-  background-color: #1a0a2e !important;
-  color: #f0e8ff !important;
-}
-
-label,
-.control-label {
-  color: #e8c97a !important;
-  font-weight: 600 !important;
-  font-size: 12px !important;
-  letter-spacing: 0.06em !important;
-  text-transform: uppercase !important;
-}
+#djep-content label { color: #e8c97a !important; font-weight:600 !important; font-size:12px !important; }
 
 /* ══════════════════════════════════════════════
-   SECTION 9 — ALL BUTTONS
+   15. SUBMIT / ACTION BUTTONS
    ══════════════════════════════════════════════ */
-/* Primary gold button — submit, save, main actions */
-input[type="submit"],
-button[type="submit"],
+#djep-content input[type="submit"],
+#djep-content button[type="submit"],
 .djep-guestsubmit,
-.djep-guestsubmitrequests,
-.btn-primary,
-.btn-success {
+.djep-guestsubmitrequests {
   background: linear-gradient(135deg, #c9a84c 0%, #a87830 100%) !important;
   color: #1a0a2e !important;
   font-family: 'Cinzel','Georgia',serif !important;
-  font-size: 13px !important;
+  font-size: 12px !important;
   font-weight: 700 !important;
   letter-spacing: 0.12em !important;
   text-transform: uppercase !important;
   border: none !important;
   border-radius: 50px !important;
-  padding: 10px 28px !important;
+  padding: 9px 26px !important;
   cursor: pointer !important;
-  text-decoration: none !important;
-  display: inline-block !important;
-  box-shadow: 0 4px 18px rgba(201,168,76,0.35) !important;
-  transition: transform 0.18s, filter 0.18s !important;
+  box-shadow: 0 4px 16px rgba(201,168,76,0.35) !important;
   text-shadow: none !important;
   -webkit-appearance: none !important;
 }
-input[type="submit"]:hover,
-button[type="submit"]:hover,
-.djep-guestsubmit:hover,
-.btn-primary:hover {
-  filter: brightness(1.10) !important;
-  transform: translateY(-1px) !important;
-  color: #1a0a2e !important;
-  text-decoration: none !important;
-}
+#djep-content input[type="submit"]:hover,
+.djep-guestsubmit:hover { filter: brightness(1.10) !important; }
 
-/* Secondary outline buttons */
-.btn-default,
-.btn-secondary,
-.btn-info,
 .djep-guestlogout {
   background: transparent !important;
   border: 1px solid rgba(201,168,76,0.35) !important;
   color: #b8a8d4 !important;
   border-radius: 50px !important;
-  padding: 8px 22px !important;
-  font-size: 12px !important;
-  font-weight: 600 !important;
+  padding: 6px 20px !important;
   cursor: pointer !important;
-  transition: background 0.2s, color 0.2s !important;
-  text-shadow: none !important;
-  box-shadow: none !important;
-}
-.btn-default:hover,
-.djep-guestlogout:hover {
-  background: rgba(201,168,76,0.12) !important;
-  color: #e8c97a !important;
-  text-decoration: none !important;
 }
 
-/* All the djep-toplistbuttons variants */
-.djep-toplistbuttons,
-.djep-toplistbuttons2,
-.djep-toplistbuttons3,
-.djep-toplistbuttons4,
-.djep-toplistbuttons5,
-.djep-clipboardbutton,
-.djep-songideabutton,
-.djep-specialsongbutton,
-.djep-paginatebutton,
+/* All djep-toplistbuttons variants */
+.djep-toplistbuttons,.djep-toplistbuttons2,.djep-toplistbuttons3,
+.djep-toplistbuttons4,.djep-toplistbuttons5,.djep-clipboardbutton,
+.djep-songideabutton,.djep-specialsongbutton,.djep-paginatebutton,
 .djepm-toplistbuttons {
   background: rgba(94,58,138,0.40) !important;
   border: 1px solid rgba(201,168,76,0.28) !important;
   border-radius: 6px !important;
   color: #f0e8ff !important;
-  font-family: 'Raleway','Helvetica Neue',Helvetica,Arial,sans-serif !important;
   cursor: pointer !important;
-  text-decoration: none !important;
-  transition: background 0.2s, color 0.2s !important;
   box-shadow: none !important;
   text-shadow: none !important;
+  transition: background 0.2s !important;
 }
-.djep-toplistbuttons:hover,
-.djep-toplistbuttons2:hover,
-.djep-toplistbuttons3:hover,
-.djep-toplistbuttons4:hover,
-.djep-toplistbuttons5:hover,
-.djep-clipboardbutton:hover,
-.djep-songideabutton:hover,
-.djep-paginatebutton:hover {
-  background: rgba(201,168,76,0.18) !important;
+.djep-toplistbuttons:hover,.djep-toplistbuttons2:hover,.djep-toplistbuttons3:hover,
+.djep-toplistbuttons4:hover,.djep-toplistbuttons5:hover,.djep-clipboardbutton:hover,
+.djep-songideabutton:hover,.djep-paginatebutton:hover {
+  background: rgba(201,168,76,0.20) !important;
   color: #e8c97a !important;
 }
-.djep-toplistbuttons2_active,
-.djep-toplistbuttons3_active,
-.djep-toplistbuttons4_active,
-.djep-activepaginatebutton {
+.djep-toplistbuttons2_active,.djep-toplistbuttons3_active,
+.djep-toplistbuttons4_active,.djep-activepaginatebutton {
   background: rgba(201,168,76,0.22) !important;
   border-color: #c9a84c !important;
   color: #c9a84c !important;
-  font-weight: 700 !important;
 }
 
 /* ══════════════════════════════════════════════
-   SECTION 10 — MODULE BOXES (all the djep-*box classes)
+   16. MUSIC / PLAYLIST BOXES
    ══════════════════════════════════════════════ */
-.djep-eventlistbox, .djep-upcomingmeetingsbox, .djep-latestemailsbox,
-.djep-welcometextbox, .djep-contactdetailsbox, .djep-logindetailsbox,
-.djep-contactformbox, .djep-ourcontactinfobox, .djep-emailhistorybox,
-.djep-planneraccessbox, .djep-managemusicbox, .djep-planningformsbox,
-.djep-timelinebox, .djep-othertoolsbox, .djep-selectyourmusicbox,
-.djep-eventdatetimesbox, .djep-servicedetailsbox, .djep-eventdescriptionbox,
-.djep-venueinfobox, .djep-staffingbox, .djep-paymentsfinancesbox,
-.djep-feedetailsbox, .djep-paymenthistorybox, .djep-totalfeebox,
-.djep-otherfilesbox, .djep-documentsbox, .djep-relatedfilesbox,
-.djep-requestchangesbox, .djep-viewrequestboxes, .djep-guestrequestdescription,
-.djep-guestrequesthowitworksbox, .djep-guestrequestsettingsbox,
-.djep-emailmessagebox, .djep-makepaymentbox, .djep-viewdocumentbox,
-.djep-requestchangesformbox, .djep-planningformseditbox, .djep-weddingnamesbox,
-.djep-evaluationbox, .djep-printdocumentbox, .djep-planningformsviewbox,
-.djep-viewtimelinebox, .djep-edittimelinebox, .djep-viewweddingnamesbox,
-.djep-editweddingnamesbox {
-  background: rgba(46,22,80,0.80) !important;
-  border: 1px solid rgba(201,168,76,0.28) !important;
-  border-radius: 8px !important;
-  color: #f0e8ff !important;
-  margin-bottom: 20px !important;
-  overflow: hidden !important;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.40) !important;
-}
-
-/* ══════════════════════════════════════════════
-   SECTION 11 — TITLE BARS
-   ══════════════════════════════════════════════ */
-.djep-titlebar,
-.djep-titlebarsmall {
-  color: #e8c97a !important;
-  font-family: 'Cinzel','Georgia',serif !important;
-  font-weight: 600 !important;
-  letter-spacing: 0.07em !important;
-  padding: 11px 0 11px 17px !important;
-}
-.djep-titlebarsmaller,
-.djep-requestlimittitle,
-.djep-songrequesttotals {
-  background-color: rgba(94,58,138,0.30) !important;
-  border-color: rgba(201,168,76,0.28) !important;
-  color: #e8c97a !important;
-}
-.djep-titlebarsmallalert,
-.djep-titlebarlockout {
-  background-color: rgba(255,107,138,0.15) !important;
-  border-color: #ff6b8a !important;
-  color: #ff6b8a !important;
-}
-.djep-titlebarconfirm,
-.djep-titlebarmusicconfirm {
-  background-color: rgba(125,232,176,0.15) !important;
-  border-color: #7de8b0 !important;
-  color: #7de8b0 !important;
-}
-.djep-titlebarnotices {
-  background-color: rgba(201,168,76,0.12) !important;
-  border-color: rgba(201,168,76,0.35) !important;
-  color: #e8c97a !important;
-}
-
-/* ══════════════════════════════════════════════
-   SECTION 12 — TABLES
-   ══════════════════════════════════════════════ */
-table { width: 100% !important; border-collapse: collapse !important; }
-.djep-table-headers,
-thead tr,
-thead th {
-  background-color: rgba(94,58,138,0.50) !important;
-  color: #e8c97a !important;
-  font-size: 11px !important;
-  letter-spacing: 0.08em !important;
-  text-transform: uppercase !important;
-  font-weight: 600 !important;
-  padding: 8px 10px !important;
-  border-bottom: 1px solid rgba(201,168,76,0.28) !important;
-}
-.djep-odd  { background: transparent !important; }
-.djep-even { background: rgba(94,58,138,0.15) !important; }
-tbody tr:hover,
-.djep-tablehover,
-.djep-tablehover1 {
-  background-color: rgba(201,168,76,0.10) !important;
-  transition: background 0.2s !important;
-}
-td, th { color: #f0e8ff !important; padding: 8px 10px !important; }
-.djep-sectiontitle {
-  background-color: rgba(94,58,138,0.35) !important;
-  color: #c9a84c !important;
-  font-weight: 600 !important;
-}
-
-/* ══════════════════════════════════════════════
-   SECTION 13 — FINANCIAL ROWS
-   ══════════════════════════════════════════════ */
-.djep-balanceduerow  { background-color: rgba(240,192,96,0.18) !important; color: #f0c060 !important; font-weight: 700 !important; text-transform: uppercase !important; }
-.djep-balancepaidrow { background-color: rgba(125,232,176,0.15) !important; color: #7de8b0 !important; font-weight: 700 !important; text-transform: uppercase !important; }
-.djep-totalfeerow    { background-color: rgba(126,184,240,0.15) !important; color: #7eb8f0 !important; font-weight: 700 !important; text-transform: uppercase !important; }
-.djep-totaldepositrow{ background-color: rgba(255,107,138,0.15) !important; color: #ff6b8a !important; font-weight: 700 !important; text-transform: uppercase !important; }
-.djep-totalfeerow span { background-color: rgba(126,184,240,0.15) !important; color: #7eb8f0 !important; }
-
-/* ══════════════════════════════════════════════
-   SECTION 14 — PLAYLIST BOX HEADERS
-   ══════════════════════════════════════════════ */
-.djep-playlistboxmustplaytitle   { background: linear-gradient(135deg,rgba(125,232,176,0.30),rgba(125,232,176,0.12)) !important; border: 1px solid rgba(125,232,176,0.40) !important; color: #7de8b0 !important; height:35px !important; margin-top:8px !important; }
-.djep-playlistboxplayifposstitle { background: linear-gradient(135deg,rgba(240,192,96,0.28),rgba(240,192,96,0.12)) !important;  border: 1px solid rgba(240,192,96,0.40) !important;  color: #f0c060 !important; height:35px !important; margin-top:8px !important; }
-.djep-playlistboxdedicationstitle{ background: linear-gradient(135deg,rgba(126,184,240,0.28),rgba(126,184,240,0.12)) !important; border: 1px solid rgba(126,184,240,0.40) !important; color: #7eb8f0 !important; height:35px !important; margin-top:8px !important; }
-.djep-playlistboxdoesnotplaytitle{ background: linear-gradient(135deg,rgba(255,107,138,0.28),rgba(255,107,138,0.12)) !important; border: 1px solid rgba(255,107,138,0.40) !important; color: #ff6b8a !important; height:35px !important; margin-top:8px !important; }
-.djep-playlistboxonlyrequesttitle{ background: linear-gradient(135deg,rgba(201,168,76,0.28),rgba(94,58,138,0.28)) !important;   border: 1px solid rgba(201,168,76,0.35) !important;  color: #e8c97a !important; height:35px !important; margin-top:8px !important; }
+.djep-playlistboxmustplaytitle   { background: linear-gradient(135deg,rgba(125,232,176,0.28),rgba(125,232,176,0.10)) !important; border:1px solid rgba(125,232,176,0.35) !important; color:#7de8b0 !important; height:35px !important; margin-top:8px !important; }
+.djep-playlistboxplayifposstitle { background: linear-gradient(135deg,rgba(240,192,96,0.28),rgba(240,192,96,0.10)) !important;  border:1px solid rgba(240,192,96,0.35) !important;  color:#f0c060 !important; height:35px !important; margin-top:8px !important; }
+.djep-playlistboxdedicationstitle{ background: linear-gradient(135deg,rgba(126,184,240,0.28),rgba(126,184,240,0.10)) !important; border:1px solid rgba(126,184,240,0.35) !important; color:#7eb8f0 !important; height:35px !important; margin-top:8px !important; }
+.djep-playlistboxdoesnotplaytitle{ background: linear-gradient(135deg,rgba(255,107,138,0.28),rgba(255,107,138,0.10)) !important; border:1px solid rgba(255,107,138,0.35) !important; color:#ff6b8a !important; height:35px !important; margin-top:8px !important; }
+.djep-playlistboxonlyrequesttitle{ background: linear-gradient(135deg,rgba(201,168,76,0.25),rgba(94,58,138,0.25)) !important;   border:1px solid rgba(201,168,76,0.35) !important;  color:#e8c97a !important; height:35px !important; margin-top:8px !important; }
 .djep-playlistboxcustomtype1title,.djep-playlistboxcustomtype2title,
 .djep-playlistboxcustomtype4title,.djep-playlistboxcustomtype5title {
-  background: linear-gradient(135deg,rgba(201,168,76,0.22),rgba(94,58,138,0.22)) !important;
-  border: 1px solid rgba(201,168,76,0.30) !important;
-  color: #e8c97a !important;
-  height: 35px !important;
-  margin-top: 8px !important;
+  background: linear-gradient(135deg,rgba(201,168,76,0.20),rgba(94,58,138,0.20)) !important;
+  border:1px solid rgba(201,168,76,0.28) !important; color:#e8c97a !important; height:35px !important; margin-top:8px !important;
 }
-.djep-playlisttitle,
-.djep-specialtitle { position:relative !important; top:9px !important; left:25px !important; }
-.djep-playlistlimits { color: #b8a8d4 !important; }
+.djep-special_song_header { background:rgba(94,58,138,0.40) !important; border:1px solid rgba(201,168,76,0.28) !important; color:#e8c97a !important; }
+.djep-specialsongtitle    { background:rgba(94,58,138,0.40) !important; border:1px solid rgba(201,168,76,0.25) !important; color:#f0e8ff !important; }
+.djep-specialsongcontent  { background:rgba(46,22,80,0.60) !important; color:#f0e8ff !important; }
+.djep-special_song_content_div { background:rgba(46,22,80,0.92) !important; color:#f0e8ff !important; }
+.djep-databaseheader      { background:rgba(46,22,80,0.70) !important; color:#e8c97a !important; font-weight:700 !important; }
+.djep-databasetableheader { background:rgba(94,58,138,0.50) !important; color:#e8c97a !important; }
+.djep-databasebox         { background:rgba(46,22,80,0.60) !important; border:1px solid rgba(201,168,76,0.25) !important; color:#f0e8ff !important; }
+.djep-playlistboxguests   { background:rgba(26,10,46,0.40) !important; border:2px dashed rgba(201,168,76,0.35) !important; border-radius:8px !important; }
+.djep-playlistboxtext,.djepm-playlistboxtext { color:#f0e8ff !important; }
+.djep-musicresultrow:hover,.djep-musicresultrowmobile:hover { background-color:rgba(201,168,76,0.12) !important; }
+.djep-guestrequestlink    { color:#c9a84c !important; }
+.djep-guestrequestpassword{ color:#e8c97a !important; font-weight:700 !important; }
+.djep-requestlimittitle   { background:rgba(46,22,80,0.50) !important; color:#e8c97a !important; }
+.djep-songrequesttotals   { background:rgba(201,168,76,0.10) !important; color:#e8c97a !important; }
 
 /* ══════════════════════════════════════════════
-   SECTION 15 — SPECIAL SONGS
+   17. TIMELINE
    ══════════════════════════════════════════════ */
-.djep-specialsongtitle   { background-color: rgba(94,58,138,0.40) !important; border: 1px solid rgba(201,168,76,0.25) !important; color: #f0e8ff !important; height:25px !important; }
-.djep-specialsongcontent { background-color: rgba(46,22,80,0.60) !important; color: #f0e8ff !important; }
-.djep-special_song_header{ background: rgba(94,58,138,0.40) !important; border: 1px solid rgba(201,168,76,0.28) !important; color: #e8c97a !important; height:35px !important; margin-top:8px !important; font-size:14px !important; }
-.djep-special_song_content_div,.ui-dialog { background: rgba(46,22,80,0.92) !important; color: #f0e8ff !important; }
-.djep-specialdescription  { background: rgba(201,168,76,0.08) !important; border: 1px solid rgba(201,168,76,0.25) !important; color: #f0e8ff !important; border-radius:8px !important; }
-.djep-specialcloseicon a  { color: #ff6b8a !important; }
-.djep-specialdescriptiontext { padding-left:4px !important; padding-right:20px !important; margin-top:-10px !important; }
+.djep-timelinetable tr:nth-child(odd)  { background:rgba(46,22,80,0.55) !important; }
+.djep-timelinetable tr:nth-child(even) { background:rgba(46,22,80,0.35) !important; }
+.djep-timelinetable tr:hover           { background:rgba(94,58,138,0.45) !important; }
+.djep-timelinetextbox1,.djep-timelinetextbox2,.djep-timelinetextbox3 { color:#f0e8ff !important; }
+.djep-timelineitems { background:rgba(94,58,138,0.35) !important; border:1px solid rgba(201,168,76,0.28) !important; border-radius:8px !important; color:#f0e8ff !important; box-shadow:none !important; text-shadow:none !important; }
+.djep-timelineitems:hover { background:rgba(94,58,138,0.55) !important; }
+.djepm-timelinemobilepanel  { border:1px solid rgba(201,168,76,0.28) !important; border-radius:8px !important; background:rgba(46,22,80,0.70) !important; }
+.djepm-timelinemobileheader { background:rgba(94,58,138,0.50) !important; color:#e8c97a !important; }
 
 /* ══════════════════════════════════════════════
-   SECTION 16 — MUSIC DATABASE
+   18. ACCORDION
    ══════════════════════════════════════════════ */
-.djep-databaseheader      { background-color: rgba(46,22,80,0.70) !important; color: #e8c97a !important; font-weight:700 !important; font-size:14px !important; padding:4px !important; text-indent:20px !important; }
-.djep-databasetableheader { background-color: rgba(94,58,138,0.50) !important; color: #e8c97a !important; font-weight:700 !important; font-size:12px !important; }
-.djep-databasebox         { background-color: rgba(46,22,80,0.60) !important; border: 1px solid rgba(201,168,76,0.25) !important; color: #f0e8ff !important; font-size:11px !important; }
-.djep-musicresultstable   { font-size: 11px !important; }
-.djep-musicresultrow:hover,
-.djep-musicresultrowmobile:hover { background-color: rgba(201,168,76,0.12) !important; }
-.djep-playlistboxguests {
-  background: rgba(26,10,46,0.40) !important;
-  border: 2px dashed rgba(201,168,76,0.35) !important;
-  border-radius: 8px !important;
-  width:90% !important; min-height:250px !important; overflow:auto !important; position:relative !important;
-}
-.djep-playlistboxtext { font-size:11px !important; text-align:left !important; color: #f0e8ff !important; }
-.djepm-playlistboxtext { border-bottom: 1px solid rgba(201,168,76,0.12) !important; padding:3px 5px !important; color: #f0e8ff !important; }
-.djep-playlist_highlight_focus_in { border: 1px solid #c9a84c !important; background-color: rgba(201,168,76,0.15) !important; }
-.djep-musiccounterspan, .djep-playlistcounterspan { color: #b8a8d4 !important; }
-.djep-guestrequestlink    { color: #c9a84c !important; }
-.djep-guestrequestpassword{ color: #e8c97a !important; font-weight:700 !important; }
+.djep-accordionButton { background:rgba(94,58,138,0.35) !important; border:1px solid rgba(201,168,76,0.25) !important; border-radius:8px !important; color:#f0e8ff !important; cursor:pointer !important; }
+.djep-accordionButton:hover { background:rgba(94,58,138,0.60) !important; }
+.djep-accordionContent { background:transparent !important; color:#f0e8ff !important; }
 
 /* ══════════════════════════════════════════════
-   SECTION 17 — MUSIC NAVIGATION TABS
+   19. JQUERY UI
    ══════════════════════════════════════════════ */
-.djep-music_selections_navigation {
-  background: rgba(46,22,80,0.70) !important;
-  border: 1px solid rgba(201,168,76,0.28) !important;
-  border-radius: 8px !important;
-  width:280px !important; margin:2px auto 0 !important; height:34px !important;
-}
-.djep-music_selections_navigation li a { color: #b8a8d4 !important; text-decoration:none !important; }
-.djep-music_selections_navigation-li a { background: rgba(94,58,138,0.25) !important; border: 1px solid rgba(201,168,76,0.20) !important; }
-.djep-music_selections_navigation-li a:hover { background: rgba(94,58,138,0.50) !important; color: #e8c97a !important; }
-.djep-music_selections_navigation-active a { background: rgba(201,168,76,0.18) !important; color: #c9a84c !important; font-weight:600 !important; }
-.djep-requestonlytitle { background: rgba(94,58,138,0.35) !important; border: 1px solid rgba(201,168,76,0.25) !important; color: #b8a8d4 !important; border-radius:8px !important; }
-.djep-songideasdropdown,.djep-songgenresdropdown { background-color: rgba(46,22,80,0.70) !important; border: 1px solid rgba(201,168,76,0.28) !important; color: #b8a8d4 !important; border-radius:8px !important; font-size:16px !important; }
-.djep-songideaerror { background: rgba(201,168,76,0.10) !important; border: 1px solid rgba(201,168,76,0.30) !important; color: #e8c97a !important; border-radius:8px !important; }
+.ui-widget-content { background:none !important; }
+.ui-widget-header  { background:rgba(94,58,138,0.50) !important; border:1px solid rgba(201,168,76,0.30) !important; color:#e8c97a !important; }
+.ui-state-active   { border:1px solid #c9a84c !important; }
+.ui-widget-overlay { background:rgba(26,10,46,0.85) !important; }
 
 /* ══════════════════════════════════════════════
-   SECTION 18 — TIMELINE
+   20. COUNTDOWN CLOCK
    ══════════════════════════════════════════════ */
-textarea#djep-timelineheadline { background-color: rgba(26,10,46,0.65) !important; border: 1px solid rgba(201,168,76,0.28) !important; color: #f0e8ff !important; border-radius:8px !important; font-size:17px !important; height:75px !important; }
-.djep-timelinetable tr:nth-child(odd)  { background: rgba(46,22,80,0.55) !important; }
-.djep-timelinetable tr:nth-child(even) { background: rgba(46,22,80,0.35) !important; }
-.djep-timelinetable tr:hover           { background: rgba(94,58,138,0.45) !important; }
-.djep-timelinetextbox1,.djep-timelinetextbox2,.djep-timelinetextbox3 { color: #f0e8ff !important; }
-.djep-timelineitems {
-  background: rgba(94,58,138,0.35) !important;
-  border: 1px solid rgba(201,168,76,0.28) !important;
-  border-radius: 8px !important;
-  color: #f0e8ff !important;
-  box-shadow: none !important;
-  text-shadow: none !important;
-}
-.djep-timelineitems:hover { background: rgba(94,58,138,0.55) !important; }
-.djepm-timelinemobilepanel  { border: 1px solid rgba(201,168,76,0.28) !important; border-radius:8px !important; background: rgba(46,22,80,0.70) !important; }
-.djepm-timelinemobileheader { background: rgba(94,58,138,0.50) !important; color: #e8c97a !important; padding:5px !important; }
-.djepm-timeline-select-fixed{ background: #1a0a2e !important; border-bottom: 2px solid rgba(201,168,76,0.28) !important; }
+.fc-captions { color:#e8c97a !important; font-family:'Raleway','Helvetica Neue',Helvetica,Arial,sans-serif !important; }
+#djep-countdownclock { background:transparent !important; }
+#djep-countdownclock .djep-titlebar { margin-bottom:8px !important; }
 
 /* ══════════════════════════════════════════════
-   SECTION 19 — ACCORDION
+   21. MISC
    ══════════════════════════════════════════════ */
-.djep-accordionButton {
-  background-color: rgba(94,58,138,0.35) !important;
-  border: 1px solid rgba(201,168,76,0.25) !important;
-  border-radius: 8px !important;
-  color: #f0e8ff !important;
-  width:95% !important; float:left !important; margin:8px 0 !important; padding:5px 10px !important; cursor:pointer !important;
-}
-.djep-accordionButton:hover { background-color: rgba(94,58,138,0.60) !important; }
-.djep-accordionContent { background: transparent !important; color: #f0e8ff !important; }
-
-/* ══════════════════════════════════════════════
-   SECTION 20 — JQUERY UI
-   ══════════════════════════════════════════════ */
-.ui-widget-content { background: none !important; }
-.ui-widget-header  { background: rgba(94,58,138,0.50) !important; border: 1px solid rgba(201,168,76,0.30) !important; color: #e8c97a !important; }
-.ui-state-active   { border: 1px solid #c9a84c !important; }
-.ui-corner-all,.ui-corner-top,.ui-corner-right,.ui-corner-tr,.ui-corner-left,.ui-corner-tl { border-radius: 8px !important; }
-.ui-widget-overlay { background: rgba(26,10,46,0.85) !important; opacity:0.85 !important; }
-
-/* ══════════════════════════════════════════════
-   SECTION 21 — CONTACT BOX
-   ══════════════════════════════════════════════ */
-#djep-contactbox td,
+.djep-form-sections  { background:rgba(94,58,138,0.35) !important; color:#e8c97a !important; }
+.djep-sectiontitle   { background:rgba(94,58,138,0.35) !important; color:#c9a84c !important; }
+.djep-esigned        { background:rgba(94,58,138,0.35) !important; border:1px solid rgba(201,168,76,0.25) !important; color:#f0e8ff !important; box-shadow:none !important; }
+.djep-servicedetailsfieldset { border:rgba(201,168,76,0.28) thin solid !important; }
+.djep-servicedetailslegend   { color:#e8c97a !important; }
+.djep-printbox       { background:rgba(46,22,80,0.60) !important; border:1px solid rgba(201,168,76,0.25) !important; color:#f0e8ff !important; border-radius:8px !important; }
+#djep-contactbox td  { color:#f0e8ff !important; }
 #djep-contactbox td input[type="text"],
-#djep-contactbox td textarea { font-family: 'Raleway','Helvetica Neue',Helvetica,Arial,sans-serif !important; font-size:14px !important; color: #f0e8ff !important; }
-#djep-contactbox td input[type="text"],
-#djep-contactbox td textarea { background-color: rgba(26,10,46,0.65) !important; border: 1px solid rgba(201,168,76,0.28) !important; border-radius:8px !important; padding:8px !important; }
-#djep-contactbox td input[type="text"]:focus,
-#djep-contactbox td textarea:focus { border-color: #c9a84c !important; box-shadow: 0 0 0 3px rgba(201,168,76,0.15) !important; }
+#djep-contactbox td textarea { background:rgba(26,10,46,0.65) !important; border:1px solid rgba(201,168,76,0.28) !important; border-radius:8px !important; color:#f0e8ff !important; }
+hr { border:none !important; height:1px !important; background:linear-gradient(90deg,transparent,#c9a84c,transparent) !important; margin:20px 0 !important; opacity:0.45 !important; }
+.djep-cleared { clear:both !important; }
 
 /* ══════════════════════════════════════════════
-   SECTION 22 — MISC / UTILITY
-   ══════════════════════════════════════════════ */
-.djep-form-sections { background-color: rgba(94,58,138,0.35) !important; color: #e8c97a !important; }
-.djep-sectiontitle  { background-color: rgba(94,58,138,0.35) !important; color: #c9a84c !important; }
-.djep-esigned { background-color: rgba(94,58,138,0.35) !important; border: 1px solid rgba(201,168,76,0.25) !important; color: #f0e8ff !important; border-radius:4px !important; box-shadow:none !important; }
-.fc-captions { font-family: 'Raleway','Helvetica Neue',Helvetica,Arial,sans-serif !important; font-size:16px !important; color: #e8c97a !important; }
-hr { border:none !important; height:1px !important; background: linear-gradient(90deg,transparent,#c9a84c,transparent) !important; margin:20px 0 !important; opacity:0.45 !important; }
-.djep-servicedetailsfieldset { border: rgba(201,168,76,0.28) thin solid !important; }
-.djep-servicedetailslegend   { font-size:14px !important; color: #e8c97a !important; }
-.djep-profilepicture { margin:0 auto 20px !important; width:95% !important; }
-.djep-printbox { font-size:14px !important; padding:5px !important; color: #f0e8ff !important; background: rgba(46,22,80,0.60) !important; border: 1px solid rgba(201,168,76,0.25) !important; border-radius:8px !important; }
-.djepm-dropdownstyle { background: #1a0a2e !important; color: #f0e8ff !important; }
-.djepm-form-sections { color: #f0e8ff !important; }
-
-/* ══════════════════════════════════════════════
-   SECTION 23 — PAGE LOAD ANIMATION (preserved)
-   ══════════════════════════════════════════════ */
-#djep-content {
-  animation: animationFrames ease 1s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-  -webkit-animation: animationFrames ease 1s;
-  -webkit-animation-iteration-count: 1;
-  -webkit-animation-fill-mode: forwards;
-}
-@keyframes animationFrames {
-  0%   { top:-25px; opacity:0; }
-  100% { top:0px;   opacity:1; }
-}
-@-webkit-keyframes animationFrames {
-  0%   { top:-25px; opacity:0; }
-  100% { top:0px;   opacity:1; }
-}
-
-/* ══════════════════════════════════════════════
-   SECTION 24 — RESPONSIVE / MOBILE
+   22. RESPONSIVE
    ══════════════════════════════════════════════ */
 @media (max-width: 900px) {
-  #djep-content,
-  #djep-guestrequestcontent {
+  #djep-content {
     width: 100% !important;
-    min-width: 0 !important;
     padding: 10px 14px !important;
     margin: 0 !important;
     border-radius: 0 !important;
     box-sizing: border-box !important;
   }
-  #djep-navbar, #wrapper {
-    width: 100% !important;
-    min-width: 0 !important;
-    box-sizing: border-box !important;
-  }
-  ul#djep-navigation {
-    width: 100% !important;
-    box-sizing: border-box !important;
-  }
-  ul#djep-navigation li {
-    width: auto !important;
-    height: auto !important;
-    float: none !important;
-    display: inline-block !important;
-  }
+  #djep-navbar { width: 100% !important; }
+  ul#djep-navigation { flex-wrap: wrap !important; }
+  ul#djep-navigation li { width: auto !important; height: auto !important; }
 }
-
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; }
 }
