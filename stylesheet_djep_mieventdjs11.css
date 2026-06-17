@@ -1,20 +1,15 @@
 @import url(https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Raleway:wght@300;400;500;600&display=swap);
 @charset "utf-8";
 /* ============================================================
-   MI EVENT DJS — Custom DJEP Theme  |  mieventdjs.com
-   Built from real portal HTML structure
+   MI EVENT DJS — Custom DJEP Theme
+   Prefixed with body.djep-body to beat Bootstrap 3 specificity
    ============================================================ */
 
 /* ══════════════════════════════════════════════
-   1. BODY — override DJEP's inline background-image
-      We use a filter trick: the inline style sets the
-      wix image, we layer our gradient on top via a
-      pseudo-element and force background-color dark.
+   1. BODY & PAGE BACKGROUND
    ══════════════════════════════════════════════ */
-body#clientpages,
 body.djep-body {
   background-color: #1a0a2e !important;
-  /* Override the inline background-image with our gradient */
   background-image:
     radial-gradient(ellipse 80% 60% at 50% -10%, rgba(94,58,138,0.80) 0%, transparent 70%),
     radial-gradient(ellipse 45% 35% at 85% 90%, rgba(201,168,76,0.15) 0%, transparent 60%) !important;
@@ -23,341 +18,243 @@ body.djep-body {
   background-repeat: no-repeat !important;
   background-position: center center !important;
   font-family: 'Raleway','Helvetica Neue',Helvetica,Arial,sans-serif !important;
-  font-size: 13px !important;
+  color: #f0e8ff !important;
   margin: 0 !important;
-  padding: 0 !important;
-  color: #f0e8ff !important;
 }
 
 /* ══════════════════════════════════════════════
-   2. FORCE ALL TEXT LIGHT
-      DJEP uses inline style="color:#..." everywhere
-      We can't beat inline color with external CSS —
-      but we CAN target specific known elements
+   2. GLOBAL TEXT — beat Bootstrap's color:inherit
    ══════════════════════════════════════════════ */
+body.djep-body p,
+body.djep-body li,
+body.djep-body td,
+body.djep-body th,
+body.djep-body div,
+body.djep-body span:not(.djep-titlebarspan):not(.djep-titlebarsmallspan),
+body.djep-body small,
+body.djep-body strong,
+body.djep-body b { color: #f0e8ff; }
 
-/* Target the real IDs and classes from the HTML */
-#djep-page,
-#djep-content,
-#djep-navbar,
-#djep-header,
-.djep-welcometextbox,
-.djep-eventlistbox,
-.djep-latestemailsbox,
-.djep-upcomingmeetingsbox,
-.djep-singleeventdiv {
-  color: #f0e8ff !important;
-}
-
-/* Tables */
-#djep-content td,
-#djep-content th,
-#djep-content tr,
-#listtable-emails td,
-#listtable-meettings {
-  color: #f0e8ff !important;
-}
-
-/* Override inline tahoma font spans — we can't beat inline
-   but we set font on containers which cascades to unstyled children */
-#djep-content p,
-#djep-content div,
-#djep-content li {
-  font-family: 'Raleway','Helvetica Neue',Helvetica,Arial,sans-serif !important;
-}
+body.djep-body strong,
+body.djep-body b { color: #f5e6b8 !important; font-weight: 600 !important; }
 
 /* ══════════════════════════════════════════════
-   3. LINKS — ALL GOLD
+   3. LINKS — beat Bootstrap a { color: #337ab7 }
    ══════════════════════════════════════════════ */
-#djep-page a,
-#djep-content a,
-#djep-navbar a,
-body#clientpages a {
-  color: #c9a84c !important;
-  text-decoration: none !important;
-}
-#djep-page a:hover,
-#djep-content a:hover,
-#djep-navbar a:hover,
-body#clientpages a:hover {
+body.djep-body a,
+body.djep-body a:link,
+body.djep-body a:visited { color: #c9a84c !important; text-decoration: none !important; }
+body.djep-body a:hover,
+body.djep-body a:focus   { color: #e8c97a !important; text-decoration: underline !important; }
+
+/* ══════════════════════════════════════════════
+   4. HEADINGS — beat Bootstrap h1-h6 { color: inherit }
+   ══════════════════════════════════════════════ */
+body.djep-body h1,
+body.djep-body h2,
+body.djep-body h3,
+body.djep-body h4,
+body.djep-body h1.djep-h1,
+body.djep-body h2.djep-h1,
+body.djep-body h2.djep-h2,
+body.djep-body h3.djep-h3 {
+  font-family: 'Cinzel','Georgia',serif !important;
   color: #e8c97a !important;
-  text-decoration: underline !important;
+  letter-spacing: 0.05em !important;
 }
-
-/* The red video link — override inline color:#FF0000 with gold
-   (inline color beats us, but we try with high specificity) */
-#djep-content h2.djep-h1 a span,
-#djep-content a span[style*="color:#FF0000"],
-#djep-content a span[style*="color: #FF0000"],
-#djep-content a span[style*="color:red"] {
-  color: #c9a84c !important;
-}
+body.djep-body h2.djep-h2 { color: #c9a84c !important; }
+body.djep-body h3.djep-h3 { color: #b8a8d4 !important; }
 
 /* ══════════════════════════════════════════════
-   4. HEADER
+   5. HEADER
    ══════════════════════════════════════════════ */
-#djep-header {
+body.djep-body #djep-header {
   background: linear-gradient(135deg, #1a0a2e 0%, #2e1650 100%) !important;
   border-bottom: 2px solid rgba(201,168,76,0.35) !important;
   text-align: center !important;
   padding: 16px 0 8px !important;
   width: 100% !important;
 }
-#djep-header img {
-  max-width: 300px !important;
-  width: auto !important;
-}
 
 /* ══════════════════════════════════════════════
-   5. NAVIGATION — targets real HTML:
-      <div id="djep-navbar">
-        <ul id="djep-navigation">
-          <li class="selected"><a href="home.asp">Home</a></li>
+   6. NAVBAR — beat Bootstrap .navbar-default
    ══════════════════════════════════════════════ */
-#djep-navbar {
-  background: rgba(46,22,80,0.95) !important;
-  border-bottom: 2px solid rgba(201,168,76,0.30) !important;
-  padding: 8px 12px !important;
-  margin: 0 !important;
+body.djep-body #djep-navbar {
+  background: rgba(46,22,80,0.97) !important;
+  border-bottom: 2px solid rgba(201,168,76,0.35) !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-radius: 0 !important;
+  min-height: auto !important;
+  margin-bottom: 0 !important;
+  padding: 6px 12px !important;
   width: 100% !important;
   box-sizing: border-box !important;
 }
-ul#djep-navigation {
+body.djep-body ul#djep-navigation {
   list-style: none !important;
-  padding: 4px 8px !important;
+  padding: 2px 4px !important;
   margin: 0 !important;
   display: flex !important;
   flex-wrap: wrap !important;
   gap: 4px !important;
-  width: 100% !important;
-  height: auto !important;
+  background: transparent !important;
+  border: none !important;
 }
-ul#djep-navigation li {
+body.djep-body ul#djep-navigation li {
   float: none !important;
+  display: inline-block !important;
   width: auto !important;
   height: auto !important;
   text-indent: 0 !important;
   background: rgba(94,58,138,0.45) !important;
-  border: 1px solid rgba(201,168,76,0.25) !important;
+  border: 1px solid rgba(201,168,76,0.28) !important;
   border-radius: 6px !important;
   padding: 0 !important;
   margin: 2px !important;
-  display: inline-block !important;
-  text-align: center !important;
 }
-ul#djep-navigation li.selected {
-  background: rgba(201,168,76,0.20) !important;
-  border-color: rgba(201,168,76,0.55) !important;
+body.djep-body ul#djep-navigation li.selected {
+  background: rgba(201,168,76,0.22) !important;
+  border-color: rgba(201,168,76,0.60) !important;
 }
-ul#djep-navigation li a,
-ul#djep-navigation li.selected a {
+body.djep-body ul#djep-navigation li a {
   color: #b8a8d4 !important;
   display: block !important;
-  padding: 8px 18px !important;
+  padding: 8px 16px !important;
   font-size: 12px !important;
   font-weight: 600 !important;
   letter-spacing: 0.08em !important;
   text-transform: uppercase !important;
   line-height: normal !important;
+  background: transparent !important;
   text-decoration: none !important;
 }
-ul#djep-navigation li.selected a {
+body.djep-body ul#djep-navigation li.selected a,
+body.djep-body ul#djep-navigation li a:hover {
   color: #e8c97a !important;
-}
-ul#djep-navigation li a:hover {
-  color: #e8c97a !important;
+  background: transparent !important;
   text-decoration: none !important;
 }
 
 /* ══════════════════════════════════════════════
-   6. MAIN CONTENT PANEL
-      Real HTML: <div id="djep-content">
+   7. MAIN CONTENT PANEL
    ══════════════════════════════════════════════ */
-#djep-content {
+body.djep-body #djep-content {
   background-color: rgba(46,22,80,0.88) !important;
   background: rgba(46,22,80,0.88) !important;
-  border: 1px solid rgba(201,168,76,0.25) !important;
-  box-shadow: 0 6px 32px rgba(0,0,0,0.60) !important;
+  border: 1px solid rgba(201,168,76,0.28) !important;
+  box-shadow: 0 6px 32px rgba(0,0,0,0.65) !important;
   padding: 16px 20px !important;
   margin: 8px auto !important;
-  /* Keep DJEP's width — DNE */
   width: 818px !important;
   max-width: 98vw !important;
   box-sizing: border-box !important;
   border-radius: 10px !important;
   overflow: visible !important;
-  text-align: left !important;
-}
-
-#djep-page {
-  width: 100% !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  background: transparent !important;
-}
-
-#wrapper {
-  width: 100% !important;
-  max-width: 900px !important;
-  margin: 0 auto !important;
-  background: transparent !important;
 }
 
 /* ══════════════════════════════════════════════
-   7. MODULE BOXES — real class names from HTML
+   8. MODULE BOXES
    ══════════════════════════════════════════════ */
-.djep-welcometextbox,
-.djep-eventlistbox,
-.djep-latestemailsbox,
-.djep-upcomingmeetingsbox,
-.djep-managemusicbox,
-.djep-planningformsbox,
-.djep-timelinebox,
-.djep-othertoolsbox,
-.djep-selectyourmusicbox,
-.djep-eventdatetimesbox,
-.djep-servicedetailsbox,
-.djep-eventdescriptionbox,
-.djep-venueinfobox,
-.djep-paymentsfinancesbox,
-.djep-feedetailsbox,
-.djep-paymenthistorybox,
-.djep-totalfeebox,
-.djep-documentsbox,
-.djep-contactformbox,
-.djep-ourcontactinfobox,
-.djep-emailhistorybox,
-.djep-emailmessagebox,
-.djep-planneraccessbox,
-.djep-makepaymentbox,
-.djep-viewdocumentbox,
-.djep-planningformseditbox,
-.djep-requestchangesformbox,
-.djep-requestchangesbox,
-.djep-viewrequestboxes,
-.djep-guestrequestdescription,
-.djep-guestrequesthowitworksbox,
-.djep-guestrequestsettingsbox,
-.djep-weddingnamesbox,
-.djep-evaluationbox,
-.djep-printdocumentbox,
-.djep-planningformsviewbox,
-.djep-viewtimelinebox,
-.djep-edittimelinebox,
-.djep-viewweddingnamesbox,
-.djep-editweddingnamesbox,
-.djep-otherfilesbox,
-.djep-relatedfilesbox,
-.djep-staffingbox,
-.djep-logindetailsbox,
-.djep-contactdetailsbox {
-  background: rgba(36,14,66,0.85) !important;
+body.djep-body .djep-welcometextbox,
+body.djep-body .djep-eventlistbox,
+body.djep-body .djep-latestemailsbox,
+body.djep-body .djep-upcomingmeetingsbox,
+body.djep-body .djep-managemusicbox,
+body.djep-body .djep-planningformsbox,
+body.djep-body .djep-timelinebox,
+body.djep-body .djep-othertoolsbox,
+body.djep-body .djep-selectyourmusicbox,
+body.djep-body .djep-eventdatetimesbox,
+body.djep-body .djep-servicedetailsbox,
+body.djep-body .djep-eventdescriptionbox,
+body.djep-body .djep-venueinfobox,
+body.djep-body .djep-paymentsfinancesbox,
+body.djep-body .djep-feedetailsbox,
+body.djep-body .djep-paymenthistorybox,
+body.djep-body .djep-totalfeebox,
+body.djep-body .djep-documentsbox,
+body.djep-body .djep-contactformbox,
+body.djep-body .djep-ourcontactinfobox,
+body.djep-body .djep-emailhistorybox,
+body.djep-body .djep-emailmessagebox,
+body.djep-body .djep-planneraccessbox,
+body.djep-body .djep-makepaymentbox,
+body.djep-body .djep-viewdocumentbox,
+body.djep-body .djep-planningformseditbox,
+body.djep-body .djep-requestchangesformbox,
+body.djep-body .djep-requestchangesbox,
+body.djep-body .djep-viewrequestboxes,
+body.djep-body .djep-guestrequestdescription,
+body.djep-body .djep-guestrequesthowitworksbox,
+body.djep-body .djep-guestrequestsettingsbox,
+body.djep-body .djep-weddingnamesbox,
+body.djep-body .djep-evaluationbox,
+body.djep-body .djep-printdocumentbox,
+body.djep-body .djep-planningformsviewbox,
+body.djep-body .djep-viewtimelinebox,
+body.djep-body .djep-edittimelinebox,
+body.djep-body .djep-viewweddingnamesbox,
+body.djep-body .djep-editweddingnamesbox,
+body.djep-body .djep-otherfilesbox,
+body.djep-body .djep-relatedfilesbox,
+body.djep-body .djep-staffingbox,
+body.djep-body .djep-logindetailsbox,
+body.djep-body .djep-contactdetailsbox {
+  background: rgba(36,14,66,0.88) !important;
   border: 1px solid rgba(201,168,76,0.28) !important;
   border-radius: 8px !important;
   margin-bottom: 18px !important;
   overflow: hidden !important;
-  box-shadow: 0 3px 16px rgba(0,0,0,0.40) !important;
+  box-shadow: 0 3px 16px rgba(0,0,0,0.45) !important;
   color: #f0e8ff !important;
 }
 
 /* ══════════════════════════════════════════════
-   8. TITLE BARS — real class: djep-titlebar, djep-titlebarsmall
-      Real HTML: <p class="djep-titlebar"><span class="djep-titlebarspan"></span>Your Upcoming Event</p>
+   9. TITLE BARS
    ══════════════════════════════════════════════ */
-.djep-titlebar,
-p.djep-titlebar {
+body.djep-body .djep-titlebar,
+body.djep-body p.djep-titlebar {
   background: linear-gradient(135deg, #2e1650 0%, #1a0a2e 100%) !important;
   color: #e8c97a !important;
   font-family: 'Cinzel','Georgia',serif !important;
-  font-size: 15px !important;
+  font-size: 14px !important;
   font-weight: 600 !important;
-  letter-spacing: 0.08em !important;
+  letter-spacing: 0.10em !important;
   padding: 12px 18px !important;
-  margin: 0 0 12px 0 !important;
-  border-bottom: 1px solid rgba(201,168,76,0.30) !important;
+  margin: 0 0 14px 0 !important;
+  border-bottom: 1px solid rgba(201,168,76,0.35) !important;
   text-transform: uppercase !important;
 }
-.djep-titlebarsmall,
-p.djep-titlebarsmall {
+body.djep-body .djep-titlebarsmall,
+body.djep-body p.djep-titlebarsmall {
   background: linear-gradient(135deg, #2e1650 0%, #1a0a2e 100%) !important;
   color: #c9a84c !important;
   font-family: 'Cinzel','Georgia',serif !important;
-  font-size: 13px !important;
+  font-size: 12px !important;
   font-weight: 600 !important;
-  letter-spacing: 0.07em !important;
+  letter-spacing: 0.08em !important;
   padding: 10px 18px !important;
-  margin: 0 0 10px 0 !important;
+  margin: 0 0 12px 0 !important;
   border-bottom: 1px solid rgba(201,168,76,0.25) !important;
   text-transform: uppercase !important;
 }
-.djep-titlebarspan,
-.djep-titlebarsmallspan { display: none !important; }
-
-.djep-titlebarsmaller {
-  background-color: rgba(94,58,138,0.30) !important;
-  border-color: rgba(201,168,76,0.28) !important;
-  color: #e8c97a !important;
-  padding: 11px 17px !important;
-  margin: 10px auto !important;
-  width: 80% !important;
-}
-.djep-titlebarsmallalert {
-  background-color: rgba(255,107,138,0.15) !important;
-  border-color: #ff6b8a !important;
-  color: #ff6b8a !important;
-  padding: 11px 17px !important;
-}
-.djep-titlebarconfirm,
-.djep-titlebarmusicconfirm {
-  background-color: rgba(125,232,176,0.15) !important;
-  border-color: #7de8b0 !important;
-  color: #7de8b0 !important;
-  padding: 11px 17px !important;
-}
-.djep-titlebarnotices {
-  background-color: rgba(201,168,76,0.12) !important;
-  border-color: rgba(201,168,76,0.35) !important;
-  color: #e8c97a !important;
-  padding: 11px 17px !important;
-}
-.djep-titlebarlockout {
-  background-color: rgba(255,107,138,0.15) !important;
-  border-color: #ff6b8a !important;
-  color: #ff6b8a !important;
-  font-size: 20px !important;
-  text-align: center !important;
-  padding: 11px 17px !important;
-}
+body.djep-body .djep-titlebarspan,
+body.djep-body .djep-titlebarsmallspan { display: none !important; }
+body.djep-body .djep-titlebarsmaller   { background: rgba(94,58,138,0.30) !important; border-color: rgba(201,168,76,0.28) !important; color: #e8c97a !important; }
+body.djep-body .djep-titlebarsmallalert{ background: rgba(255,107,138,0.15) !important; color: #ff6b8a !important; }
+body.djep-body .djep-titlebarconfirm,
+body.djep-body .djep-titlebarmusicconfirm { background: rgba(125,232,176,0.15) !important; color: #7de8b0 !important; }
+body.djep-body .djep-titlebarnotices   { background: rgba(201,168,76,0.12) !important; color: #e8c97a !important; }
+body.djep-body .djep-titlebarlockout   { background: rgba(255,107,138,0.15) !important; color: #ff6b8a !important; }
 
 /* ══════════════════════════════════════════════
-   9. HEADINGS — h1.djep-h1, h2.djep-h1 (yes, DJEP uses h2.djep-h1)
+   10. ACTION BUTTONS
    ══════════════════════════════════════════════ */
-h1.djep-h1,
-h2.djep-h1,
-h2.djep-h2,
-h3.djep-h3,
-#djep-content h1,
-#djep-content h2,
-#djep-content h3 {
-  font-family: 'Cinzel','Georgia',serif !important;
-  color: #e8c97a !important;
-  letter-spacing: 0.05em !important;
-}
-h1.djep-h1, #djep-content h1 { font-size: 24px !important; }
-h2.djep-h1, h2.djep-h2       { font-size: 18px !important; color: #c9a84c !important; }
-h3.djep-h3                    { font-size: 15px !important; color: #b8a8d4 !important; }
-
-/* ══════════════════════════════════════════════
-   10. PORTAL ACTION BUTTONS
-       Real classes from HTML:
-       djep-planeventbutton, djep-eventdetailsbutton,
-       djep-paymentbutton, djep-readviewbutton,
-       djep-viewallbutton, djep-actionbutton
-   ══════════════════════════════════════════════ */
-a.djep-planeventbutton,
-a.djep-eventdetailsbutton,
-a.djep-paymentbutton {
-  display: inline-block !important;
+body.djep-body a.djep-planeventbutton,
+body.djep-body a.djep-eventdetailsbutton,
+body.djep-body a.djep-paymentbutton {
   background: linear-gradient(135deg, #c9a84c 0%, #a87830 100%) !important;
   color: #1a0a2e !important;
   font-family: 'Cinzel','Georgia',serif !important;
@@ -371,22 +268,19 @@ a.djep-paymentbutton {
   margin: 2px !important;
   text-decoration: none !important;
   text-align: center !important;
+  display: inline-block !important;
   box-shadow: 0 3px 12px rgba(201,168,76,0.35) !important;
-  transition: filter 0.18s, transform 0.18s !important;
-  line-height: 1.3 !important;
+  line-height: 1.4 !important;
 }
-a.djep-planeventbutton:hover,
-a.djep-eventdetailsbutton:hover,
-a.djep-paymentbutton:hover {
-  filter: brightness(1.12) !important;
-  transform: translateY(-1px) !important;
+body.djep-body a.djep-planeventbutton:hover,
+body.djep-body a.djep-eventdetailsbutton:hover,
+body.djep-body a.djep-paymentbutton:hover {
   color: #1a0a2e !important;
   text-decoration: none !important;
+  filter: brightness(1.10) !important;
 }
-
-a.djep-readviewbutton,
-a.djep-viewallbutton {
-  display: inline-block !important;
+body.djep-body a.djep-readviewbutton,
+body.djep-body a.djep-viewallbutton {
   background: transparent !important;
   border: 1px solid rgba(201,168,76,0.40) !important;
   color: #c9a84c !important;
@@ -395,286 +289,260 @@ a.djep-viewallbutton {
   font-size: 11px !important;
   font-weight: 600 !important;
   text-decoration: none !important;
-  transition: background 0.2s !important;
+  display: inline-block !important;
 }
-a.djep-readviewbutton:hover,
-a.djep-viewallbutton:hover {
+body.djep-body a.djep-readviewbutton:hover,
+body.djep-body a.djep-viewallbutton:hover {
   background: rgba(201,168,76,0.15) !important;
   color: #e8c97a !important;
   text-decoration: none !important;
 }
-
-/* "Show the Welcome Message Again" top-right button */
-a#buttonShowWelcome,
-a.djep-actionbutton {
+body.djep-body a#buttonShowWelcome {
   color: #b8a8d4 !important;
   font-size: 11px !important;
   background: rgba(46,22,80,0.80) !important;
   border: 1px solid rgba(201,168,76,0.25) !important;
   border-radius: 4px !important;
   padding: 4px 10px !important;
-  text-decoration: none !important;
-}
-a#buttonShowWelcome:hover,
-a.djep-actionbutton:hover {
-  color: #e8c97a !important;
-  text-decoration: none !important;
 }
 
 /* ══════════════════════════════════════════════
-   11. CALENDAR WIDGET
-       Real HTML: <div class="calendar"><span class="month">Oct</span>
-                  <span class="day">10</span><span class="year">2026</span></div>
+   11. TABLES — beat Bootstrap .table td { color: inherit }
    ══════════════════════════════════════════════ */
-.calendar {
-  background: linear-gradient(135deg, #2e1650, #1a0a2e) !important;
-  border: 1px solid rgba(201,168,76,0.40) !important;
-  border-radius: 8px !important;
-  width: 72px !important;
-  text-align: center !important;
-  overflow: hidden !important;
-  box-shadow: 0 3px 12px rgba(0,0,0,0.40) !important;
-  font-size: 1em !important;
-}
-.calendar .month {
-  display: block !important;
-  background: rgba(201,168,76,0.25) !important;
-  color: #e8c97a !important;
-  font-family: 'Cinzel','Georgia',serif !important;
-  font-size: 0.65em !important;
-  letter-spacing: 0.12em !important;
-  text-transform: uppercase !important;
-  padding: 3px 0 !important;
-  font-weight: 600 !important;
-}
-.calendar .day {
-  display: block !important;
-  color: #f0e8ff !important;
-  font-size: 1.8em !important;
-  font-weight: 700 !important;
-  padding: 2px 0 !important;
-  line-height: 1.2 !important;
-}
-.calendar .year {
-  display: block !important;
-  color: #b8a8d4 !important;
-  font-size: 0.65em !important;
-  padding: 2px 0 4px !important;
-}
+body.djep-body #djep-content table { width: 100% !important; border-collapse: collapse !important; }
+body.djep-body #djep-content td,
+body.djep-body #djep-content th { color: #f0e8ff !important; padding: 8px 10px !important; border-color: rgba(201,168,76,0.15) !important; }
+body.djep-body .djep-table-headers { background: rgba(94,58,138,0.50) !important; color: #e8c97a !important; }
+body.djep-body .djep-odd  { background: transparent !important; }
+body.djep-body .djep-even { background: rgba(94,58,138,0.15) !important; }
+body.djep-body .djep-tablehover,
+body.djep-body .djep-tablehover1 { background-color: rgba(201,168,76,0.10) !important; }
+body.djep-body .djep-tablehover2 { background-color: transparent !important; }
+body.djep-body .djep-sectiontitle { background: rgba(94,58,138,0.35) !important; color: #c9a84c !important; }
 
 /* ══════════════════════════════════════════════
-   12. TABLES
+   12. FINANCIAL ROWS
    ══════════════════════════════════════════════ */
-#djep-content table { width: 100% !important; border-collapse: collapse !important; }
-#djep-content td, #djep-content th { color: #f0e8ff !important; padding: 8px 10px !important; }
-.djep-table-headers,
-#djep-content thead th {
-  background-color: rgba(94,58,138,0.50) !important;
-  color: #e8c97a !important;
-  font-size: 11px !important;
-  letter-spacing: 0.08em !important;
-  text-transform: uppercase !important;
-  font-weight: 600 !important;
-}
-.djep-odd  { background: transparent !important; }
-.djep-even { background: rgba(94,58,138,0.15) !important; }
-.djep-tablehover,
-.djep-tablehover1 { background-color: rgba(201,168,76,0.10) !important; }
-.djep-tablehover2 { background-color: transparent !important; }
-.djep-sectiontitle { background-color: rgba(94,58,138,0.35) !important; color: #c9a84c !important; }
+body.djep-body .djep-balanceduerow  { background: rgba(240,192,96,0.18) !important; color: #f0c060 !important; font-weight: 700 !important; }
+body.djep-body .djep-balancepaidrow { background: rgba(125,232,176,0.15) !important; color: #7de8b0 !important; font-weight: 700 !important; }
+body.djep-body .djep-totalfeerow    { background: rgba(126,184,240,0.15) !important; color: #7eb8f0 !important; font-weight: 700 !important; }
+body.djep-body .djep-totaldepositrow{ background: rgba(255,107,138,0.15) !important; color: #ff6b8a !important; font-weight: 700 !important; }
 
 /* ══════════════════════════════════════════════
-   13. FINANCIAL ROWS
+   13. FORM CONTROLS — beat Bootstrap .form-control
    ══════════════════════════════════════════════ */
-.djep-balanceduerow  { background-color: rgba(240,192,96,0.18) !important; color: #f0c060 !important; font-weight:700 !important; }
-.djep-balancepaidrow { background-color: rgba(125,232,176,0.15) !important; color: #7de8b0 !important; font-weight:700 !important; }
-.djep-totalfeerow    { background-color: rgba(126,184,240,0.15) !important; color: #7eb8f0 !important; font-weight:700 !important; }
-.djep-totaldepositrow{ background-color: rgba(255,107,138,0.15) !important; color: #ff6b8a !important; font-weight:700 !important; }
-
-/* ══════════════════════════════════════════════
-   14. INPUTS & FORMS
-   ══════════════════════════════════════════════ */
-#djep-content input[type="text"],
-#djep-content input[type="email"],
-#djep-content input[type="password"],
-#djep-content input[type="tel"],
-#djep-content input[type="date"],
-#djep-content input[type="search"],
-#djep-content textarea,
-#djep-content select,
-#djep-content .form-control,
-input.djep-input,
-select.djep-select,
-textarea.djep-textarea {
+body.djep-body input[type="text"],
+body.djep-body input[type="email"],
+body.djep-body input[type="password"],
+body.djep-body input[type="tel"],
+body.djep-body input[type="date"],
+body.djep-body input[type="search"],
+body.djep-body textarea,
+body.djep-body select,
+body.djep-body .form-control {
   background-color: rgba(26,10,46,0.80) !important;
-  border: 1px solid rgba(201,168,76,0.30) !important;
+  border: 1px solid rgba(201,168,76,0.35) !important;
   border-radius: 8px !important;
   color: #f0e8ff !important;
   font-family: 'Raleway','Helvetica Neue',Helvetica,Arial,sans-serif !important;
-  font-size: 13px !important;
-  padding: 8px 12px !important;
-  outline: none !important;
+  box-shadow: none !important;
 }
-#djep-content input:focus,
-#djep-content textarea:focus,
-#djep-content select:focus {
+body.djep-body input:focus,
+body.djep-body textarea:focus,
+body.djep-body select:focus,
+body.djep-body .form-control:focus {
   border-color: #c9a84c !important;
-  box-shadow: 0 0 0 3px rgba(201,168,76,0.18) !important;
+  box-shadow: 0 0 0 3px rgba(201,168,76,0.20) !important;
+  background-color: rgba(26,10,46,0.95) !important;
 }
-#djep-content label { color: #e8c97a !important; font-weight:600 !important; font-size:12px !important; }
+body.djep-body label,
+body.djep-body .control-label { color: #e8c97a !important; font-weight: 600 !important; }
 
 /* ══════════════════════════════════════════════
-   15. SUBMIT / ACTION BUTTONS
+   14. SUBMIT BUTTONS — beat Bootstrap .btn-primary
    ══════════════════════════════════════════════ */
-#djep-content input[type="submit"],
-#djep-content button[type="submit"],
-.djep-guestsubmit,
-.djep-guestsubmitrequests {
+body.djep-body input[type="submit"],
+body.djep-body button[type="submit"],
+body.djep-body .djep-guestsubmit,
+body.djep-body .djep-guestsubmitrequests,
+body.djep-body .btn-primary,
+body.djep-body .btn-success {
   background: linear-gradient(135deg, #c9a84c 0%, #a87830 100%) !important;
+  background-image: linear-gradient(135deg, #c9a84c 0%, #a87830 100%) !important;
   color: #1a0a2e !important;
   font-family: 'Cinzel','Georgia',serif !important;
-  font-size: 12px !important;
   font-weight: 700 !important;
-  letter-spacing: 0.12em !important;
-  text-transform: uppercase !important;
+  letter-spacing: 0.10em !important;
   border: none !important;
   border-radius: 50px !important;
-  padding: 9px 26px !important;
-  cursor: pointer !important;
   box-shadow: 0 4px 16px rgba(201,168,76,0.35) !important;
   text-shadow: none !important;
-  -webkit-appearance: none !important;
 }
-#djep-content input[type="submit"]:hover,
-.djep-guestsubmit:hover { filter: brightness(1.10) !important; }
+body.djep-body input[type="submit"]:hover,
+body.djep-body .btn-primary:hover { filter: brightness(1.10) !important; color: #1a0a2e !important; }
 
-.djep-guestlogout {
+body.djep-body .btn-default,
+body.djep-body .btn-secondary,
+body.djep-body .djep-guestlogout {
   background: transparent !important;
-  border: 1px solid rgba(201,168,76,0.35) !important;
+  background-image: none !important;
+  border: 1px solid rgba(201,168,76,0.40) !important;
   color: #b8a8d4 !important;
   border-radius: 50px !important;
-  padding: 6px 20px !important;
-  cursor: pointer !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
 }
 
-/* All djep-toplistbuttons variants */
-.djep-toplistbuttons,.djep-toplistbuttons2,.djep-toplistbuttons3,
-.djep-toplistbuttons4,.djep-toplistbuttons5,.djep-clipboardbutton,
-.djep-songideabutton,.djep-specialsongbutton,.djep-paginatebutton,
-.djepm-toplistbuttons {
+/* djep list/action buttons */
+body.djep-body .djep-toplistbuttons,
+body.djep-body .djep-toplistbuttons2,
+body.djep-body .djep-toplistbuttons3,
+body.djep-body .djep-toplistbuttons4,
+body.djep-body .djep-toplistbuttons5,
+body.djep-body .djep-clipboardbutton,
+body.djep-body .djep-songideabutton,
+body.djep-body .djep-specialsongbutton,
+body.djep-body .djep-paginatebutton {
   background: rgba(94,58,138,0.40) !important;
+  background-image: none !important;
   border: 1px solid rgba(201,168,76,0.28) !important;
   border-radius: 6px !important;
   color: #f0e8ff !important;
-  cursor: pointer !important;
   box-shadow: none !important;
   text-shadow: none !important;
-  transition: background 0.2s !important;
 }
-.djep-toplistbuttons:hover,.djep-toplistbuttons2:hover,.djep-toplistbuttons3:hover,
-.djep-toplistbuttons4:hover,.djep-toplistbuttons5:hover,.djep-clipboardbutton:hover,
-.djep-songideabutton:hover,.djep-paginatebutton:hover {
+body.djep-body .djep-toplistbuttons:hover,
+body.djep-body .djep-toplistbuttons2:hover,
+body.djep-body .djep-toplistbuttons3:hover,
+body.djep-body .djep-toplistbuttons4:hover,
+body.djep-body .djep-toplistbuttons5:hover,
+body.djep-body .djep-clipboardbutton:hover,
+body.djep-body .djep-songideabutton:hover,
+body.djep-body .djep-paginatebutton:hover {
   background: rgba(201,168,76,0.20) !important;
   color: #e8c97a !important;
 }
-.djep-toplistbuttons2_active,.djep-toplistbuttons3_active,
-.djep-toplistbuttons4_active,.djep-activepaginatebutton {
+body.djep-body .djep-toplistbuttons2_active,
+body.djep-body .djep-toplistbuttons3_active,
+body.djep-body .djep-toplistbuttons4_active,
+body.djep-body .djep-activepaginatebutton {
   background: rgba(201,168,76,0.22) !important;
   border-color: #c9a84c !important;
   color: #c9a84c !important;
 }
 
 /* ══════════════════════════════════════════════
-   16. MUSIC / PLAYLIST BOXES
+   15. CALENDAR WIDGET
    ══════════════════════════════════════════════ */
-.djep-playlistboxmustplaytitle   { background: linear-gradient(135deg,rgba(125,232,176,0.28),rgba(125,232,176,0.10)) !important; border:1px solid rgba(125,232,176,0.35) !important; color:#7de8b0 !important; height:35px !important; margin-top:8px !important; }
-.djep-playlistboxplayifposstitle { background: linear-gradient(135deg,rgba(240,192,96,0.28),rgba(240,192,96,0.10)) !important;  border:1px solid rgba(240,192,96,0.35) !important;  color:#f0c060 !important; height:35px !important; margin-top:8px !important; }
-.djep-playlistboxdedicationstitle{ background: linear-gradient(135deg,rgba(126,184,240,0.28),rgba(126,184,240,0.10)) !important; border:1px solid rgba(126,184,240,0.35) !important; color:#7eb8f0 !important; height:35px !important; margin-top:8px !important; }
-.djep-playlistboxdoesnotplaytitle{ background: linear-gradient(135deg,rgba(255,107,138,0.28),rgba(255,107,138,0.10)) !important; border:1px solid rgba(255,107,138,0.35) !important; color:#ff6b8a !important; height:35px !important; margin-top:8px !important; }
-.djep-playlistboxonlyrequesttitle{ background: linear-gradient(135deg,rgba(201,168,76,0.25),rgba(94,58,138,0.25)) !important;   border:1px solid rgba(201,168,76,0.35) !important;  color:#e8c97a !important; height:35px !important; margin-top:8px !important; }
-.djep-playlistboxcustomtype1title,.djep-playlistboxcustomtype2title,
-.djep-playlistboxcustomtype4title,.djep-playlistboxcustomtype5title {
-  background: linear-gradient(135deg,rgba(201,168,76,0.20),rgba(94,58,138,0.20)) !important;
-  border:1px solid rgba(201,168,76,0.28) !important; color:#e8c97a !important; height:35px !important; margin-top:8px !important;
+body.djep-body .calendar {
+  background: linear-gradient(135deg, #2e1650, #1a0a2e) !important;
+  border: 1px solid rgba(201,168,76,0.45) !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+  text-align: center !important;
+  width: 72px !important;
+  font-size: 1em !important;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.45) !important;
 }
-.djep-special_song_header { background:rgba(94,58,138,0.40) !important; border:1px solid rgba(201,168,76,0.28) !important; color:#e8c97a !important; }
-.djep-specialsongtitle    { background:rgba(94,58,138,0.40) !important; border:1px solid rgba(201,168,76,0.25) !important; color:#f0e8ff !important; }
-.djep-specialsongcontent  { background:rgba(46,22,80,0.60) !important; color:#f0e8ff !important; }
-.djep-special_song_content_div { background:rgba(46,22,80,0.92) !important; color:#f0e8ff !important; }
-.djep-databaseheader      { background:rgba(46,22,80,0.70) !important; color:#e8c97a !important; font-weight:700 !important; }
-.djep-databasetableheader { background:rgba(94,58,138,0.50) !important; color:#e8c97a !important; }
-.djep-databasebox         { background:rgba(46,22,80,0.60) !important; border:1px solid rgba(201,168,76,0.25) !important; color:#f0e8ff !important; }
-.djep-playlistboxguests   { background:rgba(26,10,46,0.40) !important; border:2px dashed rgba(201,168,76,0.35) !important; border-radius:8px !important; }
-.djep-playlistboxtext,.djepm-playlistboxtext { color:#f0e8ff !important; }
-.djep-musicresultrow:hover,.djep-musicresultrowmobile:hover { background-color:rgba(201,168,76,0.12) !important; }
-.djep-guestrequestlink    { color:#c9a84c !important; }
-.djep-guestrequestpassword{ color:#e8c97a !important; font-weight:700 !important; }
-.djep-requestlimittitle   { background:rgba(46,22,80,0.50) !important; color:#e8c97a !important; }
-.djep-songrequesttotals   { background:rgba(201,168,76,0.10) !important; color:#e8c97a !important; }
+body.djep-body .calendar .month {
+  display: block !important;
+  background: rgba(201,168,76,0.28) !important;
+  color: #e8c97a !important;
+  font-family: 'Cinzel','Georgia',serif !important;
+  font-size: 0.65em !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  padding: 4px 0 !important;
+  font-weight: 600 !important;
+}
+body.djep-body .calendar .day {
+  display: block !important;
+  color: #f0e8ff !important;
+  font-size: 1.8em !important;
+  font-weight: 700 !important;
+  padding: 3px 0 !important;
+  line-height: 1.2 !important;
+}
+body.djep-body .calendar .year {
+  display: block !important;
+  color: #b8a8d4 !important;
+  font-size: 0.65em !important;
+  padding: 2px 0 5px !important;
+}
 
 /* ══════════════════════════════════════════════
-   17. TIMELINE
+   16. PLAYLIST HEADERS
    ══════════════════════════════════════════════ */
-.djep-timelinetable tr:nth-child(odd)  { background:rgba(46,22,80,0.55) !important; }
-.djep-timelinetable tr:nth-child(even) { background:rgba(46,22,80,0.35) !important; }
-.djep-timelinetable tr:hover           { background:rgba(94,58,138,0.45) !important; }
-.djep-timelinetextbox1,.djep-timelinetextbox2,.djep-timelinetextbox3 { color:#f0e8ff !important; }
-.djep-timelineitems { background:rgba(94,58,138,0.35) !important; border:1px solid rgba(201,168,76,0.28) !important; border-radius:8px !important; color:#f0e8ff !important; box-shadow:none !important; text-shadow:none !important; }
-.djep-timelineitems:hover { background:rgba(94,58,138,0.55) !important; }
-.djepm-timelinemobilepanel  { border:1px solid rgba(201,168,76,0.28) !important; border-radius:8px !important; background:rgba(46,22,80,0.70) !important; }
-.djepm-timelinemobileheader { background:rgba(94,58,138,0.50) !important; color:#e8c97a !important; }
+body.djep-body .djep-playlistboxmustplaytitle   { background: linear-gradient(135deg,rgba(125,232,176,0.28),rgba(125,232,176,0.10)) !important; border: 1px solid rgba(125,232,176,0.35) !important; color: #7de8b0 !important; }
+body.djep-body .djep-playlistboxplayifposstitle { background: linear-gradient(135deg,rgba(240,192,96,0.28),rgba(240,192,96,0.10)) !important;  border: 1px solid rgba(240,192,96,0.35) !important;  color: #f0c060 !important; }
+body.djep-body .djep-playlistboxdedicationstitle{ background: linear-gradient(135deg,rgba(126,184,240,0.28),rgba(126,184,240,0.10)) !important; border: 1px solid rgba(126,184,240,0.35) !important; color: #7eb8f0 !important; }
+body.djep-body .djep-playlistboxdoesnotplaytitle{ background: linear-gradient(135deg,rgba(255,107,138,0.28),rgba(255,107,138,0.10)) !important; border: 1px solid rgba(255,107,138,0.35) !important; color: #ff6b8a !important; }
+body.djep-body .djep-playlistboxonlyrequesttitle{ background: linear-gradient(135deg,rgba(201,168,76,0.25),rgba(94,58,138,0.25)) !important;   border: 1px solid rgba(201,168,76,0.35) !important;  color: #e8c97a !important; }
+body.djep-body .djep-playlistboxcustomtype1title,
+body.djep-body .djep-playlistboxcustomtype2title,
+body.djep-body .djep-playlistboxcustomtype4title,
+body.djep-body .djep-playlistboxcustomtype5title { background: linear-gradient(135deg,rgba(201,168,76,0.20),rgba(94,58,138,0.20)) !important; border: 1px solid rgba(201,168,76,0.28) !important; color: #e8c97a !important; }
 
 /* ══════════════════════════════════════════════
-   18. ACCORDION
+   17. MUSIC / SONG DATABASE
    ══════════════════════════════════════════════ */
-.djep-accordionButton { background:rgba(94,58,138,0.35) !important; border:1px solid rgba(201,168,76,0.25) !important; border-radius:8px !important; color:#f0e8ff !important; cursor:pointer !important; }
-.djep-accordionButton:hover { background:rgba(94,58,138,0.60) !important; }
-.djep-accordionContent { background:transparent !important; color:#f0e8ff !important; }
+body.djep-body .djep-databaseheader      { background: rgba(46,22,80,0.70) !important; color: #e8c97a !important; }
+body.djep-body .djep-databasetableheader { background: rgba(94,58,138,0.50) !important; color: #e8c97a !important; }
+body.djep-body .djep-databasebox         { background: rgba(46,22,80,0.60) !important; border: 1px solid rgba(201,168,76,0.25) !important; color: #f0e8ff !important; }
+body.djep-body .djep-playlistboxguests   { background: rgba(26,10,46,0.40) !important; border: 2px dashed rgba(201,168,76,0.35) !important; border-radius: 8px !important; }
+body.djep-body .djep-playlistboxtext     { color: #f0e8ff !important; }
+body.djep-body .djep-musicresultrow:hover,
+body.djep-body .djep-musicresultrowmobile:hover { background: rgba(201,168,76,0.12) !important; }
+body.djep-body .djep-guestrequestlink    { color: #c9a84c !important; }
+body.djep-body .djep-guestrequestpassword{ color: #e8c97a !important; font-weight: 700 !important; }
+body.djep-body .djep-specialsongtitle    { background: rgba(94,58,138,0.40) !important; color: #f0e8ff !important; }
+body.djep-body .djep-specialsongcontent  { background: rgba(46,22,80,0.60) !important; color: #f0e8ff !important; }
+body.djep-body .djep-special_song_header { background: rgba(94,58,138,0.40) !important; color: #e8c97a !important; border: 1px solid rgba(201,168,76,0.28) !important; }
 
 /* ══════════════════════════════════════════════
-   19. JQUERY UI
+   18. TIMELINE
    ══════════════════════════════════════════════ */
-.ui-widget-content { background:none !important; }
-.ui-widget-header  { background:rgba(94,58,138,0.50) !important; border:1px solid rgba(201,168,76,0.30) !important; color:#e8c97a !important; }
-.ui-state-active   { border:1px solid #c9a84c !important; }
-.ui-widget-overlay { background:rgba(26,10,46,0.85) !important; }
+body.djep-body .djep-timelinetable tr:nth-child(odd)  { background: rgba(46,22,80,0.55) !important; }
+body.djep-body .djep-timelinetable tr:nth-child(even) { background: rgba(46,22,80,0.35) !important; }
+body.djep-body .djep-timelinetable tr:hover           { background: rgba(94,58,138,0.45) !important; }
+body.djep-body .djep-timelineitems { background: rgba(94,58,138,0.35) !important; border: 1px solid rgba(201,168,76,0.28) !important; border-radius: 8px !important; color: #f0e8ff !important; box-shadow: none !important; text-shadow: none !important; }
+body.djep-body .djep-timelineitems:hover { background: rgba(94,58,138,0.55) !important; }
 
 /* ══════════════════════════════════════════════
-   20. COUNTDOWN CLOCK
+   19. ACCORDION
    ══════════════════════════════════════════════ */
-.fc-captions { color:#e8c97a !important; font-family:'Raleway','Helvetica Neue',Helvetica,Arial,sans-serif !important; }
-#djep-countdownclock { background:transparent !important; }
-#djep-countdownclock .djep-titlebar { margin-bottom:8px !important; }
+body.djep-body .djep-accordionButton { background: rgba(94,58,138,0.35) !important; border: 1px solid rgba(201,168,76,0.25) !important; border-radius: 8px !important; color: #f0e8ff !important; }
+body.djep-body .djep-accordionButton:hover { background: rgba(94,58,138,0.60) !important; }
+body.djep-body .djep-accordionContent { color: #f0e8ff !important; }
 
 /* ══════════════════════════════════════════════
-   21. MISC
+   20. JQUERY UI — beat Bootstrap specificity
    ══════════════════════════════════════════════ */
-.djep-form-sections  { background:rgba(94,58,138,0.35) !important; color:#e8c97a !important; }
-.djep-sectiontitle   { background:rgba(94,58,138,0.35) !important; color:#c9a84c !important; }
-.djep-esigned        { background:rgba(94,58,138,0.35) !important; border:1px solid rgba(201,168,76,0.25) !important; color:#f0e8ff !important; box-shadow:none !important; }
-.djep-servicedetailsfieldset { border:rgba(201,168,76,0.28) thin solid !important; }
-.djep-servicedetailslegend   { color:#e8c97a !important; }
-.djep-printbox       { background:rgba(46,22,80,0.60) !important; border:1px solid rgba(201,168,76,0.25) !important; color:#f0e8ff !important; border-radius:8px !important; }
-#djep-contactbox td  { color:#f0e8ff !important; }
-#djep-contactbox td input[type="text"],
-#djep-contactbox td textarea { background:rgba(26,10,46,0.65) !important; border:1px solid rgba(201,168,76,0.28) !important; border-radius:8px !important; color:#f0e8ff !important; }
-hr { border:none !important; height:1px !important; background:linear-gradient(90deg,transparent,#c9a84c,transparent) !important; margin:20px 0 !important; opacity:0.45 !important; }
-.djep-cleared { clear:both !important; }
+body.djep-body .ui-widget-header { background: rgba(94,58,138,0.50) !important; border: 1px solid rgba(201,168,76,0.30) !important; color: #e8c97a !important; }
+body.djep-body .ui-state-active  { border: 1px solid #c9a84c !important; }
+body.djep-body .ui-widget-overlay{ background: rgba(26,10,46,0.85) !important; }
+
+/* ══════════════════════════════════════════════
+   21. COUNTDOWN & MISC
+   ══════════════════════════════════════════════ */
+body.djep-body .fc-captions { color: #e8c97a !important; }
+body.djep-body .djep-form-sections { background: rgba(94,58,138,0.35) !important; color: #e8c97a !important; }
+body.djep-body .djep-sectiontitle  { background: rgba(94,58,138,0.35) !important; color: #c9a84c !important; }
+body.djep-body hr { border: none !important; height: 1px !important; background: linear-gradient(90deg,transparent,#c9a84c,transparent) !important; opacity: 0.45 !important; }
 
 /* ══════════════════════════════════════════════
    22. RESPONSIVE
    ══════════════════════════════════════════════ */
 @media (max-width: 900px) {
-  #djep-content {
+  body.djep-body #djep-content {
     width: 100% !important;
-    padding: 10px 14px !important;
+    padding: 10px 12px !important;
     margin: 0 !important;
     border-radius: 0 !important;
     box-sizing: border-box !important;
   }
-  #djep-navbar { width: 100% !important; }
-  ul#djep-navigation { flex-wrap: wrap !important; }
-  ul#djep-navigation li { width: auto !important; height: auto !important; }
+  body.djep-body #djep-navbar { width: 100% !important; padding: 4px 8px !important; }
+  body.djep-body ul#djep-navigation { flex-wrap: wrap !important; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; }
