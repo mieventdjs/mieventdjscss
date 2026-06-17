@@ -1,0 +1,541 @@
+@import url(https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Raleway:wght@300;400;500;600&display=swap);
+/* ============================================================
+   MI EVENT DJS — DJEP Admin Theme
+   mieventdjs.com | Plum / Gold Brand
+   Target: body[name="contents"] — the DJEP admin interface
+   Hosted via jsDelivr for proper CORS headers
+   ============================================================ */
+
+/* ══════════════════════════════════════════════
+   1. BODY & PAGE
+   ══════════════════════════════════════════════ */
+body[name="contents"],
+body[name="mainpage"],
+body[name="leftmenu"],
+body {
+  background-color: #1a0a2e !important;
+  font-family: 'Raleway','Helvetica Neue',Helvetica,Arial,sans-serif !important;
+  color: #f0e8ff !important;
+  font-size: 12px !important;
+}
+
+/* Cover the white body background with our dark gradient */
+body[name="contents"]::before,
+body[name="mainpage"]::before {
+  content: '' !important;
+  position: fixed !important;
+  inset: 0 !important;
+  background-color: #1a0a2e !important;
+  background-image:
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(94,58,138,0.70) 0%, transparent 70%),
+    radial-gradient(ellipse 45% 35% at 85% 90%, rgba(201,168,76,0.10) 0%, transparent 60%) !important;
+  z-index: -1 !important;
+  pointer-events: none !important;
+}
+
+body[name="contents"] p,
+body[name="mainpage"] p,
+body p { font-size: 12px !important; color: #f0e8ff !important; }
+
+/* ══════════════════════════════════════════════
+   2. GLOBAL TEXT & LINKS
+   ══════════════════════════════════════════════ */
+body[name="contents"] a,
+body[name="mainpage"] a,
+body a { color: #c9a84c !important; text-decoration: none !important; }
+body[name="contents"] a:hover,
+body[name="mainpage"] a:hover,
+body a:hover { color: #e8c97a !important; text-decoration: underline !important; }
+
+/* White/black link overrides */
+body a.white:link, body a.white:visited, body a.white:active, body a.white:hover { color: #e8c97a !important; }
+body a.black { color: #f0e8ff !important; }
+body a.inherit { color: inherit !important; }
+body a.sortheader { color: #e8c97a !important; }
+
+/* ══════════════════════════════════════════════
+   3. OUTER WRAPPER & LAYOUT
+   ══════════════════════════════════════════════ */
+#outerwrapper {
+  background: transparent !important;
+}
+
+/* ══════════════════════════════════════════════
+   4. TOP NAVIGATION BAR
+   Real HTML: nav.navbar.navbar-fixed-top.metro-nav-header
+   ══════════════════════════════════════════════ */
+nav.navbar.navbar-fixed-top,
+nav.metro-nav-header,
+.metro-nav-header,
+#navigationheadertop,
+div.metro-nav-header {
+  background: linear-gradient(135deg, #1a0a2e 0%, #2e1650 100%) !important;
+  background-color: #1a0a2e !important;
+  border-bottom: 2px solid rgba(201,168,76,0.40) !important;
+  border-color: rgba(201,168,76,0.40) !important;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.60) !important;
+}
+
+/* Top nav icon buttons */
+a.topnav-icon {
+  color: #b8a8d4 !important;
+  opacity: 0.80 !important;
+  transition: opacity 0.2s !important;
+  padding: 4px 8px !important;
+}
+a.topnav-icon:hover {
+  opacity: 1 !important;
+  color: #e8c97a !important;
+  background: rgba(201,168,76,0.12) !important;
+  text-decoration: none !important;
+}
+
+/* ══════════════════════════════════════════════
+   5. SIDE NAVIGATION / LEFT MENU
+   ══════════════════════════════════════════════ */
+#sidenav,
+#leftnavcontainer,
+#sideNavMenu,
+.side-nav,
+#navigationleft,
+.navigationleft,
+[id*="sidenav"],
+[id*="leftnav"],
+[id*="side_nav"],
+[class*="side-nav"] {
+  background: rgba(46,22,80,0.97) !important;
+  border-right: 1px solid rgba(201,168,76,0.28) !important;
+}
+
+/* Side nav links */
+#sidenav a,
+#leftnavcontainer a,
+#sideNavMenu a,
+.side-nav a,
+#navigationleft a {
+  color: #b8a8d4 !important;
+  transition: color 0.2s, background 0.2s !important;
+}
+#sidenav a:hover,
+#leftnavcontainer a:hover,
+#sideNavMenu a:hover {
+  color: #e8c97a !important;
+  background: rgba(201,168,76,0.10) !important;
+  text-decoration: none !important;
+}
+
+/* Nav section headers */
+TD.navigationheader,
+TD.navigationheader2,
+TD.navigationheader3,
+TD.navigationheader4 {
+  background: linear-gradient(135deg, #2e1650, #1a0a2e) !important;
+  color: #e8c97a !important;
+  border-color: rgba(201,168,76,0.35) !important;
+  font-family: 'Cinzel','Georgia',serif !important;
+  font-size: 11px !important;
+  letter-spacing: 0.08em !important;
+}
+
+/* ══════════════════════════════════════════════
+   6. MAIN CONTENT AREA (iframe / mainpage)
+   ══════════════════════════════════════════════ */
+#mainpage,
+#maincontent,
+[name="mainpage"],
+frame[name="mainpage"] {
+  background: transparent !important;
+}
+
+/* ══════════════════════════════════════════════
+   7. BORDERED TABLES — the main admin table style
+   ══════════════════════════════════════════════ */
+.bordered {
+  background: rgba(46,22,80,0.85) !important;
+  border: 1px solid rgba(201,168,76,0.28) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.45) !important;
+  color: #f0e8ff !important;
+  font-family: 'Raleway','Helvetica Neue',Helvetica,Arial,sans-serif !important;
+}
+.bordered td,
+.bordered th {
+  border-left: 1px solid rgba(201,168,76,0.15) !important;
+  border-top: 1px solid rgba(201,168,76,0.15) !important;
+  color: #f0e8ff !important;
+  padding: 8px 10px !important;
+}
+.bordered th {
+  background: linear-gradient(135deg, #2e1650 0%, #1a0a2e 100%) !important;
+  color: #e8c97a !important;
+  font-family: 'Cinzel','Georgia',serif !important;
+  font-size: 11px !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+  border-top: none !important;
+}
+.bordered tr:hover {
+  background: rgba(201,168,76,0.10) !important;
+  transition: background 0.2s !important;
+}
+.borderedzebra tbody tr:nth-child(even) {
+  background: rgba(94,58,138,0.15) !important;
+  box-shadow: none !important;
+}
+.borderedzebra tbody tr:hover:nth-child(even) {
+  background: rgba(201,168,76,0.10) !important;
+}
+
+/* ══════════════════════════════════════════════
+   8. GENERAL TABLE STYLES
+   ══════════════════════════════════════════════ */
+body[name="contents"] table,
+body[name="mainpage"] table { border-collapse: collapse !important; }
+
+body[name="contents"] td,
+body[name="mainpage"] td,
+body[name="contents"] th,
+body[name="mainpage"] th { color: #f0e8ff !important; }
+
+/* Mail rows */
+tr.mail_row        { background-color: rgba(46,22,80,0.60) !important; }
+tr.mail_row_highlight { background-color: rgba(94,58,138,0.35) !important; }
+TD.mail_row        { color: #f0e8ff !important; border-bottom: 1px solid rgba(201,168,76,0.15) !important; font-family: 'Raleway','Helvetica Neue',Helvetica,Arial,sans-serif !important; }
+TD.mail_row_bold   { color: #f5e6b8 !important; border-bottom: 1px solid rgba(201,168,76,0.15) !important; font-weight: 700 !important; }
+TD.mail_header_row { color: #e8c97a !important; background: rgba(94,58,138,0.40) !important; border-bottom: 1px solid rgba(201,168,76,0.20) !important; }
+
+/* Alpha nav */
+TD.alphnav, TD.alphnav3 { background-color: rgba(94,58,138,0.50) !important; color: #e8c97a !important; border-color: rgba(201,168,76,0.25) !important; }
+TD.alphnav2, TD.alphnav4 { background-color: rgba(94,58,138,0.30) !important; color: #b8a8d4 !important; border-color: rgba(201,168,76,0.20) !important; cursor: pointer !important; }
+
+.trhover1 { background-color: rgba(94,58,138,0.30) !important; cursor: pointer !important; }
+
+/* ══════════════════════════════════════════════
+   9. BUTTONS
+   ══════════════════════════════════════════════ */
+/* Blue button → gold */
+.bluebutton,
+a.bluebutton {
+  background: linear-gradient(135deg, #c9a84c 0%, #a87830 100%) !important;
+  background-color: #c9a84c !important;
+  border: 1px solid rgba(201,168,76,0.50) !important;
+  border-radius: 6px !important;
+  color: #1a0a2e !important;
+  font-family: 'Cinzel','Georgia',serif !important;
+  font-weight: 700 !important;
+  font-size: 11px !important;
+  letter-spacing: 0.08em !important;
+  text-shadow: none !important;
+  box-shadow: 0 3px 12px rgba(201,168,76,0.30) !important;
+}
+.bluebutton:hover, a.bluebutton:hover {
+  background: linear-gradient(135deg, #e8c97a 0%, #c9a84c 100%) !important;
+  color: #1a0a2e !important;
+}
+
+/* Blue rounded button → gold outline */
+a.blue_rounded_button {
+  background: rgba(94,58,138,0.40) !important;
+  border: 1px solid rgba(201,168,76,0.40) !important;
+  border-radius: 6px !important;
+  color: #c9a84c !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+  font-family: 'Raleway','Helvetica Neue',Helvetica,Arial,sans-serif !important;
+}
+a.blue_rounded_button:hover {
+  background: rgba(201,168,76,0.18) !important;
+  border-color: #c9a84c !important;
+  color: #e8c97a !important;
+}
+
+/* Generic .btn */
+.btn {
+  background-color: rgba(94,58,138,0.40) !important;
+  border: 1px solid rgba(201,168,76,0.28) !important;
+  border-radius: 6px !important;
+  color: #f0e8ff !important;
+  font-family: 'Raleway','Helvetica Neue',Helvetica,Arial,sans-serif !important;
+}
+.btn3, .btn3:hover {
+  background: rgba(94,58,138,0.50) !important;
+  border-color: rgba(201,168,76,0.35) !important;
+  color: #f0e8ff !important;
+}
+
+/* Print / download buttons */
+.printselectedbutton {
+  background: rgba(94,58,138,0.40) !important;
+  border: 1px solid rgba(201,168,76,0.30) !important;
+  border-radius: 4px !important;
+  color: #c9a84c !important;
+  padding-left: 12px !important;
+}
+.printselectedbutton:hover {
+  background: rgba(94,58,138,0.65) !important;
+  border-color: #c9a84c !important;
+  color: #e8c97a !important;
+  box-shadow: none !important;
+}
+
+a.download_button {
+  background-color: rgba(201,168,76,0.80) !important;
+  color: #1a0a2e !important;
+  border: 1px solid #c9a84c !important;
+  font-weight: 700 !important;
+}
+a.download_button:hover { background-color: #c9a84c !important; }
+
+a.cp_button {
+  background-color: rgba(94,58,138,0.40) !important;
+  border: 1px solid rgba(201,168,76,0.30) !important;
+  color: #e8c97a !important;
+}
+a.cp_button:hover { background-color: rgba(94,58,138,0.65) !important; color: #f5e6b8 !important; }
+
+/* Submit inputs */
+input[type="submit"],
+input[type="button"],
+button[type="submit"] {
+  background: linear-gradient(135deg, #c9a84c 0%, #a87830 100%) !important;
+  background-image: linear-gradient(135deg, #c9a84c 0%, #a87830 100%) !important;
+  border: none !important;
+  border-radius: 6px !important;
+  color: #1a0a2e !important;
+  font-family: 'Cinzel','Georgia',serif !important;
+  font-weight: 700 !important;
+  font-size: 11px !important;
+  letter-spacing: 0.08em !important;
+  padding: 6px 18px !important;
+  cursor: pointer !important;
+  box-shadow: 0 3px 12px rgba(201,168,76,0.30) !important;
+  text-shadow: none !important;
+}
+input[type="submit"]:hover { filter: brightness(1.10) !important; }
+
+/* ══════════════════════════════════════════════
+   10. FORM INPUTS
+   ══════════════════════════════════════════════ */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="search"],
+input[type="number"],
+input[type="date"],
+input[type="time"],
+textarea,
+select,
+.form-control,
+.btnSearch2 {
+  background-color: rgba(26,10,46,0.80) !important;
+  border: 1px solid rgba(201,168,76,0.30) !important;
+  border-radius: 6px !important;
+  color: #f0e8ff !important;
+  font-family: 'Raleway','Helvetica Neue',Helvetica,Arial,sans-serif !important;
+  box-shadow: none !important;
+}
+input:focus, textarea:focus, select:focus, .form-control:focus {
+  border-color: #c9a84c !important;
+  box-shadow: 0 0 0 3px rgba(201,168,76,0.18) !important;
+  outline: none !important;
+  background-color: rgba(26,10,46,0.95) !important;
+}
+input::placeholder, textarea::placeholder { color: rgba(184,168,212,0.50) !important; }
+
+label { color: #e8c97a !important; font-weight: 600 !important; }
+
+/* Search button */
+.btnSearch2 {
+  color: #e8c97a !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+}
+
+/* ══════════════════════════════════════════════
+   11. PLANNING ICONS (Music / Forms / Timeline)
+   ══════════════════════════════════════════════ */
+.planningiconli {
+  background-color: rgba(94,58,138,0.40) !important;
+  border: 2px solid rgba(201,168,76,0.35) !important;
+  border-radius: 8px !important;
+  color: #e8c97a !important;
+  transition: background 0.2s, border-color 0.2s !important;
+}
+.planningiconli:hover {
+  background-color: rgba(201,168,76,0.18) !important;
+  border-color: #c9a84c !important;
+}
+.planningicona, .planningicona:hover { color: #e8c97a !important; text-decoration: none !important; }
+
+/* ══════════════════════════════════════════════
+   12. DROPDOWN OPTIONS
+   ══════════════════════════════════════════════ */
+option.dropdown_section_header {
+  background-color: #2e1650 !important;
+  color: #e8c97a !important;
+  font-weight: 700 !important;
+}
+option.item {
+  background-color: #1a0a2e !important;
+  color: #f0e8ff !important;
+}
+select option { background-color: #1a0a2e !important; color: #f0e8ff !important; }
+select.small_select { font-size: 11px !important; }
+
+/* ══════════════════════════════════════════════
+   13. DOCUMENT / PRINT PANELS
+   ══════════════════════════════════════════════ */
+.documentPrint {
+  background: rgba(46,22,80,0.80) !important;
+  border: 1px solid rgba(201,168,76,0.28) !important;
+  border-radius: 8px !important;
+  color: #f0e8ff !important;
+  cursor: pointer !important;
+}
+.documentPrint:hover { background: rgba(94,58,138,0.55) !important; }
+
+/* ══════════════════════════════════════════════
+   14. DASHBOARD CALENDAR
+   ══════════════════════════════════════════════ */
+/* Calendar table cells */
+[id*="calendar"] td,
+[class*="calendar"] td,
+.djep-calendar td,
+#djep-countdownclock td {
+  color: #f0e8ff !important;
+  border-color: rgba(201,168,76,0.15) !important;
+}
+
+/* Booked = green tint, Requested = gold tint */
+[class*="booked"],
+td[class*="booked"]  { background: rgba(125,232,176,0.20) !important; color: #7de8b0 !important; }
+[class*="requested"],
+td[class*="requested"] { background: rgba(240,192,96,0.20) !important; color: #f0c060 !important; }
+[class*="available"],
+td[class*="available"] { background: transparent !important; }
+
+/* ══════════════════════════════════════════════
+   15. TOOLTIP
+   ══════════════════════════════════════════════ */
+a.tooltip:hover span {
+  background: rgba(46,22,80,0.97) !important;
+  border: 1px solid rgba(201,168,76,0.40) !important;
+  color: #f0e8ff !important;
+  border-radius: 6px !important;
+}
+
+/* ══════════════════════════════════════════════
+   16. PANELS / BOXES / CARDS
+   ══════════════════════════════════════════════ */
+.spiffyfg {
+  background: rgba(46,22,80,0.85) !important;
+  border: 1px solid rgba(201,168,76,0.25) !important;
+  border-radius: 8px !important;
+  color: #f0e8ff !important;
+}
+.menuBox {
+  background: rgba(46,22,80,0.90) !important;
+  border: 1px solid rgba(201,168,76,0.25) !important;
+}
+
+/* Bootstrap panel overrides */
+.panel,
+.well,
+.card {
+  background: rgba(46,22,80,0.85) !important;
+  border: 1px solid rgba(201,168,76,0.28) !important;
+  border-radius: 8px !important;
+  color: #f0e8ff !important;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.40) !important;
+}
+.panel-heading, .panel-title {
+  background: linear-gradient(135deg, #2e1650, #1a0a2e) !important;
+  color: #e8c97a !important;
+  font-family: 'Cinzel','Georgia',serif !important;
+  border-bottom: 1px solid rgba(201,168,76,0.25) !important;
+}
+.panel-body { color: #f0e8ff !important; }
+
+/* ══════════════════════════════════════════════
+   17. ALERTS & STATUS
+   ══════════════════════════════════════════════ */
+.alert          { border-radius: 8px !important; border: none !important; }
+.alert-success  { background: rgba(125,232,176,0.15) !important; color: #7de8b0 !important; border-left: 4px solid #7de8b0 !important; }
+.alert-warning  { background: rgba(240,192,96,0.15) !important;  color: #f0c060 !important; border-left: 4px solid #f0c060 !important; }
+.alert-danger   { background: rgba(255,107,138,0.15) !important; color: #ff6b8a !important; border-left: 4px solid #ff6b8a !important; }
+.alert-info     { background: rgba(126,184,240,0.15) !important; color: #7eb8f0 !important; border-left: 4px solid #7eb8f0 !important; }
+
+/* Bootstrap badges */
+.label-default  { background: rgba(201,168,76,0.25) !important; color: #e8c97a !important; }
+.label-success  { background: rgba(125,232,176,0.25) !important; color: #7de8b0 !important; }
+.label-danger   { background: rgba(255,107,138,0.25) !important; color: #ff6b8a !important; }
+.label-warning  { background: rgba(240,192,96,0.25) !important;  color: #f0c060 !important; }
+.label-info     { background: rgba(126,184,240,0.25) !important; color: #7eb8f0 !important; }
+.label-primary  { background: rgba(94,58,138,0.50) !important;   color: #e8c97a !important; }
+
+/* ══════════════════════════════════════════════
+   18. TABS
+   ══════════════════════════════════════════════ */
+#tabsI {
+  background: rgba(46,22,80,0.90) !important;
+  border-bottom: 2px solid rgba(201,168,76,0.35) !important;
+}
+#tabsI a span { color: #b8a8d4 !important; }
+#tabsI a:hover span,
+#tabsI #current a span { color: #e8c97a !important; }
+.nav-tabs { border-bottom: 1px solid rgba(201,168,76,0.28) !important; }
+.nav-tabs > li > a { color: #b8a8d4 !important; border-color: transparent !important; }
+.nav-tabs > li > a:hover { color: #e8c97a !important; background: rgba(201,168,76,0.08) !important; border-color: rgba(201,168,76,0.20) !important; }
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+  background: rgba(46,22,80,0.90) !important;
+  color: #e8c97a !important;
+  border-color: rgba(201,168,76,0.35) !important;
+  border-bottom-color: transparent !important;
+}
+
+/* ══════════════════════════════════════════════
+   19. MODAL / JQUERY UI DIALOGS
+   ══════════════════════════════════════════════ */
+.ui-widget-content,
+.ui-dialog { background: rgba(46,22,80,0.97) !important; color: #f0e8ff !important; border: 1px solid rgba(201,168,76,0.35) !important; }
+.ui-widget-header { background: linear-gradient(135deg, #2e1650, #1a0a2e) !important; color: #e8c97a !important; border-bottom: 1px solid rgba(201,168,76,0.30) !important; }
+.ui-widget-overlay { background: rgba(26,10,46,0.85) !important; }
+.ui-state-active { border-color: #c9a84c !important; }
+
+/* Fancybox */
+.fancybox-skin { background: rgba(46,22,80,0.97) !important; border: 1px solid rgba(201,168,76,0.35) !important; border-radius: 10px !important; }
+.fancybox-title { color: #e8c97a !important; }
+
+/* ══════════════════════════════════════════════
+   20. MISCELLANEOUS
+   ══════════════════════════════════════════════ */
+hr { border: none !important; height: 1px !important; background: linear-gradient(90deg, transparent, #c9a84c, transparent) !important; opacity: 0.40 !important; margin: 16px 0 !important; }
+h1, h2, h3, h4, h5, h6 { font-family: 'Cinzel','Georgia',serif !important; color: #e8c97a !important; }
+strong, b { color: #f5e6b8 !important; }
+.text-muted, small { color: #b8a8d4 !important; }
+
+/* Alertify notifications */
+.alertify-log {
+  background: rgba(46,22,80,0.97) !important;
+  border: 1px solid rgba(201,168,76,0.35) !important;
+  border-radius: 8px !important;
+  color: #f0e8ff !important;
+}
+.alertify-log.alertify-log-success { border-color: #7de8b0 !important; color: #7de8b0 !important; }
+.alertify-log.alertify-log-error   { border-color: #ff6b8a !important; color: #ff6b8a !important; }
+
+/* ══════════════════════════════════════════════
+   21. RESPONSIVE
+   ══════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  nav.navbar.navbar-fixed-top { padding: 4px 8px !important; }
+  a.topnav-icon img { max-height: 36px !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
