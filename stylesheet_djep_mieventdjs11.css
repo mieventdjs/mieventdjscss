@@ -389,6 +389,25 @@ body.djep-body a#buttonShowWelcome {
 body.djep-body #djep-content table { width: 100% !important; border-collapse: collapse !important; }
 body.djep-body #djep-content td,
 body.djep-body #djep-content th { color: #f0e8ff !important; padding: 8px 10px !important; border-color: rgba(201,168,76,0.15) !important; }
+
+/* Music nav button table — restore natural sizing so icons display correctly */
+body.djep-body .djep-managemusicbox table,
+body.djep-body .djep-selectyourmusicbox table { width: auto !important; border-collapse: separate !important; }
+body.djep-body #djep-addsongsimage,
+body.djep-body #djep-musicrequestsimage,
+body.djep-body #djep-guestrequestsimage,
+body.djep-body #djep-specialsongsimage,
+body.djep-body #djep-printrequestsimage { width: auto !important; padding: 4px 8px !important; text-align: center !important; vertical-align: middle !important; }
+body.djep-body #djep-addsongsimage a,
+body.djep-body #djep-musicrequestsimage a,
+body.djep-body #djep-guestrequestsimage a,
+body.djep-body #djep-specialsongsimage a,
+body.djep-body #djep-printrequestsimage a { display: inline-block !important; color: #e8c97a !important; text-align: center !important; pointer-events: auto !important; cursor: pointer !important; }
+body.djep-body #djep-addsongsimage img,
+body.djep-body #djep-musicrequestsimage img,
+body.djep-body #djep-guestrequestsimage img,
+body.djep-body #djep-specialsongsimage img,
+body.djep-body #djep-printrequestsimage img { display: block !important; margin: 0 auto !important; max-width: 60px !important; }
 body.djep-body .djep-table-headers { background: rgba(94,58,138,0.50) !important; color: #e8c97a !important; }
 body.djep-body .djep-odd  { background: transparent !important; }
 body.djep-body .djep-even { background: rgba(94,58,138,0.15) !important; }
