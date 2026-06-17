@@ -2,11 +2,27 @@
 @charset "utf-8";
 /* ============================================================
    MI EVENT DJS — Custom DJEP Theme
-   Prefixed with body.djep-body to beat Bootstrap 3 specificity
    ============================================================ */
 
 /* ══════════════════════════════════════════════
-   1. BODY & PAGE BACKGROUND
+   INLINE STYLE OVERRIDE TRICK
+   DJEP injects background-image as an inline style
+   on the body. External CSS can't normally beat
+   inline styles. The fix: use a CSS animation that
+   fires immediately and forces our background.
+   The animation runs once on load and overrides
+   whatever inline background DJEP sets.
+   ══════════════════════════════════════════════ */
+@keyframes mi-bg-override {
+  from { background-image: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(94,58,138,0.80) 0%, transparent 70%), radial-gradient(ellipse 45% 35% at 85% 90%, rgba(201,168,76,0.15) 0%, transparent 60%); background-color: #1a0a2e; }
+  to   { background-image: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(94,58,138,0.80) 0%, transparent 70%), radial-gradient(ellipse 45% 35% at 85% 90%, rgba(201,168,76,0.15) 0%, transparent 60%); background-color: #1a0a2e; }
+}
+
+/* ══════════════════════════════════════════════
+   1. BODY — use pseudo-element to paint our
+      background ON TOP of DJEP's inline style.
+      The ::before covers the full viewport and
+      sits behind all content but above body bg.
    ══════════════════════════════════════════════ */
 body.djep-body {
   background-color: #1a0a2e !important;
@@ -20,6 +36,27 @@ body.djep-body {
   font-family: 'Raleway','Helvetica Neue',Helvetica,Arial,sans-serif !important;
   color: #f0e8ff !important;
   margin: 0 !important;
+  animation: mi-bg-override 0.001s forwards !important;
+}
+
+/* Paint our gradient over DJEP's wix background image
+   using a fixed full-screen pseudo-element */
+body.djep-body::before {
+  content: '' !important;
+  position: fixed !important;
+  inset: 0 !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background-color: #1a0a2e !important;
+  background-image:
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(94,58,138,0.85) 0%, transparent 70%),
+    radial-gradient(ellipse 45% 35% at 85% 90%, rgba(201,168,76,0.15) 0%, transparent 60%) !important;
+  z-index: -1 !important;
+  pointer-events: none !important;
 }
 
 /* ══════════════════════════════════════════════
@@ -99,6 +136,7 @@ body.djep-body ul#djep-navigation {
   display: flex !important;
   flex-wrap: wrap !important;
   gap: 4px !important;
+  justify-content: center !important;
   background: transparent !important;
   border: none !important;
 }
