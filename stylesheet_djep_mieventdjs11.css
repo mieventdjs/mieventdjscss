@@ -77,12 +77,45 @@ body.djep-body b { color: #f5e6b8 !important; font-weight: 600 !important; }
 
 /* ══════════════════════════════════════════════
    3. LINKS — beat Bootstrap a { color: #337ab7 }
+   Music result links are excluded so DJEP's
+   add-to-playlist click handlers remain intact.
    ══════════════════════════════════════════════ */
 body.djep-body a,
 body.djep-body a:link,
 body.djep-body a:visited { color: #c9a84c !important; text-decoration: none !important; }
 body.djep-body a:hover,
 body.djep-body a:focus   { color: #e8c97a !important; text-decoration: underline !important; }
+
+/* Restore music selection links so clients can add songs to their playlist */
+body.djep-body .djep-musicresultrow a,
+body.djep-body .djep-musicresultrow a:link,
+body.djep-body .djep-musicresultrow a:visited,
+body.djep-body .djep-musicresultrowmobile a,
+body.djep-body .djep-musicresultrowmobile a:link,
+body.djep-body .djep-musicresultrowmobile a:visited,
+body.djep-body .djep-databasebox a,
+body.djep-body .djep-databasebox a:link,
+body.djep-body .djep-databasebox a:visited,
+body.djep-body .djep-selectyourmusicbox a,
+body.djep-body .djep-selectyourmusicbox a:link,
+body.djep-body .djep-selectyourmusicbox a:visited,
+body.djep-body .djep-managemusicbox a,
+body.djep-body .djep-managemusicbox a:link,
+body.djep-body .djep-managemusicbox a:visited {
+  color: #e8c97a !important;
+  cursor: pointer !important;
+  pointer-events: auto !important;
+  text-decoration: none !important;
+}
+body.djep-body .djep-musicresultrow a:hover,
+body.djep-body .djep-musicresultrowmobile a:hover,
+body.djep-body .djep-databasebox a:hover,
+body.djep-body .djep-selectyourmusicbox a:hover,
+body.djep-body .djep-managemusicbox a:hover {
+  color: #c9a84c !important;
+  text-decoration: underline !important;
+  cursor: pointer !important;
+}
 
 /* ══════════════════════════════════════════════
    4. HEADINGS — beat Bootstrap h1-h6 { color: inherit }
