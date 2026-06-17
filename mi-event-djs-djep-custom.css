@@ -1,0 +1,957 @@
+/*
+╔══════════════════════════════════════════════════════════════════════╗
+║          MI EVENT DJS — DJ Event Planner Custom Theme CSS            ║
+║                    mieventdjs.com  |  mymieventdjs.com               ║
+╠══════════════════════════════════════════════════════════════════════╣
+║  HOW TO INSTALL:                                                     ║
+║  In your DJEP admin go to:                                           ║
+║    Setup → Themes → Custom CSS  (paste this file's contents)         ║
+║  OR host this file and link it from your DJEP theme settings.        ║
+║                                                                      ║
+║  COVERS:                                                             ║
+║    1. Global / Page Shell                                            ║
+║    2. Header & Logo                                                  ║
+║    3. Navigation Tabs                                                ║
+║    4. Section Panels & Cards                                         ║
+║    5. Typography & Links                                             ║
+║    6. Forms (all inputs, selects, textareas, labels)                 ║
+║    7. Buttons (formbutton + all submit/action buttons)               ║
+║    8. Tables (event details, song lists, timelines)                  ║
+║    9. Client Portal Logon Page                                       ║
+║   10. Contact / Request For Info Form (.djepcode)                    ║
+║   11. Guest Request System                                           ║
+║   12. Email Template Base                                            ║
+║   13. Alerts & Status Badges                                         ║
+║   14. Responsive / Mobile                                            ║
+╚══════════════════════════════════════════════════════════════════════╝
+*/
+
+/* ═══════════════════════════════════════════════════════════════
+   §0  BRAND TOKENS  (change these to retheme everything at once)
+   ═══════════════════════════════════════════════════════════════ */
+:root {
+  /* Palette */
+  --mi-plum-deep:    #1a0a2e;   /* page background                  */
+  --mi-plum-mid:     #2e1650;   /* cards / panels                   */
+  --mi-plum-light:   #5e3a8a;   /* borders, hover tints             */
+  --mi-plum-glass:   rgba(46, 22, 80, 0.82);
+  --mi-gold:         #c9a84c;   /* primary accent                   */
+  --mi-gold-light:   #e8c97a;   /* headings, labels                 */
+  --mi-gold-pale:    #f5e6b8;   /* text on dark                     */
+  --mi-gold-dim:     rgba(201, 168, 76, 0.25);
+
+  /* Text */
+  --mi-text-primary: #f0e8ff;
+  --mi-text-muted:   #b8a8d4;
+  --mi-text-dark:    #1a0a2e;   /* text on gold buttons             */
+
+  /* Status */
+  --mi-success:      #7de8b0;
+  --mi-warning:      #f0c060;
+  --mi-error:        #ff6b8a;
+  --mi-info:         #7eb8f0;
+
+  /* Dimensions */
+  --mi-radius:       10px;
+  --mi-radius-lg:    18px;
+  --mi-radius-pill:  50px;
+  --mi-shadow:       0 4px 24px rgba(0, 0, 0, 0.55);
+  --mi-shadow-lg:    0 8px 40px rgba(0, 0, 0, 0.65);
+  --mi-border:       1px solid var(--mi-gold-dim);
+
+  /* Fonts */
+  --mi-font-display: 'Cinzel', 'Georgia', serif;
+  --mi-font-body:    'Raleway', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Google Fonts import — include this at the top of any page that
+   doesn't already load these faces */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Raleway:wght@300;400;500;600&display=swap');
+
+
+/* ═══════════════════════════════════════════════════════════════
+   §1  GLOBAL PAGE SHELL
+   ═══════════════════════════════════════════════════════════════ */
+html,
+body {
+  background-color: var(--mi-plum-deep) !important;
+  background-image:
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(94,58,138,0.50) 0%, transparent 70%),
+    radial-gradient(ellipse 45% 35% at 85% 90%, rgba(201,168,76,0.10) 0%, transparent 60%) !important;
+  color: var(--mi-text-primary) !important;
+  font-family: var(--mi-font-body) !important;
+  font-size: 15px !important;
+  line-height: 1.6 !important;
+  min-height: 100vh !important;
+}
+
+/* Page wrapper DJEP injects */
+#wrapper,
+#page-wrapper,
+.page-wrapper,
+.container-fluid,
+.main-container {
+  background: transparent !important;
+  color: var(--mi-text-primary) !important;
+}
+
+/* Bootstrap container stays centered */
+.container {
+  max-width: 900px !important;
+}
+
+/* Horizontal rule */
+hr {
+  border: none !important;
+  height: 1px !important;
+  background: linear-gradient(90deg, transparent, var(--mi-gold), transparent) !important;
+  margin: 24px 0 !important;
+  opacity: 0.45 !important;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   §2  HEADER & LOGO
+   ═══════════════════════════════════════════════════════════════ */
+/* DJEP renders a top header band — make it match the brand */
+#cp-header,
+.cp-header,
+.portal-header,
+.site-header,
+div[id*="header"],
+div[class*="header"] {
+  background: linear-gradient(135deg, var(--mi-plum-deep) 0%, var(--mi-plum-mid) 100%) !important;
+  border-bottom: 2px solid var(--mi-gold-dim) !important;
+  padding: 18px 24px !important;
+  text-align: center !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5) !important;
+}
+
+/* Logo image */
+#cp-header img,
+.cp-header img,
+.portal-header img,
+.site-header img,
+.logo img,
+img[src*="logo"] {
+  max-height: 90px !important;
+  width: auto !important;
+}
+
+/* Page / section titles */
+h1, h2, h3 {
+  font-family: var(--mi-font-display) !important;
+  color: var(--mi-gold-light) !important;
+  letter-spacing: 0.06em !important;
+  margin-bottom: 12px !important;
+}
+h1 { font-size: clamp(1.4rem, 3vw, 1.9rem) !important; }
+h2 { font-size: clamp(1.15rem, 2.5vw, 1.5rem) !important; }
+h3 { font-size: clamp(1rem, 2vw, 1.2rem) !important; }
+
+/* DJEP "page title" bar — the black/coloured title stripe above sections */
+.djep-title,
+.cp-title,
+div[style*="background-color:#000000"],
+div[style*="background-color: #000000"],
+div[style*="background:#000"],
+div[style*="background: #000"] {
+  background: linear-gradient(135deg, var(--mi-plum-deep), var(--mi-plum-mid)) !important;
+  border-bottom: 1px solid var(--mi-gold-dim) !important;
+  color: var(--mi-gold-light) !important;
+  font-family: var(--mi-font-display) !important;
+  font-size: 0.9rem !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  padding: 12px 16px !important;
+  border-radius: var(--mi-radius) var(--mi-radius) 0 0 !important;
+}
+div[style*="background-color:#000000"] *,
+div[style*="background:#000"] * {
+  color: var(--mi-gold-light) !important;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   §3  NAVIGATION TABS
+   ═══════════════════════════════════════════════════════════════ */
+.nav-tabs,
+.nav-pills,
+ul.nav {
+  border-bottom: 1px solid var(--mi-gold-dim) !important;
+  background: var(--mi-plum-mid) !important;
+  border-radius: var(--mi-radius) var(--mi-radius) 0 0 !important;
+  padding: 0 12px !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 4px !important;
+}
+
+.nav-tabs > li > a,
+.nav-pills > li > a,
+ul.nav > li > a {
+  color: var(--mi-text-muted) !important;
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 3px solid transparent !important;
+  border-radius: 0 !important;
+  padding: 11px 18px !important;
+  font-family: var(--mi-font-body) !important;
+  font-size: 0.82rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  transition: color 0.2s, border-color 0.2s !important;
+  text-decoration: none !important;
+}
+
+.nav-tabs > li > a:hover,
+.nav-pills > li > a:hover,
+ul.nav > li > a:hover {
+  color: var(--mi-gold-light) !important;
+  border-bottom-color: var(--mi-gold-dim) !important;
+  background: rgba(201,168,76,0.06) !important;
+}
+
+.nav-tabs > li.active > a,
+.nav-pills > li.active > a,
+ul.nav > li.active > a,
+.nav-tabs > li > a.active,
+.nav-pills > li > a.active {
+  color: var(--mi-gold) !important;
+  border-bottom: 3px solid var(--mi-gold) !important;
+  background: transparent !important;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   §4  SECTION PANELS & CARDS
+   ═══════════════════════════════════════════════════════════════ */
+/* Main content panels — DJEP wraps sections in divs with inline
+   background-color:#F3F3F3 or similar light colours */
+.panel,
+.well,
+.card,
+.djep-panel,
+.djep-section,
+.tab-content,
+div[style*="background-color:#F3F3F3"],
+div[style*="background-color: #F3F3F3"],
+div[style*="background-color:#f3f3f3"],
+div[style*="background-color:#FFFFFF"],
+div[style*="background-color: #FFFFFF"],
+div[style*="background-color:#ffffff"],
+div[style*="background-color:#EEE"],
+div[style*="background-color:#eeeeee"] {
+  background: var(--mi-plum-mid) !important;
+  border: var(--mi-border) !important;
+  border-radius: var(--mi-radius) !important;
+  color: var(--mi-text-primary) !important;
+  padding: 20px 22px !important;
+  box-shadow: var(--mi-shadow) !important;
+}
+
+.panel-heading,
+.panel-title {
+  background: transparent !important;
+  color: var(--mi-gold-light) !important;
+  font-family: var(--mi-font-display) !important;
+  border-bottom: var(--mi-border) !important;
+  padding-bottom: 10px !important;
+  margin-bottom: 14px !important;
+}
+
+/* The main outer .djepcode wrapper */
+.djepcode {
+  background: transparent !important;
+  border: none !important;
+  font-family: var(--mi-font-body) !important;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   §5  TYPOGRAPHY & LINKS
+   ═══════════════════════════════════════════════════════════════ */
+p, span, li, td, th, label, div {
+  color: var(--mi-text-primary);   /* no !important — lets more specific rules win */
+}
+
+a,
+a:link,
+a:visited {
+  color: var(--mi-gold) !important;
+  text-decoration: none !important;
+  transition: color 0.2s, opacity 0.2s !important;
+}
+a:hover,
+a:focus {
+  color: var(--mi-gold-light) !important;
+  text-decoration: underline !important;
+  opacity: 0.9 !important;
+}
+
+/* Muted / secondary text */
+.text-muted,
+small,
+.help-block {
+  color: var(--mi-text-muted) !important;
+  font-size: 0.8rem !important;
+}
+
+/* Strong emphasis */
+strong, b {
+  color: var(--mi-gold-pale) !important;
+  font-weight: 600 !important;
+}
+
+/* Section divider labels (like "Your Information ──────") */
+.section-label,
+.form-section-title {
+  font-family: var(--mi-font-display) !important;
+  font-size: 0.65rem !important;
+  letter-spacing: 0.22em !important;
+  text-transform: uppercase !important;
+  color: var(--mi-gold) !important;
+  margin-bottom: 16px !important;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   §6  FORMS — inputs, selects, textareas, labels, groups
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Labels ── */
+label,
+.control-label,
+.col-sm-4 .padding-lr-5,
+.col-md-3 .padding-lr-5 {
+  font-family: var(--mi-font-body) !important;
+  font-size: 0.78rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.07em !important;
+  text-transform: uppercase !important;
+  color: var(--mi-gold-light) !important;
+  margin-bottom: 6px !important;
+  display: block !important;
+}
+
+/* ── Base input styling ── */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="password"],
+input[type="date"],
+input[type="time"],
+input[type="url"],
+input[type="search"],
+textarea,
+select,
+.form-control,
+.width90hack {
+  width: 100% !important;
+  max-width: 100% !important;
+  background-color: rgba(26, 10, 46, 0.65) !important;
+  border: 1px solid rgba(201, 168, 76, 0.28) !important;
+  border-radius: var(--mi-radius) !important;
+  color: var(--mi-text-primary) !important;
+  font-family: var(--mi-font-body) !important;
+  font-size: 0.92rem !important;
+  font-weight: 400 !important;
+  padding: 11px 14px !important;
+  outline: none !important;
+  box-shadow: none !important;
+  transition: border-color 0.22s, box-shadow 0.22s, background-color 0.22s !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  height: auto !important;
+  line-height: 1.5 !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(184, 168, 212, 0.50) !important;
+}
+
+/* ── Focus state ── */
+input:focus,
+textarea:focus,
+select:focus,
+.form-control:focus {
+  border-color: var(--mi-gold) !important;
+  background-color: rgba(26, 10, 46, 0.88) !important;
+  box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.18), 0 2px 10px rgba(0,0,0,0.30) !important;
+  outline: none !important;
+}
+
+/* ── Select custom arrow ── */
+select,
+select.form-control {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c9a84c' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 14px center !important;
+  padding-right: 38px !important;
+  cursor: pointer !important;
+}
+select option {
+  background-color: var(--mi-plum-deep) !important;
+  color: var(--mi-text-primary) !important;
+}
+
+/* ── Textarea ── */
+textarea,
+textarea.form-control {
+  resize: vertical !important;
+  min-height: 110px !important;
+  line-height: 1.6 !important;
+}
+
+/* ── Form group / row spacing ── */
+.form-group,
+.form-row {
+  margin-bottom: 18px !important;
+}
+
+/* ── Checkbox & radio ── */
+input[type="checkbox"],
+input[type="radio"] {
+  width: 18px !important;
+  height: 18px !important;
+  min-width: 18px !important;
+  padding: 0 !important;
+  border: 2px solid var(--mi-gold) !important;
+  border-radius: 4px !important;
+  background: transparent !important;
+  accent-color: var(--mi-gold) !important;
+  cursor: pointer !important;
+  vertical-align: middle !important;
+  margin-right: 8px !important;
+}
+
+/* Inline label next to checkbox */
+input[type="checkbox"] + label,
+input[type="radio"] + label {
+  text-transform: none !important;
+  font-size: 0.85rem !important;
+  font-weight: 400 !important;
+  letter-spacing: 0 !important;
+  vertical-align: middle !important;
+}
+
+/* ── Validation / error states ── */
+.has-error .form-control,
+input.invalid,
+.field-error {
+  border-color: var(--mi-error) !important;
+  box-shadow: 0 0 0 3px rgba(255, 107, 138, 0.15) !important;
+}
+.has-error label,
+.error-message,
+.field-error-msg,
+.help-block.text-danger {
+  color: var(--mi-error) !important;
+}
+.has-success .form-control {
+  border-color: var(--mi-success) !important;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   §7  BUTTONS
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Primary action — submit / save / confirm ── */
+button[type="submit"],
+input[type="submit"],
+.formbutton,
+.btn-primary,
+.btn-success,
+.djep-btn-primary,
+a.btn-primary,
+a.btn-success {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: linear-gradient(135deg, var(--mi-gold) 0%, #a87830 100%) !important;
+  color: var(--mi-text-dark) !important;
+  font-family: var(--mi-font-display) !important;
+  font-size: 0.82rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  border: none !important;
+  border-radius: var(--mi-radius-pill) !important;
+  padding: 11px 32px !important;
+  margin: 4px !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  transition: transform 0.18s, box-shadow 0.18s, filter 0.18s !important;
+  box-shadow: 0 4px 18px rgba(201,168,76,0.35), 0 2px 6px rgba(0,0,0,0.40) !important;
+  white-space: nowrap !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+}
+button[type="submit"]:hover,
+input[type="submit"]:hover,
+.formbutton:hover,
+.btn-primary:hover,
+.btn-success:hover,
+a.btn-primary:hover,
+a.btn-success:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 28px rgba(201,168,76,0.50), 0 4px 10px rgba(0,0,0,0.40) !important;
+  filter: brightness(1.08) !important;
+  color: var(--mi-text-dark) !important;
+  text-decoration: none !important;
+}
+button[type="submit"]:active,
+input[type="submit"]:active,
+.formbutton:active {
+  transform: translateY(0) !important;
+}
+
+/* ── Secondary / outline button ── */
+.btn-default,
+.btn-secondary,
+.btn-info,
+a.btn-default,
+a.btn-secondary {
+  background: transparent !important;
+  border: 1px solid var(--mi-gold-dim) !important;
+  color: var(--mi-gold-light) !important;
+  font-family: var(--mi-font-body) !important;
+  font-size: 0.82rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.08em !important;
+  border-radius: var(--mi-radius-pill) !important;
+  padding: 9px 24px !important;
+  margin: 4px !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  transition: background 0.2s, border-color 0.2s, color 0.2s !important;
+  -webkit-appearance: none !important;
+}
+.btn-default:hover,
+.btn-secondary:hover,
+.btn-info:hover,
+a.btn-default:hover {
+  background: rgba(201,168,76,0.12) !important;
+  border-color: var(--mi-gold) !important;
+  color: var(--mi-gold) !important;
+  text-decoration: none !important;
+}
+
+/* ── Danger button ── */
+.btn-danger,
+a.btn-danger {
+  background: linear-gradient(135deg, #a83030, #7a1818) !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: var(--mi-radius-pill) !important;
+  padding: 9px 24px !important;
+  font-size: 0.82rem !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   §8  TABLES (event details, music lists, timelines, payments)
+   ═══════════════════════════════════════════════════════════════ */
+table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  font-size: 0.88rem !important;
+  margin-bottom: 16px !important;
+}
+
+thead, thead tr, thead th {
+  background: linear-gradient(135deg, var(--mi-plum-mid), var(--mi-plum-deep)) !important;
+  color: var(--mi-gold-light) !important;
+  font-family: var(--mi-font-display) !important;
+  font-size: 0.72rem !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  border-bottom: 1px solid var(--mi-gold-dim) !important;
+  padding: 10px 12px !important;
+  white-space: nowrap !important;
+}
+
+tbody tr {
+  background: transparent !important;
+  border-bottom: 1px solid rgba(201,168,76,0.10) !important;
+  transition: background 0.15s !important;
+}
+tbody tr:nth-child(even) {
+  background: rgba(94,58,138,0.15) !important;
+}
+tbody tr:hover {
+  background: rgba(201,168,76,0.07) !important;
+}
+
+td, th {
+  padding: 10px 12px !important;
+  color: var(--mi-text-primary) !important;
+  vertical-align: middle !important;
+  border: none !important;
+}
+
+/* Table with border style override */
+table[border],
+table.table-bordered {
+  border: var(--mi-border) !important;
+}
+table.table-bordered td,
+table.table-bordered th {
+  border: 1px solid rgba(201,168,76,0.12) !important;
+}
+
+/* Striped helper */
+.table-striped tbody tr:nth-of-type(odd) {
+  background: rgba(94,58,138,0.15) !important;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   §9  CLIENT PORTAL LOGON PAGE
+   ═══════════════════════════════════════════════════════════════ */
+
+/* The logon page wraps everything in a centered table/div */
+body.logon-page,
+body[id*="logon"],
+body[class*="logon"] {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Logon box */
+.logon-box,
+#logon-box,
+.login-box,
+#login-box,
+form[name="logonform"],
+form[action*="logon"],
+form[action*="clientlogon"] {
+  background: var(--mi-plum-mid) !important;
+  border: var(--mi-border) !important;
+  border-radius: var(--mi-radius-lg) !important;
+  padding: 36px 40px !important;
+  box-shadow: var(--mi-shadow-lg) !important;
+  max-width: 400px !important;
+  width: 100% !important;
+  margin: 40px auto !important;
+}
+
+/* "Site Logon" heading in the logon form */
+form[action*="clientlogon"] b,
+form[action*="logon"] b,
+.logon-title {
+  display: block !important;
+  font-family: var(--mi-font-display) !important;
+  font-size: 1rem !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  color: var(--mi-gold-light) !important;
+  text-align: center !important;
+  margin-bottom: 20px !important;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   §10  CONTACT / REQUEST FOR INFO FORM  (.djepcode embed)
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Outer wrapper — override inline grey */
+.djepcode,
+.djepcode > div {
+  background: transparent !important;
+  color: var(--mi-text-primary) !important;
+}
+
+/* Hide the default black "Contact Us" title bar
+   (replaced by the page-level heading) */
+.djepcode > div:first-child[style*="background-color:#000000"],
+.djepcode > div:first-child[style*="background:#000"] {
+  display: none !important;
+}
+
+/* The inner form body pane */
+.djepcode > div + div,
+.djepcode .djep-inner {
+  background: var(--mi-plum-mid) !important;
+  border: var(--mi-border) !important;
+  border-radius: 0 0 var(--mi-radius) var(--mi-radius) !important;
+  padding: 22px !important;
+}
+
+/* Label columns — override Bootstrap float layout */
+.djepcode .col-sm-4,
+.djepcode .col-md-3 {
+  float: none !important;
+  width: auto !important;
+  padding: 0 !important;
+}
+.djepcode .col-sm-4 .padding-lr-5,
+.djepcode .col-md-3 .padding-lr-5,
+.djepcode .padding-tb-7 {
+  padding: 0 !important;
+  margin-bottom: 6px !important;
+}
+
+/* Input columns */
+.djepcode .col-sm-8,
+.djepcode .col-md-9 {
+  float: none !important;
+  width: 100% !important;
+  padding: 0 !important;
+}
+
+/* Hide Bootstrap clearfix and zero-height spacers */
+.djepcode .cf,
+.djepcode div[style*="height:0px"],
+.djepcode div[style*="height: 0px"] {
+  display: none !important;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   §11  GUEST REQUEST SYSTEM
+   ═══════════════════════════════════════════════════════════════ */
+/* Guest request shares the portal CSS — the overrides above
+   cover it automatically. Extra specifics below: */
+
+/* Song request list items */
+.song-item,
+.request-item,
+tr.song-row {
+  background: rgba(94,58,138,0.12) !important;
+  border-left: 3px solid var(--mi-gold-dim) !important;
+  transition: border-color 0.2s !important;
+}
+.song-item:hover,
+.request-item:hover,
+tr.song-row:hover {
+  border-left-color: var(--mi-gold) !important;
+}
+
+/* "Do Not Play" badge */
+.dnp-badge,
+.badge-dnp,
+span[class*="dnp"] {
+  background: rgba(255,107,138,0.2) !important;
+  color: var(--mi-error) !important;
+  border: 1px solid rgba(255,107,138,0.35) !important;
+  border-radius: 4px !important;
+  font-size: 0.7rem !important;
+  padding: 2px 7px !important;
+}
+
+/* Search box within music request */
+.music-search input,
+#song-search {
+  background: rgba(26,10,46,0.80) !important;
+  border: 1px solid var(--mi-gold-dim) !important;
+  color: var(--mi-text-primary) !important;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   §12  EMAIL TEMPLATE BASE
+   (Paste the block below into DJEP's HTML email editor header)
+   ═══════════════════════════════════════════════════════════════ */
+/*
+  NOTE: Email clients strip <style> blocks, so the rules below
+  target the inline-friendly class names DJEP uses. For best
+  results, in DJEP go to:
+    Emails → Templates → Edit → HTML Source
+  and add  style="..."  attributes directly, OR wrap content
+  in a table with the classes below and reference this sheet
+  via the DJEP "CSS file URL" field.
+*/
+
+/* Email wrapper table */
+table.email-wrapper,
+#email-wrapper {
+  background-color: #1a0a2e !important;
+  width: 100% !important;
+  max-width: 620px !important;
+  margin: 0 auto !important;
+  border-radius: 14px !important;
+  overflow: hidden !important;
+  font-family: 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+/* Email header band */
+.email-header,
+td.email-header {
+  background: linear-gradient(135deg, #1a0a2e 0%, #2e1650 100%) !important;
+  padding: 28px 32px !important;
+  text-align: center !important;
+  border-bottom: 2px solid rgba(201,168,76,0.3) !important;
+}
+.email-header img {
+  max-height: 80px !important;
+  width: auto !important;
+}
+
+/* Email body */
+.email-body,
+td.email-body {
+  background-color: #2e1650 !important;
+  padding: 28px 32px !important;
+  color: #f0e8ff !important;
+  font-size: 15px !important;
+  line-height: 1.7 !important;
+}
+
+/* Email heading */
+.email-body h2 {
+  color: #e8c97a !important;
+  font-size: 1.25rem !important;
+  margin-bottom: 12px !important;
+}
+
+/* Email CTA button (inline style recommended for email clients) */
+.email-btn,
+a.email-btn {
+  display: inline-block !important;
+  background: linear-gradient(135deg, #c9a84c 0%, #a87830 100%) !important;
+  color: #1a0a2e !important;
+  font-weight: 700 !important;
+  font-size: 0.85rem !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+  padding: 12px 32px !important;
+  border-radius: 50px !important;
+  margin: 16px 0 !important;
+}
+
+/* Email footer */
+.email-footer,
+td.email-footer {
+  background-color: #1a0a2e !important;
+  padding: 18px 32px !important;
+  text-align: center !important;
+  font-size: 0.78rem !important;
+  color: #b8a8d4 !important;
+  border-top: 1px solid rgba(201,168,76,0.2) !important;
+}
+.email-footer a {
+  color: #c9a84c !important;
+  text-decoration: none !important;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   §13  ALERTS & STATUS BADGES
+   ═══════════════════════════════════════════════════════════════ */
+.alert,
+.alert-box,
+div[class*="alert"] {
+  border-radius: var(--mi-radius) !important;
+  border: none !important;
+  padding: 12px 16px !important;
+  font-size: 0.88rem !important;
+  margin-bottom: 14px !important;
+}
+
+.alert-success, .alert-green  { background: rgba(125,232,176,0.15) !important; color: var(--mi-success) !important; border-left: 4px solid var(--mi-success) !important; }
+.alert-warning, .alert-yellow { background: rgba(240,192,96,0.15) !important;  color: var(--mi-warning) !important; border-left: 4px solid var(--mi-warning) !important; }
+.alert-danger,  .alert-red    { background: rgba(255,107,138,0.15) !important; color: var(--mi-error) !important;   border-left: 4px solid var(--mi-error) !important; }
+.alert-info,    .alert-blue   { background: rgba(126,184,240,0.15) !important; color: var(--mi-info) !important;    border-left: 4px solid var(--mi-info) !important; }
+
+/* Status badges / labels */
+.badge,
+.label,
+span.status {
+  border-radius: 50px !important;
+  padding: 3px 10px !important;
+  font-size: 0.7rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+}
+.badge-default, .label-default { background: rgba(201,168,76,0.20) !important; color: var(--mi-gold-light) !important; }
+.badge-success, .label-success { background: rgba(125,232,176,0.20) !important; color: var(--mi-success) !important; }
+.badge-danger,  .label-danger  { background: rgba(255,107,138,0.20) !important; color: var(--mi-error) !important; }
+.badge-warning, .label-warning { background: rgba(240,192,96,0.20) !important;  color: var(--mi-warning) !important; }
+.badge-info,    .label-info    { background: rgba(126,184,240,0.20) !important; color: var(--mi-info) !important; }
+
+
+/* ═══════════════════════════════════════════════════════════════
+   §14  RESPONSIVE / MOBILE
+   ═══════════════════════════════════════════════════════════════ */
+@media (max-width: 767px) {
+
+  /* Stack form labels above inputs (override Bootstrap cols) */
+  .djepcode .col-sm-4,
+  .djepcode .col-sm-8,
+  .djepcode .col-md-3,
+  .djepcode .col-md-9,
+  .form-group .col-sm-4,
+  .form-group .col-sm-8,
+  .form-group .col-md-3,
+  .form-group .col-md-9 {
+    float: none !important;
+    width: 100% !important;
+    display: block !important;
+  }
+
+  /* Full-width inputs on mobile */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="date"],
+  textarea,
+  select,
+  .form-control {
+    width: 100% !important;
+  }
+
+  /* Nav tabs scroll horizontally on small screens */
+  .nav-tabs,
+  ul.nav {
+    overflow-x: auto !important;
+    flex-wrap: nowrap !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  /* Tables scroll rather than overflow */
+  .table-responsive,
+  table {
+    display: block !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  /* Logon box padding */
+  form[action*="clientlogon"],
+  .logon-box {
+    padding: 24px 18px !important;
+    margin: 20px 12px !important;
+  }
+
+  h1 { font-size: 1.3rem !important; }
+  h2 { font-size: 1.1rem !important; }
+}
+
+@media (max-width: 480px) {
+  button[type="submit"],
+  .formbutton,
+  .btn-primary {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+}
+
+/* ── Respect user motion preferences ── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
