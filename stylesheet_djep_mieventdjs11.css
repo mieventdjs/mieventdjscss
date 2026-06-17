@@ -1,0 +1,1680 @@
+@import url(https://djep21.com/clients/includes/stylesheet_updates.css);
+@import url(https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Raleway:wght@300;400;500;600&display=swap);
+@charset "utf-8";
+/* ============================================================
+   MI EVENT DJS — Custom DJEP Theme
+   mieventdjs.com | Plum / Gold Brand
+   Based on Default Style Version 14102013.1937
+   ============================================================ */
+
+/* ── Brand tokens ── */
+:root {
+  --mi-plum-deep:   #1a0a2e;
+  --mi-plum-mid:    #2e1650;
+  --mi-plum-light:  #5e3a8a;
+  --mi-gold:        #c9a84c;
+  --mi-gold-light:  #e8c97a;
+  --mi-gold-pale:   #f5e6b8;
+  --mi-gold-dim:    rgba(201,168,76,0.28);
+  --mi-text:        #f0e8ff;
+  --mi-text-muted:  #b8a8d4;
+  --mi-border:      1px solid rgba(201,168,76,0.28);
+  --mi-radius:      8px;
+  --mi-shadow:      0 4px 24px rgba(0,0,0,0.55);
+  --mi-font:        'Raleway','Helvetica Neue',Helvetica,Arial,sans-serif;
+  --mi-font-display:'Cinzel','Georgia',serif;
+  --mi-success-bg:  rgba(125,232,176,0.15);
+  --mi-success-fg:  #7de8b0;
+  --mi-warn-bg:     rgba(240,192,96,0.18);
+  --mi-warn-fg:     #f0c060;
+  --mi-error-bg:    rgba(255,107,138,0.15);
+  --mi-error-fg:    #ff6b8a;
+  --mi-info-bg:     rgba(126,184,240,0.15);
+  --mi-info-fg:     #7eb8f0;
+}
+
+* { outline: none; }
+
+html {
+  overflow-y: scroll;
+  text-decoration: none;
+}
+
+/* ── Global links ── */
+a {
+  color: var(--mi-gold);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--mi-gold-light);
+  text-decoration: underline;
+}
+
+.djep-cursorpointer { cursor: pointer; }
+
+/* ── Additional Body Structures ── */
+.djep-othereventcontainer { text-align: right; }
+
+/* Financial row highlights — keep readable on dark bg */
+.djep-balanceduerow {
+  background-color: rgba(240,192,96,0.20) !important;
+  color: var(--mi-gold-light);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.djep-balancepaidrow {
+  background-color: rgba(125,232,176,0.18) !important;
+  color: var(--mi-success-fg);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.djep-totalfeerow {
+  background-color: rgba(126,184,240,0.18) !important;
+  color: var(--mi-info-fg);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.djep-totaldepositrow {
+  background-color: rgba(255,107,138,0.18) !important;
+  color: var(--mi-error-fg);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.djep-totalfeerow span {
+  background-color: rgba(126,184,240,0.18) !important;
+  color: var(--mi-info-fg);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.djep-esigned {
+  background-image: url(https://djep21.com/clients/images/padlock_closed.png);
+  background-size: 12px;
+  background-repeat: no-repeat;
+  background-position: 5px 5px;
+  text-indent: 25px;
+}
+
+#edit_special_song_type_helper_div { max-width: 275px; }
+#special_song_type_id { max-width: 100%; }
+#welcomeHTML { display: hidden; }
+
+.djep-planningformsbox table tbody tr,
+.djep-timelinebox table tbody tr,
+.djep-ourcontactinfobox table tbody tr { vertical-align: middle; }
+
+tr { vertical-align: middle; }
+
+select.djep-printbox { max-width: 280px; }
+#upcomingeventid { display: none; }
+
+.djep-viewplanningformdiv {
+  width: 98%;
+  height: 400px;
+  border: 1px solid rgba(201,168,76,0.3);
+  overflow: auto;
+}
+
+#djep-content {
+  max-width: 800px !important;
+  width: auto !important;
+}
+
+/* ── Main Body ── */
+body {
+  background-color: var(--mi-plum-deep);
+  background-image:
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(94,58,138,0.50) 0%, transparent 70%),
+    radial-gradient(ellipse 45% 35% at 85% 90%, rgba(201,168,76,0.10) 0%, transparent 60%);
+  background-attachment: fixed;
+  background-position: 50% 0;
+  background-size: cover;
+}
+body.djep-body {
+  padding: 0;
+  width: 100%;
+  height: auto !important;
+  height: 100%;
+  min-height: 100%;
+  color: var(--mi-text);
+  background-repeat: no-repeat;
+  background-position: top left;
+  font-family: var(--mi-font);
+  font-size: 13px;
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+#djep-page {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  height: auto !important;
+}
+#djep-guestrequestpage {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  height: auto !important;
+}
+
+body.djep-body[style*="background-color:"] {
+  background-color: var(--mi-plum-deep);
+}
+
+/* ── Header ── */
+#djep-header {
+  text-align: center;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background: linear-gradient(135deg, var(--mi-plum-deep) 0%, var(--mi-plum-mid) 100%);
+  border-bottom: 2px solid var(--mi-gold-dim);
+  padding: 16px 0;
+}
+
+/* ── Main content panel ── */
+#djep-content {
+  border: 0;
+  padding: 0 10px;
+  text-align: left;
+  margin: 0 auto;
+  width: 818px; /* VERY IMPORTANT - DNE */
+  box-shadow: var(--mi-shadow);
+  background: rgba(46,22,80,0.88); /* VERY IMPORTANT - DNE */
+  overflow: hidden;
+  border-radius: 0 0 var(--mi-radius) var(--mi-radius);
+}
+#djep-guestrequestcontent {
+  border: 0;
+  padding: 0 10px;
+  text-align: left;
+  margin: 0 auto;
+  width: 818px; /* VERY IMPORTANT - DNE */
+  border-radius: var(--mi-radius);
+  box-shadow: var(--mi-shadow);
+  background: rgba(46,22,80,0.88); /* VERY IMPORTANT - DNE */
+  overflow: hidden;
+}
+
+#djep-countdownclock {}
+
+/* ── Navigation Bar ── */
+#djep-navbar {
+  margin: 5px auto;
+  width: 850px;
+  height: 60px;
+}
+ul#djep-navigation {
+  padding: 0 10px;
+  width: 100%;
+  margin: 0 -5px 5px -5px;
+  list-style: none;
+  color: var(--mi-text-muted);
+}
+ul#djep-navigation li {
+  width: 156px;
+  height: 45px;
+  float: left;
+  padding: 5px;
+  margin: 1px;
+  background: rgba(46,22,80,0.90);
+  border: 1px solid var(--mi-gold-dim);
+  border-radius: 4px;
+  position: relative;
+  list-style: none;
+  text-align: center;
+  text-indent: -15px;
+  transition: background 0.2s, border-color 0.2s;
+}
+#djep-navigation a {
+  width: 100%;
+  height: 100%;
+  line-height: 45px;
+  display: block;
+  color: var(--mi-text-muted);
+  font-size: 13px;
+  cursor: pointer;
+  font-family: var(--mi-font);
+  transition: color 0.2s;
+}
+#djep-navigation li:nth-child(1) a:before {
+  content: url(../images/aquaglass/home.png);
+  margin: 3px 10px;
+  display: inline-table;
+}
+#djep-navigation li:nth-child(2) a:before {
+  content: url(../images/aquaglass/date.png);
+  margin: 3px 10px;
+  display: inline-table;
+}
+#djep-navigation li:nth-child(3) a:before {
+  content: url(../images/aquaglass/contact.png);
+  margin: 3px 10px;
+  display: inline-table;
+}
+#djep-navigation li:nth-child(4) a:before {
+  content: url(../images/aquaglass/kcall.png);
+  margin: 3px 10px;
+  display: inline-table;
+}
+#djep-navigation li:nth-child(5) a:before {
+  content: url(../images/aquaglass/login.png);
+  margin: 3px 10px;
+  display: inline-table;
+}
+ul#djep-navigation li.selected {}
+ul#djep-navigation li a:link,
+ul#djep-navigation li a:visited {}
+ul#djep-navigation li a:hover {
+  background: rgba(201,168,76,0.15);
+  color: var(--mi-gold-light);
+  border-radius: 3px;
+}
+ul#djep-navigation li.selected a:link,
+ul#djep-navigation li.selected a:visited {
+  color: var(--mi-gold);
+  background: rgba(201,168,76,0.12);
+}
+
+/* ── Main Typography ── */
+h1.djep-h1 {
+  font-family: var(--mi-font-display);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 28px;
+  color: var(--mi-gold-light);
+  margin: 21px 0;
+  letter-spacing: 0.06em;
+}
+h2.djep-h2 {
+  font-family: var(--mi-font-display);
+  font-size: 22px;
+  color: var(--mi-gold);
+  margin: 21px 0 10px;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}
+#page_planmyevent h2.djep-h2,
+.payment_page_div h2.djep-h2,
+form[name="ep_form"] h2 {
+  margin-bottom: 30px !important;
+}
+h3.djep-h3 {
+  font-family: var(--mi-font-display);
+  font-size: 16px;
+  color: var(--mi-text-muted);
+  letter-spacing: 0.04em;
+}
+p.djep-p-standard { font-size: 15px; }
+p {}
+
+/* ── Section Title Bars ── */
+.djep-titlebar {
+  font-family: var(--mi-font-display);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.5em;
+  color: var(--mi-gold-light);
+  margin: 25px 0 21px;
+  padding: 11px 0 11px 17px !important;
+  letter-spacing: 0.07em;
+}
+.djep-titlebarsmall {
+  font-family: var(--mi-font-display);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--mi-gold-light);
+  margin: 25px 0 21px;
+}
+.djep-titlebarsmaller {
+  display: block;
+  width: 80%;
+  clear: both;
+  background-color: rgba(94,58,138,0.30);
+  border-color: var(--mi-gold-dim);
+  border-style: solid;
+  border-width: 1px 0;
+  font-weight: 500;
+  margin: 10px auto;
+  padding: 11px 17px;
+  font-size: 14px;
+  color: var(--mi-gold-light);
+}
+.djep-titlebarsmallalert {
+  display: block;
+  width: 90%;
+  clear: both;
+  background-color: var(--mi-error-bg);
+  border-color: var(--mi-error-fg);
+  border-style: solid;
+  border-width: 2px;
+  font-weight: 500;
+  margin: 10px auto;
+  padding: 11px 17px;
+  font-size: 14px;
+  color: var(--mi-error-fg);
+}
+.djep-titlebarconfirm {
+  display: block;
+  width: 90%;
+  clear: both;
+  background-color: var(--mi-success-bg);
+  border-color: var(--mi-success-fg);
+  border-style: solid;
+  border-width: 1px 0;
+  font-weight: 500;
+  margin: 10px auto 10px;
+  padding: 11px 2px;
+  font-size: 14px;
+  color: var(--mi-success-fg);
+}
+.djep-titlebarmusicconfirm {
+  display: block;
+  width: 90%;
+  clear: both;
+  background-color: var(--mi-success-bg);
+  background-image: none;
+  border-color: var(--mi-success-fg);
+  border-style: solid;
+  border-width: 1px 0;
+  font-weight: 500;
+  margin: 20px auto -10px;
+  padding: 11px 2px;
+  font-size: 14px;
+  color: var(--mi-success-fg);
+}
+.djep-songrequesttotals {
+  display: block;
+  width: 95%;
+  clear: both;
+  background-color: rgba(201,168,76,0.10);
+  border-color: var(--mi-gold-dim);
+  border-style: solid;
+  border-width: 1px;
+  font-weight: normal;
+  margin: 20px auto;
+  padding: 3px;
+  font-size: 12px;
+  color: var(--mi-gold-light);
+}
+.djep-titlebarnotices {
+  display: block;
+  width: 90%;
+  clear: both;
+  background-color: rgba(201,168,76,0.12);
+  border-color: var(--mi-gold-dim);
+  border-style: solid;
+  border-width: 2px;
+  font-weight: 500;
+  margin: 20px auto;
+  padding: 11px 17px;
+  font-size: 14px;
+  color: var(--mi-gold-light);
+}
+.djep-titlebarlockout {
+  display: block;
+  width: 80%;
+  clear: both;
+  background-color: var(--mi-error-bg);
+  border-color: var(--mi-error-fg);
+  border-style: solid;
+  border-width: 2px;
+  font-weight: 500;
+  margin: 0 auto;
+  padding: 11px 17px;
+  font-size: 20px;
+  color: var(--mi-error-fg);
+  text-align: center;
+}
+
+/* ── Clearing and Spacing ── */
+.djep-cleared {
+  display: block;
+  clear: both;
+  float: none;
+  margin: 5px 0 0;
+  padding: 5px 0 0;
+  border: none;
+  font-size: 0;
+  height: 0;
+  overflow: hidden;
+}
+.djep-faqcleared {
+  display: block;
+  clear: both;
+  float: none;
+  margin: 22px 0 0;
+  padding: 22px 0 0;
+  border: none;
+  font-size: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+/* ── System Input Styles ── */
+#djep-form-div {
+  background-color: rgba(46,22,80,0.60);
+  padding: 15px;
+}
+#djep-wrapper {
+  margin: 10px auto;
+  width: 500px;
+}
+input.djep-input,
+select.djep-select,
+textarea.djep-textarea {
+  vertical-align: middle;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  background-color: rgba(26,10,46,0.65);
+  border: 1px solid var(--mi-gold-dim);
+  border-radius: var(--mi-radius);
+  color: var(--mi-text);
+  font-family: var(--mi-font);
+  padding: 8px 12px;
+}
+input.djep-widgetaction {
+  box-shadow: 0 0 4px rgba(201,168,76,0.30);
+  background: rgba(201,168,76,0.15);
+  border: 2px solid var(--mi-gold-dim);
+  display: inline-block;
+  color: var(--mi-text);
+  font-family: var(--mi-font);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 8px;
+  margin-top: -3px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: var(--mi-radius);
+  transition: background 0.2s;
+}
+.djep-widgetaction:hover {
+  background-color: rgba(201,168,76,0.30);
+  color: var(--mi-gold-light);
+}
+textarea.djep-textarea {
+  padding: 8px;
+  border: 1px solid var(--mi-gold-dim);
+  font: normal 13px var(--mi-font);
+  width: 90%;
+  background-color: rgba(26,10,46,0.65);
+  color: var(--mi-text);
+  border-radius: var(--mi-radius);
+}
+.djep-textarea_notes {
+  width: 95%;
+  max-width: 400px;
+  height: 195px;
+  line-height: 150%;
+}
+.djep-textarea_todo {
+  width: 95%;
+  max-width: 400px;
+  height: 70px;
+  line-height: 150%;
+}
+.djep-form label {
+  margin-left: 10px;
+  font-size: 14px;
+  color: var(--mi-gold-light);
+  padding: 9px 15px;
+  font-family: var(--mi-font);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+.djep-submit input {
+  width: 50px;
+  padding: 9px 15px;
+  background: linear-gradient(135deg, var(--mi-gold) 0%, #a87830 100%);
+  font-size: 14px;
+  color: var(--mi-plum-deep);
+  cursor: pointer;
+  border: none;
+  border-radius: 50px;
+  font-weight: 700;
+}
+
+/* ── FAQ Accordion ── */
+#djep-accordianwrapper {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  height: auto !important;
+}
+.djep-accordianbuttonimage {
+  float: left;
+  padding-right: 15px;
+  padding-left: 5px;
+}
+.djep-accordianbuttonimageright {
+  float: right;
+  padding-right: 15px;
+  padding-left: 5px;
+}
+.djep-accordionContent {
+  width: 95%;
+  float: left;
+  background: transparent !important;
+  display: none;
+  padding: 8px 6px 25px;
+  margin-top: -8px;
+  color: var(--mi-text);
+}
+.djep-accordionButton {
+  width: 95%;
+  float: left;
+  margin: 8px 0;
+  padding: 5px 10px;
+  background-color: rgba(94,58,138,0.35);
+  border: 1px solid var(--mi-gold-dim);
+  border-radius: var(--mi-radius);
+  color: var(--mi-text);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.djep-accordionButton:hover {
+  background-color: rgba(94,58,138,0.55);
+}
+
+/* ── Playlist Box Titles ── */
+.djep-playlistboxmustplaytitle {
+  background: linear-gradient(135deg, rgba(125,232,176,0.30), rgba(125,232,176,0.15));
+  height: 35px;
+  margin-top: 8px;
+  font-weight: 400;
+  border: 1px solid rgba(125,232,176,0.40) !important;
+  color: var(--mi-success-fg);
+}
+.djep-playlistboxplayifposstitle {
+  background: linear-gradient(135deg, rgba(240,192,96,0.30), rgba(240,192,96,0.15));
+  height: 35px;
+  margin-top: 8px;
+  font-weight: 400;
+  border: 1px solid rgba(240,192,96,0.40) !important;
+  color: var(--mi-warn-fg);
+}
+.djep-playlistboxdedicationstitle {
+  background: linear-gradient(135deg, rgba(126,184,240,0.30), rgba(126,184,240,0.15));
+  height: 35px;
+  margin-top: 8px;
+  font-weight: 400;
+  border: 1px solid rgba(126,184,240,0.40) !important;
+  color: var(--mi-info-fg);
+}
+.djep-playlistboxonlyrequesttitle {
+  background: linear-gradient(135deg, rgba(201,168,76,0.30), rgba(94,58,138,0.30));
+  height: 35px;
+  margin-top: 8px;
+  font-weight: 400;
+  border: 1px solid var(--mi-gold-dim) !important;
+  color: var(--mi-gold-light);
+}
+.djep-playlistboxdoesnotplaytitle {
+  background: linear-gradient(135deg, rgba(255,107,138,0.30), rgba(255,107,138,0.15));
+  height: 35px;
+  margin-top: 8px;
+  font-weight: 400;
+  border: 1px solid rgba(255,107,138,0.40) !important;
+  color: var(--mi-error-fg);
+}
+.djep-playlistboxcustomtype2title {
+  background: linear-gradient(135deg, rgba(125,232,176,0.20), rgba(201,168,76,0.20));
+  height: 35px;
+  margin-top: 8px;
+  font-weight: 400;
+  border: 1px solid var(--mi-gold-dim) !important;
+  color: var(--mi-gold-light);
+}
+.djep-playlistboxcustomtype1title {
+  background: linear-gradient(135deg, rgba(126,184,240,0.25), rgba(94,58,138,0.30));
+  height: 35px;
+  margin-top: 8px;
+  font-weight: 400;
+  border: 1px solid rgba(126,184,240,0.35) !important;
+  color: var(--mi-info-fg);
+}
+.djep-playlistboxcustomtype4title {
+  background: linear-gradient(135deg, rgba(201,168,76,0.30), rgba(201,120,50,0.20));
+  height: 35px;
+  margin-top: 8px;
+  font-weight: 400;
+  border: 1px solid var(--mi-gold-dim) !important;
+  color: var(--mi-gold);
+}
+.djep-playlistboxcustomtype5title {
+  background: linear-gradient(135deg, rgba(201,168,76,0.20), rgba(94,58,138,0.25));
+  height: 35px;
+  margin-top: 8px;
+  font-weight: 400;
+  border: 1px solid var(--mi-gold-dim) !important;
+  color: var(--mi-gold-pale);
+}
+
+.djep-specialtitle {
+  position: relative;
+  top: 9px;
+  left: 25px;
+}
+.djep-specialsongtitle {
+  background-color: rgba(94,58,138,0.40);
+  height: 25px;
+  border: 1px solid var(--mi-gold-dim);
+  color: var(--mi-text);
+}
+.djep-specialsongcontent {
+  background-color: rgba(46,22,80,0.60);
+  color: var(--mi-text);
+}
+.djep-specialsongbutton {
+  background-color: rgba(94,58,138,0.35);
+  border: 1px solid var(--mi-gold-dim);
+  color: var(--mi-text);
+  font-family: var(--mi-font);
+  font-size: 10px !important;
+  font-weight: normal;
+  padding: 4px 2px;
+  text-decoration: none;
+  border-radius: 4px;
+  width: 90px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.djep-specialsongbutton:hover {
+  background-color: rgba(94,58,138,0.60);
+  color: var(--mi-gold-light);
+}
+.djep-specialsongbutton:active { position: relative; top: 1px; }
+
+.djep-special_song_header {
+  background: rgba(94,58,138,0.40);
+  height: 35px;
+  margin-top: 8px;
+  font-weight: 400;
+  font-size: 14px;
+  border: 1px solid var(--mi-gold-dim) !important;
+  text-decoration: none;
+  color: var(--mi-gold-light);
+}
+.djep-special_song_content_div {
+  background: rgba(46,22,80,0.70);
+  padding: 0 !important;
+}
+.djep-playlisttitle {
+  position: relative;
+  top: 9px;
+  left: 25px;
+}
+.djep-playlistlimits {
+  padding-right: 5px;
+  padding-top: 3px;
+  font-size: 11px;
+  float: right;
+  font-weight: 200;
+  color: var(--mi-text-muted);
+}
+.djep-requestonlytitle {
+  font-size: 12px;
+  font-family: var(--mi-font);
+  color: var(--mi-text-muted);
+  text-align: center;
+  width: 280px;
+  margin: 2px auto 0;
+  border: 1px solid var(--mi-gold-dim);
+  background: rgba(94,58,138,0.35);
+  border-radius: var(--mi-radius);
+  height: 34px;
+}
+.djep-requestonlytitle > p { margin-top: 10px; }
+
+.djep-songideasdropdown,
+.djep-songgenresdropdown {
+  background-color: rgba(46,22,80,0.70);
+  border: 1px solid var(--mi-gold-dim);
+  display: inline-block;
+  color: var(--mi-text-muted) !important;
+  font-family: var(--mi-font);
+  font-weight: 600;
+  height: 35px;
+  text-decoration: none;
+  padding: 4px 5px;
+  width: 90%;
+  font-size: 16px !important;
+  border-radius: var(--mi-radius);
+}
+.djep-requestlimitbox {
+  margin: 10px auto;
+  color: var(--mi-text);
+  line-height: 100%;
+  vertical-align: center;
+  width: 90%;
+}
+.djep-requestlimittitle {
+  display: block;
+  width: 90%;
+  background-color: rgba(46,22,80,0.50);
+  border-color: var(--mi-gold-dim);
+  border-style: solid;
+  border-width: 1px 0;
+  font-weight: 500;
+  margin: 2px auto;
+  padding: 11px 0 11px 17px;
+  font-size: 14px;
+  color: var(--mi-gold-light);
+}
+.djep-songideaerror {
+  border: 1px solid var(--mi-gold-dim);
+  background: rgba(201,168,76,0.10);
+  padding: 15px 0;
+  margin: 10px auto;
+  border-radius: var(--mi-radius);
+  color: var(--mi-gold-light);
+  line-height: 100%;
+  vertical-align: center;
+}
+
+/* ── Music Selections Nav ── */
+.djep-music_selections_navigation {
+  width: 280px;
+  margin: 2px auto 0;
+  border: 1px solid var(--mi-gold-dim);
+  background: rgba(46,22,80,0.70);
+  border-radius: var(--mi-radius);
+  height: 34px;
+  font-family: var(--mi-font);
+}
+.djep-music_selections_navigation ul {
+  list-style: none;
+  margin-left: 15px;
+  float: left;
+}
+.djep-music_selections_navigation li {
+  width: 120px;
+  height: 20px;
+  float: left;
+  margin: -8px 10px 0 0;
+}
+.djep-music_selections_navigation li a {
+  border-radius: var(--mi-radius);
+  text-align: center;
+  padding-top: 5px;
+  width: 115px;
+  height: 20px;
+  float: left;
+  color: var(--mi-text-muted);
+  text-decoration: none;
+}
+.djep-music_selections_navigation-li a {
+  background: rgba(94,58,138,0.25);
+  border: 1px solid var(--mi-gold-dim);
+  color: var(--mi-text-muted);
+}
+.djep-music_selections_navigation-li a:hover {
+  background: rgba(94,58,138,0.45);
+  color: var(--mi-gold-light);
+}
+.djep-music_selections_navigation-active a {
+  background: rgba(201,168,76,0.15);
+  color: var(--mi-gold);
+  font-weight: 600;
+  border: 1px solid var(--mi-gold-dim);
+}
+.djep-music_selections_navigation-active a:hover {
+  background: rgba(201,168,76,0.25);
+}
+
+.djep-specialdescription {
+  border: 1px solid var(--mi-gold-dim);
+  background: rgba(201,168,76,0.08);
+  padding: 2px;
+  padding-bottom: 7px;
+  margin: 0;
+  border-radius: var(--mi-radius);
+  color: var(--mi-text);
+}
+.djep-specialcloseicon { font-size: 11px; width: 100%; text-align: right; }
+.djep-specialcloseicon a { color: var(--mi-error-fg); text-align: right; margin-right: 5px; }
+.djep-specialdescriptiontext { padding-left: 4px; padding-right: 20px; margin-top: -10px; }
+
+/* ── Music Database ── */
+.djep-databaseheader {
+  background-color: rgba(46,22,80,0.70);
+  padding: 4px;
+  text-align: left;
+  text-indent: 20px;
+  color: var(--mi-gold-light);
+  font-weight: bolder;
+  font-size: 14px;
+}
+.djep-databasetableheader {
+  background-color: rgba(94,58,138,0.50);
+  color: var(--mi-gold-light);
+  font-weight: bolder;
+  font-size: 12px;
+}
+.djep-musicresultstable { font-size: 11px !important; }
+.djep-musicsearchform {
+  border-width: medium;
+  border-radius: var(--mi-radius);
+  width: 350px;
+  height: 23px;
+  font-size: 16px !important;
+  font-weight: 600;
+  color: var(--mi-text);
+  text-indent: 10px;
+  border-color: var(--mi-gold-dim);
+  background-color: rgba(26,10,46,0.65);
+}
+.djep-databasebox {
+  border: 1px solid var(--mi-gold-dim);
+  background-color: rgba(46,22,80,0.60);
+  padding: 2px;
+  text-align: left;
+  color: var(--mi-text);
+  font-size: 11px;
+}
+.djep-paginatebutton {
+  border: 1px solid var(--mi-gold-dim);
+  cursor: pointer;
+  margin: 0 2px;
+  padding: 2px 5px;
+  background-color: rgba(94,58,138,0.30);
+  color: var(--mi-text);
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+.djep-paginatebutton:hover { background-color: rgba(94,58,138,0.55); }
+.djep-activepaginatebutton {
+  border: 1px solid var(--mi-gold);
+  cursor: pointer;
+  margin: 0 2px;
+  padding: 2px 5px;
+  font-weight: 600;
+  background-color: rgba(201,168,76,0.22);
+  color: var(--mi-gold);
+  border-radius: 4px;
+}
+
+.djep-dragtoplaylist {
+  background-image: url(../images/dragimage.png);
+  background-repeat: no-repeat;
+  height: 70px;
+  width: 173px;
+}
+.djep-playlistitemsaved {
+  background-image: url(../images/savedmusic.png);
+  position: absolute;
+  left: 45px;
+  top: 20px;
+  height: 70px;
+  width: 173px;
+}
+.djep-specialsongitemsaved {
+  background-image: url(../images/specialsavedmusic.png);
+  position: absolute;
+  left: 45px;
+  top: 20px;
+  height: 70px;
+  width: 173px;
+  z-index: 1;
+}
+tr[id*="draggable_"] { cursor: url(../images/openhand.cur), default !important; }
+tr[id*="song_row_for_songid"] > td { padding: 0 3px !important; }
+
+/* ── General Table Styling ── */
+.djep-odd {}
+.djep-even { background-color: rgba(94,58,138,0.18); }
+#tabs .djep-odd  { background-color: rgba(94,58,138,0.22); }
+#tabs .djep-even { background-color: rgba(94,58,138,0.10); }
+.djep-table-headers {
+  background-color: rgba(94,58,138,0.45);
+  color: var(--mi-gold-light);
+  font-family: var(--mi-font-display);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.djep-sectiontitle {
+  background-color: rgba(94,58,138,0.35);
+  height: 25px;
+  color: var(--mi-gold);
+  font-weight: 600;
+}
+.djep-tablehover  { background-color: rgba(201,168,76,0.12); transition: all 0.3s ease; }
+.djep-tablehover1 { background-color: rgba(201,168,76,0.08); transition: all 0.3s ease; }
+.djep-tablehover2 { background-color: transparent; transition: all 0.3s ease; }
+
+.djep-service-desc-div       { border: thin var(--mi-gold-dim) solid; }
+.djep-service-desc-topcell    { border-left: thin var(--mi-gold-dim) solid; border-right: thin var(--mi-gold-dim) solid; border-top: thin var(--mi-gold-dim) solid; }
+.djep-service-desc-bottomcell { border-left: thin var(--mi-gold-dim) solid; border-right: thin var(--mi-gold-dim) solid; border-bottom: thin var(--mi-gold-dim) solid; }
+
+/* ── Misc Styling ── */
+.djep-servicedetailsfieldset { border: var(--mi-gold-dim) thin solid; margin-bottom: 10px; }
+.djep-servicedetailslegend   { font-size: 14px; color: var(--mi-gold-light); }
+
+#djep-contactbox { padding: 15px 10px; width: 95%; }
+#djep-contactbox td,
+#djep-contactbox td input[type="text"],
+#djep-contactbox td textarea {
+  font-family: var(--mi-font);
+  font-size: 15px;
+  color: var(--mi-text);
+}
+#djep-contactbox td input[type="text"],
+#djep-contactbox td textarea {
+  padding: 8px;
+  border: 1px solid var(--mi-gold-dim);
+  background-color: rgba(26,10,46,0.65);
+  color: var(--mi-text);
+  border-radius: var(--mi-radius);
+}
+#djep-contactbox td input[type="text"]:focus,
+#djep-contactbox td textarea:focus {
+  border: 1px solid var(--mi-gold);
+  box-shadow: 0 0 0 3px rgba(201,168,76,0.15);
+  outline: none;
+}
+
+.djep-form-sections {
+  background-color: rgba(94,58,138,0.35);
+  height: 25px;
+  color: var(--mi-gold-light);
+}
+.djep-pointerforce { cursor: pointer; }
+.djep-opaque       { opacity: 1; }
+.djep-opaque:hover { opacity: 0.6; }
+.djep-opaque:active{ opacity: 0.8; }
+
+.djep-changebutton { float: right; padding: 0 30px; }
+
+.djep-printbox {
+  font-size: 14px;
+  padding: 5px;
+  margin-top: -6px;
+  color: var(--mi-text);
+  background: rgba(46,22,80,0.60);
+  border: 1px solid var(--mi-gold-dim);
+  border-radius: var(--mi-radius);
+}
+#djep-printhelper { padding-right: 10px; width: 100%; height: 40px; text-align: right; }
+#djep-printplanningformicon { margin: -2px 5px; }
+#print_helper { float: right; padding: 0; }
+
+djep-SubmitHide { display: none; }
+
+.djep-playlistboxtext { font-size: 11px; text-align: left; color: var(--mi-text); }
+.djep-playlist_highlight_focus_in  { border: 1px solid var(--mi-gold); background-color: rgba(201,168,76,0.15); }
+.djep-playlist_highlighter_focus_out { border: none; background-color: transparent; }
+.djep-musiccounterspan  { float: right; margin-top: -8px; font-size: 12px; color: var(--mi-text-muted); }
+.djep-playlistcounterspan { float: right; padding-right: 3px; font-size: 11px; text-align: right; font-weight: 100; color: var(--mi-text-muted); }
+.djep-guestrequestlink     { color: var(--mi-gold); }
+.djep-guestrequestpassword { color: var(--mi-gold-light); font-weight: 700; }
+
+/* ── Calendar Icon CSS ── */
+.calendar {
+  width: 74px;
+  font-size: 1.4em;
+  border: 1px solid var(--mi-gold-dim);
+  background: linear-gradient(to bottom, var(--mi-plum-mid), var(--mi-plum-deep));
+  border-radius: var(--mi-radius);
+  overflow: hidden;
+  text-align: center;
+}
+.calendar abbr { display: block; }
+.calendar .month {
+  background-color: rgba(201,168,76,0.25);
+  color: var(--mi-gold-light);
+  font-size: 0.6em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 0;
+  font-family: var(--mi-font-display);
+}
+.calendar .day {
+  color: var(--mi-text);
+  font-size: 1.6em;
+  font-weight: 700;
+  padding: 2px 0;
+}
+
+/* ── Buttons — base shared styles ── */
+.djep-clipboardbutton,
+.djep-songideabutton,
+.djep-toplistbuttons,
+.djep-toplistbuttons2,
+.djep-toplistbuttons2_active,
+.djep-toplistbuttons3,
+.djep-toplistbuttons3_active,
+.djep-toplistbuttons4,
+.djep-toplistbuttons4_active,
+.djep-toplistbuttons5,
+.djep-artistsongbuttons,
+.djep-artistsongbuttonswide {
+  background: rgba(94,58,138,0.40);
+  border: 1px solid var(--mi-gold-dim);
+  border-radius: var(--mi-radius);
+  color: var(--mi-text);
+  font-family: var(--mi-font);
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  box-shadow: none;
+  text-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}
+.djep-clipboardbutton { font-size: 15px; font-weight: 500; padding: 4px 12px; margin-top: -5px; }
+.djep-songideabutton  { font-size: 11px; font-weight: 500; padding: 4px 14px; }
+.djep-toplistbuttons  { font-size: 13px; font-weight: 700; width: 110px; height: 25px; padding-top: 3px; margin-top: 3px; text-transform: uppercase; }
+.djep-toplistbuttons2 { font-size: 13px; font-weight: 700; width: 59px; height: 25px; padding-top: 3px; margin-top: 3px; text-align: center; }
+.djep-toplistbuttons3 { font-size: 11px; font-weight: normal; width: 85px; height: 30px; padding-top: 3px; margin-top: 3px; text-align: center; }
+.djep-toplistbuttons4 { font-size: 10px; font-weight: 700; padding: 5px 0; margin-top: 5px; width: 56px; text-align: center; }
+.djep-toplistbuttons5 { font-size: 13px; font-weight: 700; height: 25px; padding: 3px 15px; margin-top: 3px; text-transform: uppercase; }
+.djep-artistsongbuttons     { font-size: 18px; font-weight: 700; width: 28px; height: 28px; text-align: center; opacity: 0.5; }
+.djep-artistsongbuttonswide { font-size: 18px; font-weight: 700; width: 60px; height: 28px; text-align: center; opacity: 0.5; }
+.djep-toplistbuttons2_active,
+.djep-toplistbuttons3_active,
+.djep-toplistbuttons4_active {
+  background-color: rgba(201,168,76,0.20);
+  border-color: var(--mi-gold);
+  color: var(--mi-gold);
+  font-weight: 700;
+}
+
+.djep-clipboardbutton:hover,
+.djep-songideabutton:hover,
+.djep-toplistbuttons:hover,
+.djep-toplistbuttons2:hover,
+.djep-toplistbuttons3:hover,
+.djep-toplistbuttons4:hover,
+.djep-toplistbuttons5:hover {
+  background: rgba(201,168,76,0.20);
+  border-color: var(--mi-gold);
+  color: var(--mi-gold-light) !important;
+}
+.djep-artistsongbuttons:hover,
+.djep-artistsongbuttonswide:hover { opacity: 1; background: rgba(201,168,76,0.18); }
+.djep-clipboardbutton:active,
+.djep-songideabutton:active { position: relative; top: 1px; }
+
+.djep-toplistbutton_a { margin-top: 5px; }
+
+.djep-esigned {
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background-color: rgba(94,58,138,0.35);
+  border-radius: 4px;
+  border: 1px solid var(--mi-gold-dim);
+  display: inline-block;
+  color: var(--mi-text);
+  font-family: var(--mi-font);
+  font-size: 9px;
+  margin-top: 8px;
+  margin-left: 5px;
+  padding-top: 6px;
+  padding-right: 10px;
+  text-transform: uppercase;
+  width: 71px;
+  height: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  background-size: 12px;
+  background-repeat: no-repeat;
+  background-position: 5px 5px;
+  text-indent: 25px;
+}
+
+/* ── Timeline ── */
+textarea#djep-timelineheadline {
+  font-family: var(--mi-font);
+  font-size: 17px;
+  text-align: center;
+  height: 75px;
+  overflow-x: auto;
+  border: 1px solid var(--mi-gold-dim);
+  border-radius: var(--mi-radius);
+  background-color: rgba(26,10,46,0.65);
+  color: var(--mi-text);
+}
+.djep-timelinetable { padding: 2px; border-spacing: 0; border: 0; }
+.djep-timelinetable tr:nth-child(odd)  { background: rgba(46,22,80,0.60); }
+.djep-timelinetable tr:nth-child(even) { background: rgba(46,22,80,0.40); }
+.djep-timelinetable tr:hover           { background: rgba(94,58,138,0.45); }
+
+.djep-timelinetextbox1 { color: var(--mi-text); width: 95%; }
+.djep-timelinetextbox1:hover { background: rgba(125,232,176,0.08); }
+.djep-timelinetextbox2 { color: var(--mi-text); width: 90%; }
+.djep-timelinetextbox2:hover { background: rgba(126,184,240,0.10); }
+.djep-timelinetextbox3 { color: var(--mi-text); width: 90%; }
+.djep-timelinetextbox3:hover { background: rgba(126,184,240,0.10); }
+
+/* ── Module Box Stylings (activated) ── */
+.djep-eventlistbox,
+.djep-upcomingmeetingsbox,
+.djep-latestemailsbox,
+.djep-welcometextbox,
+.djep-contactdetailsbox,
+.djep-logindetailsbox,
+.djep-contactformbox,
+.djep-ourcontactinfobox,
+.djep-emailhistorybox,
+.djep-planneraccessbox,
+.djep-managemusicbox,
+.djep-planningformsbox,
+.djep-timelinebox,
+.djep-othertoolsbox,
+.djep-selectyourmusicbox,
+.djep-eventdatetimesbox,
+.djep-servicedetailsbox,
+.djep-eventdescriptionbox,
+.djep-venueinfobox,
+.djep-staffingbox,
+.djep-paymentsfinancesbox,
+.djep-feedetailsbox,
+.djep-paymenthistorybox,
+.djep-totalfeebox,
+.djep-otherfilesbox,
+.djep-documentsbox,
+.djep-relatedfilesbox,
+.djep-requestchangesbox,
+.djep-viewrequestboxes,
+.djep-guestrequestdescription,
+.djep-guestrequesthowitworksbox,
+.djep-guestrequestsettingsbox,
+.djep-emailmessagebox,
+.djep-makepaymentbox,
+.djep-viewdocumentbox,
+.djep-requestchangesformbox,
+.djep-planningformseditbox,
+.djep-weddingnamesbox,
+.djep-evaluationbox,
+.djep-printdocumentbox,
+.djep-planningformsviewbox,
+.djep-viewtimelinebox,
+.djep-edittimelinebox,
+.djep-viewweddingnamesbox,
+.djep-editweddingnamesbox {
+  background: rgba(46,22,80,0.75);
+  font-weight: 400;
+  border: 1px solid var(--mi-gold-dim) !important;
+  border-radius: var(--mi-radius);
+  text-decoration: none;
+  color: var(--mi-text);
+  margin-bottom: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.40);
+}
+
+/* ── Guest Request Music Database ── */
+.djep-playlistboxguests {
+  width: 90%;
+  min-height: 250px;
+  overflow: auto;
+  position: relative;
+  border: 2px dashed var(--mi-gold-dim);
+  border-radius: var(--mi-radius);
+  padding-top: 2px;
+  background: rgba(26,10,46,0.40);
+}
+
+/* ── Guest submit / logout buttons (gold theme) ── */
+.djep-guestsubmitrequests {
+  box-shadow: none;
+  background: linear-gradient(135deg, var(--mi-gold) 0%, #a87830 100%);
+  border-radius: var(--mi-radius);
+  border: none;
+  display: inline-block;
+  color: var(--mi-plum-deep);
+  font-family: var(--mi-font-display);
+  font-size: 18px;
+  font-weight: 700;
+  padding: 6px 18px;
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: filter 0.2s, transform 0.18s;
+}
+.djep-guestsubmitrequests:hover { filter: brightness(1.1); transform: translateY(-1px); }
+
+.djep-guestlogout {
+  box-shadow: none;
+  background: transparent;
+  border-radius: 50px;
+  border: 1px solid var(--mi-gold-dim);
+  display: inline-block;
+  color: var(--mi-text-muted);
+  font-family: var(--mi-font);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 6px 24px;
+  text-decoration: none;
+  float: right;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.djep-guestlogout:hover  { background: rgba(201,168,76,0.12); color: var(--mi-gold-light); }
+.djep-guestlogout:active { position: relative; top: 1px; }
+
+.djep-guestsubmit {
+  box-shadow: none;
+  background: linear-gradient(135deg, var(--mi-gold) 0%, #a87830 100%);
+  border-radius: 50px;
+  border: none;
+  display: inline-block;
+  color: var(--mi-plum-deep);
+  font-family: var(--mi-font-display);
+  font-size: 14px;
+  font-weight: 700;
+  padding: 8px 34px;
+  text-decoration: none;
+  text-shadow: none;
+  margin-left: 8px;
+  cursor: pointer;
+  transition: filter 0.2s, transform 0.18s;
+}
+.djep-guestsubmit:hover  { filter: brightness(1.1); transform: translateY(-1px); }
+.djep-guestsubmit:active { position: relative; top: 1px; }
+
+/* ── Progress bar ── */
+.ui-progressbar-value {
+  background-image: url(../includes/smoothness/images/uipattern4.png) !important;
+  background-color: var(--mi-gold) !important;
+}
+#djep-progressbartitle {
+  font-size: 24px;
+  color: var(--mi-gold-light);
+  text-align: center;
+  font-family: var(--mi-font-display);
+  padding: 25px 0 5px;
+  height: 50px;
+}
+#djep-donesavingtext {
+  font-size: 24px;
+  color: var(--mi-success-fg);
+  text-align: center;
+  font-family: var(--mi-font);
+  padding: 25px 0 5px;
+  height: 118px;
+}
+#progressbar { width: 550px; margin: 20px auto; }
+
+/* ── Timeline drag items ── */
+.djep-timelineitems:hover:before {
+  margin: 0 4px;
+  float: right;
+  content: url(https://djep21.com/clients/images/arrow_right.png);
+}
+.djep-timelineitems {
+  box-shadow: none;
+  background: rgba(94,58,138,0.35);
+  border-radius: var(--mi-radius);
+  border: 1px solid var(--mi-gold-dim);
+  display: inline-block;
+  color: var(--mi-text);
+  font-family: var(--mi-font);
+  font-size: 12px;
+  font-weight: 300;
+  padding: 4px 6px;
+  text-decoration: none;
+  width: 220px;
+  text-align: left;
+  cursor: url(../images/openhand.cur), default !important;
+  transition: background 0.2s;
+}
+.djep-timelineitems:hover { background: rgba(94,58,138,0.55); }
+
+#guest_request_container table tr { cursor: pointer; }
+
+.djep-latestemailsbox,
+.djep-upcomingmeetingsbox {
+  width: 48%;
+  float: left;
+  margin: 5px;
+}
+
+/* ── Countdown Clock ── */
+.fc-captions {
+  font-family: var(--mi-font) !important;
+  font-size: 16px !important;
+  color: var(--mi-gold-light) !important;
+  font-weight: 400;
+}
+
+/* ── Page load animation ── */
+#djep-content {
+  animation: animationFrames ease 1s;
+  animation-iteration-count: 1;
+  transform-origin: center;
+  animation-fill-mode: forwards;
+  -webkit-animation: animationFrames ease 1s;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation: animationFrames ease 1s;
+  -moz-animation-iteration-count: 1;
+  -moz-animation-fill-mode: forwards;
+}
+@keyframes animationFrames {
+  0%   { left: 0; top: -25px; opacity: 0; transform: rotate(0deg) scaleX(1) scaleY(1); }
+  100% { left: 0; top: 0;     opacity: 1; transform: rotate(0deg) scaleX(1) scaleY(1); }
+}
+@-moz-keyframes animationFrames {
+  0%   { left: 0; top: -25px; opacity: 0; -moz-transform: rotate(0deg) scaleX(1) scaleY(1); }
+  100% { left: 0; top: 0;     opacity: 1; -moz-transform: rotate(0deg) scaleX(1) scaleY(1); }
+}
+@-webkit-keyframes animationFrames {
+  0%   { left: 0; top: -25px; opacity: 0; -webkit-transform: rotate(0deg) scaleX(1) scaleY(1); }
+  100% { left: 0; top: 0;     opacity: 1; -webkit-transform: rotate(0deg) scaleX(1) scaleY(1); }
+}
+
+#wrapper { width: 750px; margin: 20px auto 50px !important; }
+
+/* ── jQuery UI overrides ── */
+.ui-widget-content { background: none !important; }
+.djep-special_song_content_div,
+.ui-dialog {
+  background: rgba(46,22,80,0.92) !important;
+  color: var(--mi-text) !important;
+}
+.ui-widget-header {
+  background: rgba(94,58,138,0.50) !important;
+  border: 1px solid var(--mi-gold-dim) !important;
+  color: var(--mi-gold-light);
+}
+.ui-state-active { border: 1px solid var(--mi-gold) !important; }
+.ui-corner-all,.ui-corner-top,.ui-corner-right,.ui-corner-tr,.ui-corner-left,.ui-corner-tl { border-radius: var(--mi-radius) !important; }
+.djep-eventdatetimesbox table tbody tr td:first-child,
+.djep-eventdescriptionbox table tbody tr td:first-child { font-weight: 700; }
+.djep-paymenthistorybox div a.djep-paymentbutton { margin-top: 10px; }
+.ui-widget-overlay {
+  background: rgba(26,10,46,0.85) !important;
+  opacity: 0.85;
+}
+
+/* ── Music icon buttons ── */
+#djep-addsongimage a,
+#djep-musicrequestsimage a,
+#djep-specialsongsimage a,
+#djep-printrequestsimage a,
+#djep-guestrequestsimage a {
+  height: 150px;
+  width: 150px;
+  display: inline-block;
+}
+#djep-addsongimage a      { background: url('../images/musicrequests_addsong.png'); }
+#djep-musicrequestsimage a{ background: url('../images/musicrequests.png'); }
+#djep-specialsongsimage a { background: url('../images/musicrequests_special.png'); }
+#djep-printrequestsimage a{ background: url('../images/musicrequests_print.png'); }
+#djep-guestrequestsimage a{ background: url('../images/musicrequests_guests.png'); }
+
+/* ── Mobile CSS ── */
+.djepm-musicicondiv { max-width: 900px; overflow-x: scroll; }
+.djepm-musicicondiv ul li { float: left; margin-right: 10px; }
+.djepm-dropdownstyle { background: var(--mi-plum-deep); color: var(--mi-text); }
+.djepm-form-sections { padding: 10px 8px; font-size: 14px; margin: 20px 0 10px; color: var(--mi-text); }
+.djepm-planningformseditbox .questiontitle { font-size: 14px; margin-bottom: 5px; color: var(--mi-gold-light); }
+.djepm-timelinemobilepanel {
+  border: 1px solid var(--mi-gold-dim);
+  border-radius: var(--mi-radius);
+  background: rgba(46,22,80,0.70);
+  margin: 15px 0;
+}
+.djepm-timelinemobileheader { padding: 5px; background: rgba(94,58,138,0.50); color: var(--mi-gold-light); }
+.djepm-timelinemobilebody   { padding: 5px; color: var(--mi-text); }
+.djepm-timelinemobilerow    { margin: 10px 0; }
+.djepm-timeline-select-fixed {
+  position: fixed;
+  top: 0;
+  background: var(--mi-plum-deep);
+  border-bottom: 2px solid var(--mi-gold-dim);
+  padding-top: 15px;
+  padding-bottom: 8px;
+  z-index: 9999;
+}
+.djepm-content { margin: 10px !important; }
+.djepm-toplistbuttons {
+  background: rgba(94,58,138,0.35);
+  border: 1px solid var(--mi-gold-dim);
+  display: inline-block;
+  color: var(--mi-text) !important;
+  font-family: var(--mi-font);
+  font-size: 13px;
+  font-weight: 700;
+  width: 31%;
+  height: 25px;
+  padding-top: 6px;
+  margin-top: 3px;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-radius: var(--mi-radius);
+  transition: background 0.2s;
+}
+.djepm-toplistbuttons:hover { background: rgba(201,168,76,0.18); color: var(--mi-gold-light) !important; }
+
+tr[id*="song_row_for_songid"] > td.djepm-playlistboxtext,
+.djepm-playlistboxtext { border-bottom: 1px solid rgba(201,168,76,0.12); padding: 3px 5px !important; color: var(--mi-text); }
+
+.djep-profilepicture { margin: 0 auto 20px; width: 95%; }
+
+.djep-musicresultrow td:nth-child(1) { width: 20px; font-size: 11px !important; }
+.djep-musicresultrow td:nth-child(2),
+.djep-musicresultrow td:nth-child(3) { width: 165px; font-size: 11px !important; padding-left: 2px; }
+.djep-musicresultrow td:nth-child(4),
+.djep-musicresultrow td:nth-child(5) { width: 55px; text-align: center; }
+.musicresultrowmobile td div:nth-child(1) { float: right; margin: 3px; }
+.musicresultrowmobile td div:nth-child(2) { padding: 3px; }
+.djep-musicresultrow:hover,
+.djep-musicresultrowmobile:hover { background-color: rgba(201,168,76,0.12); }
+
+/* ============================================================
+   MI EVENT DJS — PORTAL LAYOUT PATCH
+   Fixes observed in client portal screenshot:
+   - Links invisible (dark blue on purple)
+   - Content not in a panel — full width bleeding to edge
+   - Navigation links unreadable
+   - Text / headings dark on dark
+   ============================================================ */
+
+/* ── Force ALL link colours ── */
+a,
+a:link,
+a:visited {
+  color: #e8c97a !important;
+  text-decoration: none !important;
+}
+a:hover,
+a:focus {
+  color: #f5e6b8 !important;
+  text-decoration: underline !important;
+}
+
+/* ── Force body text to be light ── */
+body,
+body.djep-body,
+body *,
+td, th, p, li, span, div, label {
+  color: #f0e8ff;
+}
+
+/* ── Content panel — solid plum card, centred, with padding ── */
+#djep-content,
+#djep-guestrequestcontent,
+#djep-content-div,
+.djep-content-wrapper,
+#content,
+.content {
+  background-color: rgba(46, 22, 80, 0.92) !important;
+  background: rgba(46, 22, 80, 0.92) !important;
+  border: 1px solid rgba(201,168,76,0.28) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 6px 32px rgba(0,0,0,0.60) !important;
+  margin: 10px auto !important;
+  padding: 10px 20px !important;
+  color: #f0e8ff !important;
+  overflow: visible !important;
+}
+
+/* ── Portal top nav list (Home / My Account / Contact / Logout etc.) ── */
+#djep-page > ul,
+#djep-page ul.nav,
+body > ul,
+ul#djep-navigation,
+.djep-portal-nav ul,
+nav ul {
+  background: rgba(46, 22, 80, 0.92) !important;
+  border-bottom: 2px solid rgba(201,168,76,0.28) !important;
+  padding: 8px 16px !important;
+  margin: 0 0 10px 0 !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 4px !important;
+  list-style: none !important;
+  border-radius: 8px 8px 0 0 !important;
+}
+#djep-page > ul li,
+body > ul li,
+ul#djep-navigation li,
+nav ul li {
+  background: rgba(94, 58, 138, 0.40) !important;
+  border: 1px solid rgba(201,168,76,0.25) !important;
+  border-radius: 6px !important;
+  float: none !important;
+  width: auto !important;
+  height: auto !important;
+  text-indent: 0 !important;
+  padding: 0 !important;
+  margin: 2px !important;
+  display: inline-block !important;
+}
+#djep-page > ul li a,
+body > ul li a,
+ul#djep-navigation li a,
+nav ul li a {
+  color: #b8a8d4 !important;
+  display: block !important;
+  padding: 8px 16px !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  line-height: normal !important;
+  height: auto !important;
+  transition: color 0.2s, background 0.2s !important;
+  text-decoration: none !important;
+}
+#djep-page > ul li a:hover,
+ul#djep-navigation li a:hover,
+nav ul li a:hover {
+  color: #e8c97a !important;
+  background: rgba(201,168,76,0.12) !important;
+  border-radius: 5px !important;
+  text-decoration: none !important;
+}
+
+/* ── Page title "Plan My Event: ..." ── */
+h1.djep-h1,
+.djep-titlebar,
+h1, h2, h3 {
+  color: #e8c97a !important;
+}
+
+/* ── "Access To Planning System" heading and body text ── */
+h2.djep-h2 { color: #c9a84c !important; }
+h3.djep-h3 { color: #b8a8d4 !important; }
+
+/* ── Event date/detail links in the heading ── */
+h1 a, h2 a, h3 a,
+.djep-titlebar a,
+h1.djep-h1 a {
+  color: #c9a84c !important;
+  border-bottom: 1px dotted rgba(201,168,76,0.45) !important;
+}
+h1 a:hover, h2 a:hover {
+  color: #f5e6b8 !important;
+}
+
+/* ── "Select..." dropdown on the portal home ── */
+select,
+select.djep-select,
+.djep-printbox,
+select.djep-printbox {
+  background-color: rgba(26, 10, 46, 0.80) !important;
+  border: 1px solid rgba(201,168,76,0.30) !important;
+  border-radius: 8px !important;
+  color: #f0e8ff !important;
+  padding: 8px 12px !important;
+  font-family: 'Raleway','Helvetica Neue',Helvetica,Arial,sans-serif !important;
+  font-size: 13px !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c9a84c' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 12px center !important;
+  padding-right: 36px !important;
+}
+select option {
+  background-color: #1a0a2e !important;
+  color: #f0e8ff !important;
+}
+
+/* ── Planning icons (Music / Forms / Timeline) ── */
+#djep-addsongimage a,
+#djep-musicrequestsimage a,
+#djep-specialsongsimage a,
+#djep-printrequestsimage a,
+#djep-guestrequestsimage a,
+[id$="image"] a {
+  border: 1px solid rgba(201,168,76,0.30) !important;
+  border-radius: 10px !important;
+  transition: border-color 0.2s, box-shadow 0.2s !important;
+}
+[id$="image"] a:hover {
+  border-color: #c9a84c !important;
+  box-shadow: 0 0 12px rgba(201,168,76,0.35) !important;
+}
+
+/* ── Info / notice text paragraphs ── */
+p, .djep-p-standard {
+  color: #f0e8ff !important;
+}
+
+/* ── Countdown clock numbers ── */
+.fc-captions,
+[class*="countdown"],
+[id*="countdown"] {
+  color: #e8c97a !important;
+}
+
+/* ── Wrapper centering ── */
+#wrapper {
+  background: transparent !important;
+}
+
+/* ── Responsive: on narrow screens stop cutting off left edge ── */
+@media (max-width: 900px) {
+  #djep-content,
+  #djep-guestrequestcontent {
+    width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    padding: 8px 12px !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+  }
+  #djep-navbar,
+  #wrapper {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+  ul#djep-navigation li {
+    width: auto !important;
+  }
+}
