@@ -277,10 +277,16 @@ body.djep-body .djep-contactdetailsbox {
   border: 1px solid rgba(201,168,76,0.28) !important;
   border-radius: 8px !important;
   margin-bottom: 18px !important;
-  overflow: hidden !important;
+  overflow: visible !important;
   box-shadow: 0 3px 16px rgba(0,0,0,0.45) !important;
   color: #f0e8ff !important;
 }
+
+/* Title bars still need clipping so their square corners sit flush */
+body.djep-body .djep-titlebar,
+body.djep-body p.djep-titlebar,
+body.djep-body .djep-titlebarsmall,
+body.djep-body p.djep-titlebarsmall { overflow: hidden !important; }
 
 /* ══════════════════════════════════════════════
    9. TITLE BARS
