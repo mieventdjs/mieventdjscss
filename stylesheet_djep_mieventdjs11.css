@@ -376,44 +376,59 @@ body.djep-body #djep-printrequestsimage {
   display: table-cell !important;
 }
 
-/* Music nav icon links */
-body.djep-body #djep-addsongsimage a,
+/* Music nav buttons — inject icon + label via ::before/::after
+   since DJEP renders empty <a> tags with no images inside */
+body.djep-body #djep-addsongimage a,
 body.djep-body #djep-musicrequestsimage a,
 body.djep-body #djep-guestrequestsimage a,
 body.djep-body #djep-specialsongsimage a,
 body.djep-body #djep-printrequestsimage a {
-  display: inline-block !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100px !important;
+  height: 90px !important;
+  background: rgba(94,58,138,0.45) !important;
+  border: 1px solid rgba(201,168,76,0.35) !important;
+  border-radius: 10px !important;
   color: #e8c97a !important;
+  font-family: 'Cinzel','Georgia',serif !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.06em !important;
   text-align: center !important;
+  text-decoration: none !important;
   pointer-events: auto !important;
   cursor: pointer !important;
-  text-decoration: none !important;
-  visibility: visible !important;
-  opacity: 1 !important;
+  transition: background 0.2s, border-color 0.2s !important;
 }
-body.djep-body #djep-addsongsimage a:hover,
+body.djep-body #djep-addsongimage a:hover,
 body.djep-body #djep-musicrequestsimage a:hover,
 body.djep-body #djep-guestrequestsimage a:hover,
 body.djep-body #djep-specialsongsimage a:hover,
 body.djep-body #djep-printrequestsimage a:hover {
-  color: #c9a84c !important;
-  text-decoration: underline !important;
+  background: rgba(201,168,76,0.20) !important;
+  border-color: #c9a84c !important;
+  color: #fff !important;
+  text-decoration: none !important;
 }
 
-/* Music nav icon images */
-body.djep-body #djep-addsongsimage img,
-body.djep-body #djep-musicrequestsimage img,
-body.djep-body #djep-guestrequestsimage img,
-body.djep-body #djep-specialsongsimage img,
-body.djep-body #djep-printrequestsimage img {
-  display: block !important;
-  margin: 0 auto 4px !important;
-  max-width: 64px !important;
-  width: auto !important;
-  height: auto !important;
-  opacity: 0.90 !important;
-  visibility: visible !important;
-}
+/* Icon emoji via ::before, label via ::after */
+body.djep-body #djep-addsongimage a::before       { content: "🎵" !important; font-size: 28px !important; margin-bottom: 6px !important; display: block !important; }
+body.djep-body #djep-addsongimage a::after        { content: "Add Songs" !important; display: block !important; }
+
+body.djep-body #djep-musicrequestsimage a::before { content: "🎶" !important; font-size: 28px !important; margin-bottom: 6px !important; display: block !important; }
+body.djep-body #djep-musicrequestsimage a::after  { content: "Song Requests" !important; display: block !important; }
+
+body.djep-body #djep-guestrequestsimage a::before { content: "👥" !important; font-size: 28px !important; margin-bottom: 6px !important; display: block !important; }
+body.djep-body #djep-guestrequestsimage a::after  { content: "Guest Requests" !important; display: block !important; }
+
+body.djep-body #djep-specialsongsimage a::before  { content: "⭐" !important; font-size: 28px !important; margin-bottom: 6px !important; display: block !important; }
+body.djep-body #djep-specialsongsimage a::after   { content: "Special Songs" !important; display: block !important; }
+
+body.djep-body #djep-printrequestsimage a::before { content: "🖨️" !important; font-size: 28px !important; margin-bottom: 6px !important; display: block !important; }
+body.djep-body #djep-printrequestsimage a::after  { content: "Print List" !important; display: block !important; }
 
 body.djep-body .djep-table-headers { background: rgba(94,58,138,0.50) !important; color: #e8c97a !important; }
 body.djep-body .djep-odd  { background: transparent !important; }
