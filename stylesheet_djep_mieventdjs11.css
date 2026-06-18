@@ -1024,9 +1024,11 @@ body.djep-body hr { border: none !important; height: 1px !important; background:
   body#clientpages #djep-specialsongsimage,
   body#clientpages #djep-printrequestsimage {
     display: block !important;
-    flex: 1 1 calc(25% - 6px) !important;
+    flex: 1 1 0 !important;
+    min-width: 0 !important;
     padding: 0 !important;
     box-sizing: border-box !important;
+    overflow: hidden !important;
   }
   body#clientpages #djep-addsongimage a,
   body#clientpages #djep-musicrequestsimage a,
