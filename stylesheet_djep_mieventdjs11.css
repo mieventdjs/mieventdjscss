@@ -601,6 +601,295 @@ body.djep-body .djep-playlistboxcustomtype5title { background: linear-gradient(1
 /* ══════════════════════════════════════════════
    17. MUSIC / SONG DATABASE
    ══════════════════════════════════════════════ */
+
+/* Music search area — fix white background */
+body#clientpages .djep-selectmusictable,
+body#clientpages .ui-tabs,
+body#clientpages .ui-widget-content,
+body#clientpages .ui-tabs-panel,
+body#clientpages .ui-corner-bottom {
+  background: rgba(36,14,66,0.88) !important;
+  border-color: rgba(201,168,76,0.25) !important;
+  color: #f0e8ff !important;
+}
+body#clientpages .ui-widget-header,
+body#clientpages .ui-tabs-nav {
+  background: linear-gradient(135deg, #2e1650 0%, #1a0a2e 100%) !important;
+  border-color: rgba(201,168,76,0.30) !important;
+}
+body#clientpages .ui-state-default a,
+body#clientpages .ui-tabs-anchor {
+  color: #b8a8d4 !important;
+}
+body#clientpages .ui-tabs-active a,
+body#clientpages .ui-state-active a {
+  color: #e8c97a !important;
+}
+
+/* Instructions box */
+body#clientpages .djep-playlistboxguests,
+body#clientpages .empty_set5,
+body#clientpages .empty_set1,
+body#clientpages .empty_set2 {
+  background: rgba(46,22,80,0.60) !important;
+  border: 1px dashed rgba(201,168,76,0.30) !important;
+  border-radius: 8px !important;
+  color: #b8a8d4 !important;
+}
+
+/* Artist/song alphabet buttons */
+body#clientpages .djep-artistsongbuttons a,
+body#clientpages .djep-artistsongbuttonswide a {
+  color: #c9a84c !important;
+  font-weight: 600 !important;
+  padding: 2px 5px !important;
+}
+body#clientpages .djep-artistsongbuttons a:hover,
+body#clientpages .djep-artistsongbuttonswide a:hover {
+  color: #e8c97a !important;
+  text-decoration: none !important;
+}
+
+/* Right panel — playlist accordion */
+body#clientpages .ui-accordion-header {
+  background: rgba(46,22,80,0.80) !important;
+  border: 1px solid rgba(201,168,76,0.25) !important;
+  color: #e8c97a !important;
+  padding: 8px 12px !important;
+}
+body#clientpages .ui-accordion-content {
+  background: rgba(26,10,46,0.70) !important;
+  border: 1px solid rgba(201,168,76,0.15) !important;
+  color: #f0e8ff !important;
+  padding: 10px !important;
+}
+body#clientpages .djep-playlistlimits {
+  font-size: 11px !important;
+  color: #b8a8d4 !important;
+}
+body#clientpages .djep-playlistitemsaved,
+body#clientpages .djep-specialsongitemsaved {
+  background: rgba(46,22,80,0.60) !important;
+  border-bottom: 1px solid rgba(201,168,76,0.12) !important;
+  color: #f0e8ff !important;
+  padding: 6px 8px !important;
+  font-size: 13px !important;
+}
+body#clientpages .djep-playlist-listing {
+  color: #f0e8ff !important;
+}
+
+/* No song selected box */
+body#clientpages .djep-special_song_content_div {
+  background: rgba(36,14,66,0.70) !important;
+  border: 1px dashed rgba(201,168,76,0.30) !important;
+  border-radius: 8px !important;
+  color: #b8a8d4 !important;
+}
+body#clientpages .djep-specialtitle {
+  color: #e8c97a !important;
+  font-family: 'Cinzel','Georgia',serif !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+}
+
+/* Bare divs with gray background inside music table — instructions box and result areas */
+body#clientpages .djep-selectmusictable div:not([class]):not([id]),
+body#clientpages .djep-selectmusictable div[id=""] {
+  background: rgba(46,22,80,0.70) !important;
+  color: #b8a8d4 !important;
+  border-radius: 8px !important;
+  border: 1px dashed rgba(201,168,76,0.25) !important;
+}
+
+/* Closed accordion panels (white by default in jQuery UI) */
+body#clientpages .ui-accordion-content {
+  background: rgba(26,10,46,0.70) !important;
+  color: #f0e8ff !important;
+}
+body#clientpages .ui-accordion-content.ui-widget-content {
+  background: rgba(26,10,46,0.70) !important;
+}
+
+/* Active tab in music search (white background) */
+body#clientpages .ui-tabs-nav .ui-state-active,
+body#clientpages .ui-tabs-nav .ui-tabs-active {
+  background: rgba(201,168,76,0.20) !important;
+  border-color: rgba(201,168,76,0.50) !important;
+}
+body#clientpages .ui-tabs-nav .ui-state-active a {
+  color: #e8c97a !important;
+}
+body#clientpages .ui-tabs-nav .ui-state-default {
+  background: rgba(46,22,80,0.60) !important;
+  border-color: rgba(201,168,76,0.20) !important;
+}
+body#clientpages .ui-tabs-nav .ui-state-default a {
+  color: #b8a8d4 !important;
+}
+
+/* White input fields in Add Your Own tab */
+body#clientpages #add_your_own_artist_name_id,
+body#clientpages #add_your_own_song_title_id {
+  background: rgba(26,10,46,0.80) !important;
+  color: #f0e8ff !important;
+  border: 1px solid rgba(201,168,76,0.35) !important;
+  border-radius: 6px !important;
+}
+
+/* Search button gray background */
+body#clientpages .djep-searchbutton,
+body#clientpages .djep-actionbutton {
+  background: linear-gradient(135deg, #c9a84c 0%, #a87830 100%) !important;
+  color: #1a0a2e !important;
+  border: none !important;
+  border-radius: 6px !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+}
+
+/* Search form */
+body#clientpages .djep-musicsearchform input[type="text"] {
+  background: rgba(26,10,46,0.80) !important;
+  border: 1px solid rgba(201,168,76,0.35) !important;
+  color: #f0e8ff !important;
+  border-radius: 6px !important;
+}
+body#clientpages .djep-searchbutton,
+body#clientpages .djep-actionbutton {
+  background: linear-gradient(135deg, #c9a84c 0%, #a87830 100%) !important;
+  color: #1a0a2e !important;
+  border: none !important;
+  border-radius: 6px !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+}
+
+/* Music navigation sidebar */
+body#clientpages .djep-music_selections_navigation {
+  background: rgba(36,14,66,0.70) !important;
+  border: 1px solid rgba(201,168,76,0.20) !important;
+  border-radius: 8px !important;
+  padding: 8px !important;
+}
+body#clientpages .djep-music_selections_navigation-li {
+  list-style: none !important;
+  margin-bottom: 6px !important;
+}
+body#clientpages .djep-music_selections_navigation-active a {
+  color: #e8c97a !important;
+  font-weight: 700 !important;
+}
+
+/* Request limit box */
+body#clientpages .djep-requestlimitbox {
+  background: rgba(201,168,76,0.08) !important;
+  border: 1px solid rgba(201,168,76,0.25) !important;
+  border-radius: 8px !important;
+  color: #b8a8d4 !important;
+  font-size: 12px !important;
+  padding: 8px 12px !important;
+}
+
+/* Accordion headers — flex layout with gold diamond */
+body#clientpages .ui-accordion-header {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 10px 14px !important;
+}
+body#clientpages .ui-accordion-header-icon {
+  display: none !important;
+}
+body#clientpages .ui-accordion-header::before {
+  content: "◆" !important;
+  color: #c9a84c !important;
+  font-size: 8px !important;
+  display: inline-block !important;
+  flex-shrink: 0 !important;
+  top: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* Tab nav — active and default states */
+body#clientpages .ui-tabs-nav .ui-state-active,
+body#clientpages .ui-tabs-nav .ui-tabs-active {
+  background: rgba(201,168,76,0.20) !important;
+  border-color: rgba(201,168,76,0.50) !important;
+}
+body#clientpages .ui-tabs-nav .ui-state-active a {
+  color: #e8c97a !important;
+}
+body#clientpages .ui-tabs-nav .ui-state-default {
+  background: rgba(46,22,80,0.60) !important;
+  border-color: rgba(201,168,76,0.20) !important;
+}
+body#clientpages .ui-tabs-nav .ui-state-default a {
+  color: #b8a8d4 !important;
+}
+
+/* Search + action buttons */
+body#clientpages .djep-searchbutton,
+body#clientpages .djep-actionbutton,
+body#clientpages input.djep-searchbutton,
+body#clientpages input.djep-actionbutton {
+  background: linear-gradient(135deg, #c9a84c 0%, #a87830 100%) !important;
+  color: #1a0a2e !important;
+  border: none !important;
+  border-radius: 6px !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+}
+
+/* Add Your Own tab inputs */
+body#clientpages #add_your_own_artist_name_id,
+body#clientpages #add_your_own_song_title_id {
+  background: rgba(26,10,46,0.80) !important;
+  color: #f0e8ff !important;
+  border: 1px solid rgba(201,168,76,0.35) !important;
+  border-radius: 6px !important;
+}
+
+/* Instructions / result area bare divs */
+body#clientpages .djep-selectmusictable div:not([class]):not([id]) {
+  background: rgba(46,22,80,0.70) !important;
+  color: #b8a8d4 !important;
+  border-radius: 8px !important;
+  border: 1px dashed rgba(201,168,76,0.25) !important;
+}
+
+/* Requests + Special Songs sidebar buttons */
+body#clientpages #music_selection_button_requests,
+body#clientpages #music_selection_button_special_songs {
+  background: rgba(94,58,138,0.50) !important;
+  border: 1px solid rgba(201,168,76,0.40) !important;
+  border-radius: 8px !important;
+  margin-bottom: 8px !important;
+  padding: 2px !important;
+  list-style: none !important;
+}
+body#clientpages #music_selection_button_requests a,
+body#clientpages #music_selection_button_special_songs a {
+  display: block !important;
+  padding: 10px 16px !important;
+  font-family: 'Cinzel','Georgia',serif !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.08em !important;
+  color: #e8c97a !important;
+  text-decoration: none !important;
+  text-align: center !important;
+  cursor: pointer !important;
+}
+body#clientpages #music_selection_button_requests a:hover,
+body#clientpages #music_selection_button_special_songs a:hover {
+  background: rgba(201,168,76,0.20) !important;
+  border-radius: 6px !important;
+  color: #fff !important;
+  text-decoration: none !important;
+}
+body#clientpages #music_selection_button_requests a::before { content: "🎶 " !important; }
+body#clientpages #music_selection_button_special_songs a::before { content: "⭐ " !important; }
 body.djep-body .djep-databaseheader      { background: rgba(46,22,80,0.70) !important; color: #e8c97a !important; }
 body.djep-body .djep-databasetableheader { background: rgba(94,58,138,0.50) !important; color: #e8c97a !important; }
 body.djep-body .djep-databasebox         { background: rgba(46,22,80,0.60) !important; border: 1px solid rgba(201,168,76,0.25) !important; color: #f0e8ff !important; }
