@@ -863,13 +863,17 @@ body#clientpages .djep-music_selections_navigation {
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
-  padding: 8px !important;
-  gap: 8px !important;
+  justify-content: center !important;
+  padding: 12px 8px !important;
+  gap: 10px !important;
+  list-style: none !important;
 }
 body#clientpages .djep-music_selections_navigation-li {
-  width: 100% !important;
+  width: 90% !important;
   list-style: none !important;
   margin: 0 !important;
+  display: flex !important;
+  justify-content: center !important;
 }
 body#clientpages #music_selection_button_requests,
 body#clientpages #music_selection_button_special_songs {
