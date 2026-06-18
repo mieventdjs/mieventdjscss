@@ -989,27 +989,17 @@ body.djep-body hr { border: none !important; height: 1px !important; background:
   body.djep-body #djep-navbar { width: 100% !important; padding: 4px 8px !important; }
   body.djep-body ul#djep-navigation { flex-wrap: wrap !important; }
 
-  /* Music nav buttons — convert to flex grid on mobile */
-  body#clientpages .djep-managemusicbox table,
-  body#clientpages #page_planmyevent table[align="center"],
-  body#clientpages .djep-managemusicbox table tbody,
-  body#clientpages .djep-managemusicbox table tr {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    width: 100% !important;
-    border: none !important;
-    padding: 8px !important;
-    gap: 8px !important;
-    justify-content: center !important;
-  }
+  /* Music nav buttons — 3 column grid on mobile using CSS grid on the tr */
+  body#clientpages #page_planmyevent table[align="center"] { display: block !important; width: 100% !important; }
+  body#clientpages #page_planmyevent table[align="center"] tbody { display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 8px !important; padding: 8px !important; width: 100% !important; box-sizing: border-box !important; }
+  body#clientpages #page_planmyevent table[align="center"] tr { display: contents !important; }
   body#clientpages #djep-addsongimage,
   body#clientpages #djep-musicrequestsimage,
   body#clientpages #djep-guestrequestsimage,
   body#clientpages #djep-specialsongsimage,
   body#clientpages #djep-printrequestsimage {
-    display: flex !important;
-    width: calc(33% - 8px) !important;
-    min-width: 90px !important;
+    display: block !important;
+    width: 100% !important;
     padding: 0 !important;
   }
   body#clientpages #djep-addsongimage a,
@@ -1020,9 +1010,10 @@ body.djep-body hr { border: none !important; height: 1px !important; background:
     width: 100% !important;
     min-width: unset !important;
     font-size: 10px !important;
-    padding: 10px 6px !important;
+    padding: 10px 4px !important;
     letter-spacing: 0 !important;
     height: auto !important;
+    box-sizing: border-box !important;
   }
   body#clientpages #djep-addsongimage a::before,
   body#clientpages #djep-musicrequestsimage a::before,
