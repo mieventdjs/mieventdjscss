@@ -989,17 +989,22 @@ body.djep-body hr { border: none !important; height: 1px !important; background:
   body.djep-body #djep-navbar { width: 100% !important; padding: 4px 8px !important; }
   body.djep-body ul#djep-navigation { flex-wrap: wrap !important; }
 
-  /* Music nav — break table layout entirely and use flexbox */
-  body#clientpages #page_planmyevent table[align="center"],
-  body#clientpages #page_planmyevent table[align="center"] tbody,
-  body#clientpages #page_planmyevent table[align="center"] tr {
+  /* Music nav — make table/tbody/tr invisible to layout, only tds are flex items */
+  body#clientpages #page_planmyevent table[align="center"] {
+    display: block !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  body#clientpages #page_planmyevent table[align="center"] tbody {
     display: flex !important;
     flex-wrap: wrap !important;
     width: 100% !important;
     gap: 6px !important;
     padding: 4px !important;
     box-sizing: border-box !important;
-    border: none !important;
+  }
+  body#clientpages #page_planmyevent table[align="center"] tr {
+    display: contents !important;
   }
   body#clientpages #djep-addsongimage,
   body#clientpages #djep-musicrequestsimage,
