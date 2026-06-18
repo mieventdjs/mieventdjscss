@@ -970,6 +970,18 @@ body.djep-body .ui-widget-overlay{ background: rgba(26,10,46,0.85) !important; }
 /* ══════════════════════════════════════════════
    21. MISC
    ══════════════════════════════════════════════ */
+
+/* Staff/employee photos — limit size */
+body.djep-body .djep-staffingbox img {
+  max-width: 120px !important;
+  max-height: 120px !important;
+  width: auto !important;
+  height: auto !important;
+  border-radius: 8px !important;
+  border: 1px solid rgba(201,168,76,0.35) !important;
+  display: block !important;
+  margin: 0 auto 8px auto !important;
+}
 body.djep-body .fc-captions { color: #e8c97a !important; }
 body.djep-body .djep-form-sections { background: rgba(94,58,138,0.35) !important; color: #e8c97a !important; }
 body.djep-body .djep-sectiontitle  { background: rgba(94,58,138,0.35) !important; color: #c9a84c !important; }
