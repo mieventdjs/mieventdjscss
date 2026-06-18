@@ -1048,7 +1048,13 @@ body.djep-body hr { border: none !important; height: 1px !important; background:
   function fixMusicButtons() {
     if (window.innerWidth > 900) return;
     var table = document.querySelector('#page_planmyevent table[align="center"]');
-    if (table) { table.style.cssText = 'width:100%!important;border-collapse:separate!important;border-spacing:4px!important;table-layout:fixed!important;'; }
+    if (table && window.innerWidth <= 900) {
+      table.style.cssText = 'width:100%!important;border-collapse:separate!important;border-spacing:4px!important;table-layout:fixed!important;';
+      var cells = table.querySelectorAll('td');
+      cells.forEach(function(td) {
+        td.style.cssText = 'width:20%!important;padding:2px!important;text-align:center!important;vertical-align:middle!important;';
+      });
+    }
   }
   function fixInstructions() {
     if (window.innerWidth > 900) return;
