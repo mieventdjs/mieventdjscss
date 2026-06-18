@@ -1005,11 +1005,13 @@ body.djep-body hr { border: none !important; height: 1px !important; background:
     justify-content: center !important;
   }
   body#clientpages #djep-addsongimage {
-    display: block !important;
-    width: 100% !important;
-    flex: 1 1 100% !important;
+    display: flex !important;
+    flex: 0 0 calc(25% - 6px) !important;
+    width: calc(25% - 6px) !important;
+    max-width: calc(25% - 6px) !important;
     padding: 0 !important;
     box-sizing: border-box !important;
+    justify-content: center !important;
   }
   body#clientpages #djep-musicrequestsimage,
   body#clientpages #djep-guestrequestsimage,
@@ -1027,18 +1029,21 @@ body.djep-body hr { border: none !important; height: 1px !important; background:
   body#clientpages #djep-printrequestsimage a {
     width: 100% !important;
     min-width: unset !important;
-    font-size: 8px !important;
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    color: #e8c97a !important;
     padding: 8px 2px !important;
-    letter-spacing: 0 !important;
+    letter-spacing: 0.02em !important;
     height: auto !important;
     box-sizing: border-box !important;
     border-radius: 6px !important;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.50) !important;
   }
   body#clientpages #djep-addsongimage a::before,
   body#clientpages #djep-musicrequestsimage a::before,
   body#clientpages #djep-guestrequestsimage a::before,
   body#clientpages #djep-specialsongsimage a::before,
-  body#clientpages #djep-printrequestsimage a::before { font-size: 16px !important; margin-bottom: 3px !important; }
+  body#clientpages #djep-printrequestsimage a::before { font-size: 20px !important; margin-bottom: 4px !important; }
 
   /* Instructions box on mobile — force all text white */
   body#clientpages div:not([class]):not([id]) {
