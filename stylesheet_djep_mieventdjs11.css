@@ -989,18 +989,22 @@ body.djep-body hr { border: none !important; height: 1px !important; background:
   body.djep-body #djep-navbar { width: 100% !important; padding: 4px 8px !important; }
   body.djep-body ul#djep-navigation { flex-wrap: wrap !important; }
 
-  /* Music nav buttons — 3 column grid on mobile using CSS grid on the tr */
-  body#clientpages #page_planmyevent table[align="center"] { display: block !important; width: 100% !important; }
-  body#clientpages #page_planmyevent table[align="center"] tbody { display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 8px !important; padding: 8px !important; width: 100% !important; box-sizing: border-box !important; }
-  body#clientpages #page_planmyevent table[align="center"] tr { display: contents !important; }
+  /* Music nav buttons — equal width cells with proper spacing on mobile */
+  body#clientpages #page_planmyevent table[align="center"] {
+    width: 100% !important;
+    border-collapse: separate !important;
+    border-spacing: 6px !important;
+    table-layout: fixed !important;
+  }
   body#clientpages #djep-addsongimage,
   body#clientpages #djep-musicrequestsimage,
   body#clientpages #djep-guestrequestsimage,
   body#clientpages #djep-specialsongsimage,
   body#clientpages #djep-printrequestsimage {
-    display: block !important;
-    width: 100% !important;
-    padding: 0 !important;
+    width: 20% !important;
+    padding: 2px !important;
+    text-align: center !important;
+    vertical-align: middle !important;
   }
   body#clientpages #djep-addsongimage a,
   body#clientpages #djep-musicrequestsimage a,
@@ -1009,17 +1013,18 @@ body.djep-body hr { border: none !important; height: 1px !important; background:
   body#clientpages #djep-printrequestsimage a {
     width: 100% !important;
     min-width: unset !important;
-    font-size: 10px !important;
-    padding: 10px 4px !important;
+    font-size: 9px !important;
+    padding: 8px 2px !important;
     letter-spacing: 0 !important;
     height: auto !important;
     box-sizing: border-box !important;
+    border-radius: 6px !important;
   }
   body#clientpages #djep-addsongimage a::before,
   body#clientpages #djep-musicrequestsimage a::before,
   body#clientpages #djep-guestrequestsimage a::before,
   body#clientpages #djep-specialsongsimage a::before,
-  body#clientpages #djep-printrequestsimage a::before { font-size: 22px !important; margin-bottom: 4px !important; }
+  body#clientpages #djep-printrequestsimage a::before { font-size: 18px !important; margin-bottom: 4px !important; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; }
