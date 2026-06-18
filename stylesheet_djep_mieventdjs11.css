@@ -900,7 +900,12 @@ body#clientpages #music_selection_button_special_songs {
   margin: 0 auto 10px auto !important;
 }
 body#clientpages #music_selection_button_requests {
-  margin-top: 4px !important;
+  margin: 4px 0 10px 0 !important;
+  transform: translateX(-20px) !important;
+}
+body#clientpages #music_selection_button_special_songs {
+  margin: 0 0 10px 0 !important;
+  transform: translateX(-20px) !important;
 }
 body#clientpages #music_selection_button_requests a,
 body#clientpages #music_selection_button_special_songs a {
