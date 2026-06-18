@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="480" viewBox="0 0 680 480">
+  <defs>
+    <pattern id="diamond-grid" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M30 2 L58 30 L30 58 L2 30 Z" fill="none" stroke="rgba(201,168,76,0.12)" stroke-width="0.5"/>
+    </pattern>
+    <pattern id="dot-grid" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+      <circle cx="30" cy="30" r="1.2" fill="rgba(201,168,76,0.18)"/>
+    </pattern>
+  </defs>
+  <rect width="680" height="480" fill="#1a0a2e"/>
+  <rect width="680" height="480" fill="url(#diamond-grid)"/>
+  <rect width="680" height="480" fill="url(#dot-grid)"/>
+  <g stroke="rgba(201,168,76,0.40)" stroke-width="0.8" fill="none">
+    <path d="M0 80 L80 0"/><path d="M0 50 L50 0"/><path d="M0 20 L20 0"/>
+    <circle cx="0" cy="0" r="100" stroke-width="0.5" stroke="rgba(201,168,76,0.15)"/>
+  </g>
+  <g stroke="rgba(201,168,76,0.40)" stroke-width="0.8" fill="none">
+    <path d="M680 80 L600 0"/><path d="M680 50 L630 0"/><path d="M680 20 L660 0"/>
+    <circle cx="680" cy="0" r="100" stroke-width="0.5" stroke="rgba(201,168,76,0.15)"/>
+  </g>
+  <g stroke="rgba(201,168,76,0.40)" stroke-width="0.8" fill="none">
+    <path d="M0 400 L80 480"/><path d="M0 430 L50 480"/><path d="M0 460 L20 480"/>
+    <circle cx="0" cy="480" r="100" stroke-width="0.5" stroke="rgba(201,168,76,0.15)"/>
+  </g>
+  <g stroke="rgba(201,168,76,0.40)" stroke-width="0.8" fill="none">
+    <path d="M680 400 L600 480"/><path d="M680 430 L630 480"/><path d="M680 460 L660 480"/>
+    <circle cx="680" cy="480" r="100" stroke-width="0.5" stroke="rgba(201,168,76,0.15)"/>
+  </g>
+  <g transform="translate(340,240)">
+    <path d="M0 -60 L60 0 L0 60 L-60 0 Z" fill="none" stroke="rgba(201,168,76,0.12)" stroke-width="0.8"/>
+    <path d="M0 -40 L40 0 L0 40 L-40 0 Z" fill="none" stroke="rgba(201,168,76,0.10)" stroke-width="0.6"/>
+    <circle r="3" fill="rgba(201,168,76,0.25)"/>
+    <line x1="0" y1="-60" x2="0" y2="-68" stroke="rgba(201,168,76,0.35)" stroke-width="0.8"/>
+    <line x1="60" y1="0" x2="68" y2="0" stroke="rgba(201,168,76,0.35)" stroke-width="0.8"/>
+    <line x1="0" y1="60" x2="0" y2="68" stroke="rgba(201,168,76,0.35)" stroke-width="0.8"/>
+    <line x1="-60" y1="0" x2="-68" y2="0" stroke="rgba(201,168,76,0.35)" stroke-width="0.8"/>
+  </g>
+  <g fill="rgba(201,168,76,0.30)">
+    <path d="M340 6 L344 10 L340 14 L336 10 Z"/>
+    <path d="M340 466 L344 470 L340 474 L336 470 Z"/>
+    <path d="M6 240 L10 244 L6 248 L2 244 Z"/>
+    <path d="M674 240 L678 244 L674 248 L670 244 Z"/>
+  </g>
+</svg>
