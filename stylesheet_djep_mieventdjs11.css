@@ -862,20 +862,20 @@ body#clientpages .djep-selectmusictable div:not([class]):not([id]) {
 body#clientpages .djep-music_selections_navigation {
   display: flex !important;
   flex-direction: column !important;
-  align-items: center !important;
+  align-items: stretch !important;
   justify-content: center !important;
-  padding: 12px 0 !important;
+  padding: 12px 8px !important;
   gap: 10px !important;
   list-style: none !important;
   width: 100% !important;
-  margin: 0 auto !important;
+  box-sizing: border-box !important;
 }
 body#clientpages .djep-music_selections_navigation-li {
-  width: 85% !important;
+  width: 100% !important;
   list-style: none !important;
-  margin: 0 auto !important;
-  display: flex !important;
-  justify-content: center !important;
+  margin: 0 !important;
+  display: block !important;
+  box-sizing: border-box !important;
 }
 body#clientpages #music_selection_button_requests,
 body#clientpages #music_selection_button_special_songs {
