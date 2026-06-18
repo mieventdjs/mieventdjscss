@@ -340,24 +340,40 @@ body.djep-body #djep-content table { width: 100% !important; border-collapse: co
 body.djep-body #djep-content td,
 body.djep-body #djep-content th { color: #f0e8ff !important; padding: 8px 10px !important; border-color: rgba(201,168,76,0.15) !important; }
 
-/* Music nav icon table — let it size naturally */
-body.djep-body .djep-managemusicbox table,
-body.djep-body .djep-selectyourmusicbox table {
+/* Music nav icon table — #page_planmyevent + attribute beats #djep-content table */
+body.djep-body #page_planmyevent table[align="center"] {
   width: auto !important;
+  max-width: 100% !important;
   border-collapse: separate !important;
   margin: 0 auto !important;
+  display: table !important;
+  table-layout: auto !important;
 }
 
-/* Music nav icon cells */
+/* Music nav icon table — double ID trick to beat #djep-content table specificity */
+body.djep-body #djep-content #djep-addsongsimage,
+body.djep-body #djep-content #djep-musicrequestsimage,
+body.djep-body #djep-content #djep-guestrequestsimage,
+body.djep-body #djep-content #djep-specialsongsimage,
+body.djep-body #djep-content #djep-printrequestsimage { display: table-cell !important; }
+body.djep-body #djep-addsongsimage,
+body.djep-body #djep-musicrequestsimage,
+body.djep-body #djep-guestrequestsimage,
+body.djep-body #djep-specialsongsimage,
+body.djep-body #djep-printrequestsimage { width: 1px !important; }
+
+/* Music nav icon cells — ID specificity beats everything */
 body.djep-body #djep-addsongsimage,
 body.djep-body #djep-musicrequestsimage,
 body.djep-body #djep-guestrequestsimage,
 body.djep-body #djep-specialsongsimage,
 body.djep-body #djep-printrequestsimage {
   width: auto !important;
+  min-width: 80px !important;
   padding: 6px 10px !important;
   text-align: center !important;
   vertical-align: middle !important;
+  display: table-cell !important;
 }
 
 /* Music nav icon links */
@@ -372,6 +388,8 @@ body.djep-body #djep-printrequestsimage a {
   pointer-events: auto !important;
   cursor: pointer !important;
   text-decoration: none !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 body.djep-body #djep-addsongsimage a:hover,
 body.djep-body #djep-musicrequestsimage a:hover,
@@ -391,7 +409,10 @@ body.djep-body #djep-printrequestsimage img {
   display: block !important;
   margin: 0 auto 4px !important;
   max-width: 64px !important;
+  width: auto !important;
+  height: auto !important;
   opacity: 0.90 !important;
+  visibility: visible !important;
 }
 
 body.djep-body .djep-table-headers { background: rgba(94,58,138,0.50) !important; color: #e8c97a !important; }
