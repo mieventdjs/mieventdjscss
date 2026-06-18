@@ -864,14 +864,16 @@ body#clientpages .djep-music_selections_navigation {
   flex-direction: column !important;
   align-items: center !important;
   justify-content: center !important;
-  padding: 12px 8px !important;
+  padding: 12px 0 !important;
   gap: 10px !important;
   list-style: none !important;
+  width: 100% !important;
+  margin: 0 auto !important;
 }
 body#clientpages .djep-music_selections_navigation-li {
-  width: 90% !important;
+  width: 85% !important;
   list-style: none !important;
-  margin: 0 !important;
+  margin: 0 auto !important;
   display: flex !important;
   justify-content: center !important;
 }
