@@ -886,6 +886,10 @@ body#clientpages #music_selection_button_special_songs {
   list-style: none !important;
   box-sizing: border-box !important;
   box-shadow: 0 3px 12px rgba(201,168,76,0.30) !important;
+  margin-bottom: 10px !important;
+}
+body#clientpages #music_selection_button_requests {
+  margin-top: 4px !important;
 }
 body#clientpages #music_selection_button_requests a,
 body#clientpages #music_selection_button_special_songs a {
