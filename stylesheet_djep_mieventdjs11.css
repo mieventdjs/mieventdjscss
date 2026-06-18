@@ -889,9 +889,18 @@ body#clientpages #music_selection_button_special_songs {
   box-sizing: border-box !important;
   box-shadow: 0 3px 12px rgba(201,168,76,0.30) !important;
   margin-bottom: 10px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 body#clientpages #music_selection_button_requests {
   margin-top: 4px !important;
+}
+
+/* Force the parent TD to center its content */
+body#clientpages .djep-selectmusictable td:last-child {
+  text-align: center !important;
+  vertical-align: top !important;
+  padding: 10px 8px !important;
 }
 body#clientpages #music_selection_button_requests a,
 body#clientpages #music_selection_button_special_songs a {
