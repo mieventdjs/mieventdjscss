@@ -989,22 +989,29 @@ body.djep-body hr { border: none !important; height: 1px !important; background:
   body.djep-body #djep-navbar { width: 100% !important; padding: 4px 8px !important; }
   body.djep-body ul#djep-navigation { flex-wrap: wrap !important; }
 
-  /* Music nav buttons — all 5 equal size on mobile */
-  body#clientpages #page_planmyevent table[align="center"] {
+  /* Music nav — break table layout entirely and use flexbox */
+  body#clientpages #page_planmyevent table[align="center"],
+  body#clientpages #page_planmyevent table[align="center"] tbody,
+  body#clientpages #page_planmyevent table[align="center"] tr {
+    display: flex !important;
+    flex-wrap: wrap !important;
     width: 100% !important;
-    border-collapse: separate !important;
-    border-spacing: 4px !important;
-    table-layout: fixed !important;
+    gap: 6px !important;
+    padding: 4px !important;
+    box-sizing: border-box !important;
+    border: none !important;
   }
   body#clientpages #djep-addsongimage,
   body#clientpages #djep-musicrequestsimage,
   body#clientpages #djep-guestrequestsimage,
   body#clientpages #djep-specialsongsimage,
   body#clientpages #djep-printrequestsimage {
-    width: 20% !important;
-    padding: 2px !important;
-    text-align: center !important;
-    vertical-align: middle !important;
+    display: block !important;
+    flex: 1 1 calc(20% - 6px) !important;
+    min-width: 55px !important;
+    max-width: calc(20% - 6px) !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
   }
   body#clientpages #djep-addsongimage a,
   body#clientpages #djep-musicrequestsimage a,
@@ -1014,7 +1021,7 @@ body.djep-body hr { border: none !important; height: 1px !important; background:
     width: 100% !important;
     min-width: unset !important;
     font-size: 8px !important;
-    padding: 8px 1px !important;
+    padding: 8px 2px !important;
     letter-spacing: 0 !important;
     height: auto !important;
     box-sizing: border-box !important;
