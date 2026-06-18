@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 90" width="80" height="90">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2e1650"/>
+      <stop offset="100%" stop-color="#1a0a2e"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e8c97a"/>
+      <stop offset="100%" stop-color="#a87830"/>
+    </linearGradient>
+  </defs>
+  <rect width="80" height="90" rx="16" fill="url(#bg)"/>
+  <rect width="80" height="90" rx="16" fill="none" stroke="rgba(201,168,76,0.50)" stroke-width="1.5"/>
+  <circle cx="30" cy="24" r="8" fill="url(#gold)"/>
+  <path d="M16 56 Q16 40 30 40 Q44 40 44 56" fill="url(#gold)"/>
+  <circle cx="52" cy="24" r="7" fill="rgba(201,168,76,0.60)"/>
+  <path d="M39 56 Q39 42 52 42 Q64 42 64 54" fill="rgba(201,168,76,0.60)"/>
+  <text x="40" y="78" font-family="Georgia, serif" font-size="13" font-weight="700" fill="#e8c97a" text-anchor="middle" letter-spacing="1">NAMES</text>
+</svg>
