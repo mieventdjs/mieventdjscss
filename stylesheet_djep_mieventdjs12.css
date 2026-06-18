@@ -859,49 +859,54 @@ body#clientpages .djep-selectmusictable div:not([class]):not([id]) {
 }
 
 /* Requests + Special Songs sidebar buttons */
+body#clientpages .djep-music_selections_navigation {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  padding: 8px !important;
+  gap: 8px !important;
+}
+body#clientpages .djep-music_selections_navigation-li {
+  width: 100% !important;
+  list-style: none !important;
+  margin: 0 !important;
+}
 body#clientpages #music_selection_button_requests,
 body#clientpages #music_selection_button_special_songs {
   display: block !important;
-  text-align: center !important;
-  margin: 0 auto 10px auto !important;
-  width: 85% !important;
-  background: transparent !important;
-  border: 1px solid rgba(201,168,76,0.60) !important;
-  border-radius: 50px !important;
+  width: 100% !important;
+  background: linear-gradient(135deg, #c9a84c 0%, #a87830 100%) !important;
+  border: none !important;
+  border-radius: 8px !important;
   padding: 0 !important;
   list-style: none !important;
+  box-sizing: border-box !important;
+  box-shadow: 0 3px 12px rgba(201,168,76,0.30) !important;
 }
 body#clientpages #music_selection_button_requests a,
 body#clientpages #music_selection_button_special_songs a {
   display: block !important;
-  padding: 10px 20px !important;
+  padding: 12px 16px !important;
   font-family: 'Cinzel','Georgia',serif !important;
   font-size: 12px !important;
   font-weight: 700 !important;
   letter-spacing: 0.10em !important;
   text-transform: uppercase !important;
-  color: #c9a84c !important;
+  color: #1a0a2e !important;
   text-decoration: none !important;
   text-align: center !important;
   cursor: pointer !important;
-  border-radius: 50px !important;
+  white-space: nowrap !important;
+  border-radius: 8px !important;
 }
 body#clientpages #music_selection_button_requests a:hover,
 body#clientpages #music_selection_button_special_songs a:hover {
-  background: rgba(201,168,76,0.12) !important;
-  color: #e8c97a !important;
+  filter: brightness(1.10) !important;
+  color: #1a0a2e !important;
   text-decoration: none !important;
 }
-body#clientpages #music_selection_button_requests a::before { content: "🎶 " !important; }
-body#clientpages #music_selection_button_special_songs a::before { content: "⭐ " !important; }
-
-/* Center the entire music nav sidebar */
-body#clientpages .djep-music_selections_navigation {
-  text-align: center !important;
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-}
+body#clientpages #music_selection_button_requests a::before { content: "🎵  " !important; }
+body#clientpages #music_selection_button_special_songs a::before { content: "★  " !important; }
 body.djep-body .djep-databaseheader      { background: rgba(46,22,80,0.70) !important; color: #e8c97a !important; }
 body.djep-body .djep-databasetableheader { background: rgba(94,58,138,0.50) !important; color: #e8c97a !important; }
 body.djep-body .djep-databasebox         { background: rgba(46,22,80,0.60) !important; border: 1px solid rgba(201,168,76,0.25) !important; color: #f0e8ff !important; }
