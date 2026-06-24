@@ -1,21 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 90" width="80" height="90">
-  <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#2e1650"/>
-      <stop offset="100%" stop-color="#1a0a2e"/>
-    </linearGradient>
-    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#e8c97a"/>
-      <stop offset="100%" stop-color="#a87830"/>
-    </linearGradient>
-  </defs>
-  <rect width="80" height="90" rx="16" fill="url(#bg)"/>
-  <rect width="80" height="90" rx="16" fill="none" stroke="rgba(201,168,76,0.50)" stroke-width="1.5"/>
-  <path d="M44 10 L54 20 L54 62 L22 62 L22 10 Z" fill="rgba(201,168,76,0.08)"/>
-  <rect x="22" y="10" width="36" height="52" rx="4" fill="none" stroke="url(#gold)" stroke-width="2"/>
-  <path d="M44 10 L44 20 L54 20" fill="none" stroke="url(#gold)" stroke-width="2"/>
-  <line x1="29" y1="30" x2="51" y2="30" stroke="url(#gold)" stroke-width="1.5" stroke-linecap="round"/>
-  <line x1="29" y1="38" x2="51" y2="38" stroke="url(#gold)" stroke-width="1.5" stroke-linecap="round"/>
-  <line x1="29" y1="46" x2="42" y2="46" stroke="url(#gold)" stroke-width="1.5" stroke-linecap="round"/>
-  <text x="40" y="78" font-family="Georgia, serif" font-size="13" font-weight="700" fill="#e8c97a" text-anchor="middle" letter-spacing="1">FORMS</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<rect x="16" y="16" width="480" height="480" rx="72" fill="#2b1248" stroke="#c4a35a" stroke-width="10"/>
+<g fill="none" stroke="#c4a35a" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+<rect x="140" y="90" width="232" height="320" rx="20"/>
+<path d="M210 90h92v40h-92z" fill="#c4a35a"/>
+<path d="M180 200l18 18 34-34"/>
+<line x1="240" y1="200" x2="330" y2="200"/>
+<path d="M180 270l18 18 34-34"/>
+<line x1="240" y1="270" x2="330" y2="270"/>
+<path d="M180 340l18 18 34-34"/>
+<line x1="240" y1="340" x2="330" y2="340"/>
+</g>
 </svg>

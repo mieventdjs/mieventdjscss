@@ -1,16 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 90" width="80" height="90">
-  <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#2e1650"/>
-      <stop offset="100%" stop-color="#1a0a2e"/>
-    </linearGradient>
-    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#e8c97a"/>
-      <stop offset="100%" stop-color="#a87830"/>
-    </linearGradient>
-  </defs>
-  <rect width="80" height="90" rx="16" fill="url(#bg)"/>
-  <rect width="80" height="90" rx="16" fill="none" stroke="rgba(201,168,76,0.50)" stroke-width="1.5"/>
-  <path d="M50 14 L50 44 Q50 50 44 50 Q38 50 38 45 Q38 40 44 40 Q47 40 50 42 L50 22 L34 26 L34 50 Q34 56 28 56 Q22 56 22 51 Q22 46 28 46 Q31 46 34 48 L34 14 Z" fill="url(#gold)"/>
-  <text x="40" y="78" font-family="Georgia, serif" font-size="13" font-weight="700" fill="#e8c97a" text-anchor="middle" letter-spacing="1">MUSIC</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<rect x="16" y="16" width="480" height="480" rx="72" fill="#2b1248" stroke="#c4a35a" stroke-width="10"/>
+<g fill="none" stroke="#c4a35a" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+<path d="M200 340 L200 160 L360 130 L360 310"/>
+<circle cx="178" cy="340" r="30" fill="#c4a35a" stroke="none"/>
+<circle cx="338" cy="310" r="30" fill="#c4a35a" stroke="none"/>
+<line x1="200" y1="200" x2="360" y2="168"/>
+</g>
 </svg>
