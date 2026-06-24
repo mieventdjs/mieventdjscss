@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<rect x="16" y="16" width="480" height="480" rx="72" fill="#2b1248" stroke="#c4a35a" stroke-width="10"/>
+<g fill="#c4a35a">
+<path d="M300 110v190c0 30-22 52-58 52-31 0-54-18-54-44s23-44 54-44c10 0 20 2 28 6V150l120-28v146c0 30-22 52-58 52-31 0-54-18-54-44s23-44 54-44c10 0 20 2 28 6V110z"/>
+<rect x="90" y="220" width="10" height="70"/><rect x="115" y="200" width="10" height="110"/>
+<rect x="140" y="235" width="10" height="50"/><rect x="412" y="220" width="10" height="70"/>
+<rect x="387" y="200" width="10" height="110"/><rect x="362" y="235" width="10" height="50"/>
+</g></svg>
