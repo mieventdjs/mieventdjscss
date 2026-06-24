@@ -1,0 +1,25 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+	<style>
+		tspan { white-space:pre } 
+		.s0 { fill: #2b1248;stroke: #c4a35a;stroke-width: 10 } 
+		.s1 { fill: none;stroke: #c4a35a;stroke-linecap: round;stroke-linejoin: round;stroke-width: 14 } 
+		.s2 { fill: none;stroke: #c4a35a;stroke-linecap: round;stroke-linejoin: round;stroke-width: 16 } 
+		.s3 { fill: #c4a35a;stroke: #c4a35a;stroke-linecap: round;stroke-linejoin: round;stroke-width: 14 } 
+		.t4 { font-size: 70px;fill: #c4a35a;font-weight: 400;font-family: "EBGaramond08-Regular", "EB Garamond" } 
+	</style>
+	<path fill-rule="evenodd" class="s0" d="m88 16h336c39.76 0 72 32.24 72 72v336c0 39.76-32.24 72-72 72h-336c-39.76 0-72-32.24-72-72v-336c0-39.76 32.24-72 72-72z"/>
+	<g>
+		<path fill-rule="evenodd" class="s1" d="m256 362c-88.48 0-160-71.52-160-160 0-88.48 71.52-160 160-160 88.48 0 160 71.52 160 160 0 88.48-71.52 160-160 160z"/>
+		<path fill-rule="evenodd" class="s1" d="m256 56v20"/>
+		<path fill-rule="evenodd" class="s1" d="m256 328v20"/>
+		<path fill-rule="evenodd" class="s1" d="m110 202h20"/>
+		<path fill-rule="evenodd" class="s1" d="m382 202h20"/>
+		<path fill-rule="evenodd" class="s2" d="m256 202v-88"/>
+		<path fill-rule="evenodd" class="s2" d="m256 202l60 40"/>
+		<path fill-rule="evenodd" class="s3" d="m256 212c-5.53 0-10-4.47-10-10 0-5.53 4.47-10 10-10 5.53 0 10 4.47 10 10 0 5.53-4.47 10-10 10z"/>
+	</g>
+	<text id="TIMELINE" transform="translate(98,446)">
+		<tspan x="0" y="0" class="t4">T</tspan><tspan  y="0" class="t4">I</tspan><tspan  y="0" class="t4">M</tspan><tspan  y="0" class="t4">E</tspan><tspan  y="0" class="t4">L</tspan><tspan  y="0" class="t4">I</tspan><tspan  y="0" class="t4">N</tspan><tspan  y="0" class="t4">E</tspan><tspan  y="0" class="t4">
+</tspan>
+	</text>
+</svg>
