@@ -1,13 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-<rect x="16" y="16" width="480" height="480" rx="72" fill="#2b1248" stroke="#c4a35a" stroke-width="10"/>
-<g fill="none" stroke="#c4a35a" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
-<rect x="140" y="90" width="232" height="320" rx="20"/>
-<path d="M210 90h92v40h-92z" fill="#c4a35a"/>
-<path d="M180 200l18 18 34-34"/>
-<line x1="240" y1="200" x2="330" y2="200"/>
-<path d="M180 270l18 18 34-34"/>
-<line x1="240" y1="270" x2="330" y2="270"/>
-<path d="M180 340l18 18 34-34"/>
-<line x1="240" y1="340" x2="330" y2="340"/>
-</g>
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+	<style>
+		tspan { white-space:pre } 
+		.s0 { fill: #2b1248;stroke: #c4a35a;stroke-width: 10 } 
+		.s1 { fill: none;stroke: #c4a35a;stroke-linecap: round;stroke-linejoin: round;stroke-width: 14 } 
+		.s2 { fill: #c4a35a;stroke: #c4a35a;stroke-linecap: round;stroke-linejoin: round;stroke-width: 14 } 
+		.t3 { font-size: 70px;fill: #c4a35a;font-weight: 400;font-family: "EBGaramond08-Regular", "EB Garamond" } 
+	</style>
+	<path fill-rule="evenodd" class="s0" d="m88 16h336c39.76 0 72 32.24 72 72v336c0 39.76-32.24 72-72 72h-336c-39.76 0-72-32.24-72-72v-336c0-39.76 32.24-72 72-72z"/>
+	<g>
+		<path fill-rule="evenodd" class="s1" d="m160 52h192c11.05 0 20 8.95 20 20v280c0 11.05-8.95 20-20 20h-192c-11.05 0-20-8.95-20-20v-280c0-11.05 8.95-20 20-20z"/>
+		<path class="s2" d="m210 52h92v40h-92z"/>
+		<path class="s1" d="m180 162l18 18 34-34"/>
+		<path fill-rule="evenodd" class="s1" d="m240 162h90"/>
+		<path class="s1" d="m180 232l18 18 34-34"/>
+		<path fill-rule="evenodd" class="s1" d="m240 232h90"/>
+		<path class="s1" d="m180 302l18 18 34-34"/>
+		<path fill-rule="evenodd" class="s1" d="m240 302h90"/>
+		<text id="FORMS" transform="translate(148,450)">
+			<tspan x="0" y="0" class="t3">F</tspan><tspan  y="0" class="t3">O</tspan><tspan  y="0" class="t3">R</tspan><tspan  y="0" class="t3">M</tspan><tspan  y="0" class="t3">S
+</tspan>
+		</text>
+	</g>
 </svg>
